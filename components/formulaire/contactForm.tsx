@@ -1,5 +1,5 @@
 import React, { useState,useRef} from 'react';
-import '../styles/App.scss';
+import '../../styles/App.scss';
 import emailjs from '@emailjs/browser';
 
 interface contactFormProps {

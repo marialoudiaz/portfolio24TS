@@ -24,10 +24,10 @@ const Approche = dynamic(() => import('../../components/approche'), {
 // const Projets = dynamic(() => import('../../components/projets'), {
 //   loading: () => <p>Loading Projets...</p>,
 // });
-// const Deroule = dynamic(() => import('../../components/deroule'), {
-//   loading: () => <p>Loading Deroule...</p>,
-// });
-const Formulaire = dynamic(() => import('../../components/formulaire'), {
+const Deroule = dynamic(() => import('../../components/deroule'), {
+  loading: () => <p>Loading Deroule...</p>,
+});
+const Formulaire = dynamic(() => import('../../components/formulaire/formulaire'), {
   loading: () => <p>Loading Formulaire...</p>,
 });
 const Footer = dynamic(() => import('../../components/footer'), {
@@ -66,6 +66,7 @@ const Homepage = () => {
         <Prez infos={infos}/>
         <Services infos={infos} />
         <Approche infos={infos} />
+        <Deroule infos={infos} />
         <Formulaire infos={infos} />
         <Footer infos={infos}/>
     </div>    

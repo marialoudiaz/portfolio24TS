@@ -7,6 +7,7 @@ import { MenuIcon, X} from 'lucide-react';
 import '../../styles/App.scss'
 
 function mobileHeader({isOpen, toggleMenu, infos}) {
+  
   let header = infos;
 
   return (

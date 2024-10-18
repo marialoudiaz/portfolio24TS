@@ -44,29 +44,29 @@
 
 
 :root{
-  --Titles: "Barlow Condensed", sans-serif!important;
-  --Body: "Barlow", sans-serif!important;
-  --Tertiaire : "Syne", sans-serif!important;
-  --Tertiaire-Weight : 600!important;
+  --Titles: "Barlow Condensed", sans-serif;
+  --Body: "Barlow", sans-serif;
+  --Tertiaire : "Syne", sans-serif;
+  --Tertiaire-Weight : 600;
   /*COULEURS*/
-  --bgColor : white!important;
-  --primary: #000000!important;
-  --gold: #b8a054!important;
-  --blue: #324f9e!important;
-  --active: black!important;
-  --non-active: white!important;
+  --bgColor : white;
+  --primary: #000000;
+  --gold: #b8a054;
+  --blue: #324f9e;
+  --active: black;
+  --non-active: white;
 
   /*TAILLES (mobile - soustraire 5 )*/
-  --titres: 70px!important;
-  --titresM : 43px!important;
-  --sous-titres: 34px!important;
-  --sous-titresM: 23px!important;
-  --body: 16px!important;
-  --bodyM: 14px!important;
-  --typewriter: 1.5rem!important;
-  --typewriterM: 1.2rem!important;
-  --typewriterM2: .9rem!important;
-  --animate-delay: 7s!important;
+  --titres: 70px;
+  --titresM : 43px;
+  --sous-titres: 34px;
+  --sous-titresM: 23px;
+  --body: 16px;
+  --bodyM: 14px;
+  --typewriter: 1.5rem;
+  --typewriterM: 1.2rem;
+  --typewriterM2: .9rem;
+  --animate-delay: 7s;
 }
 
 a{
@@ -165,6 +165,8 @@ p{
   font-weight: 700!important;
 }
 
+
+//Boutons
 .btn-transp, .btn-transp-big, .btn-transp-hp{
   border: 1px solid rgba(255, 255, 255, 0.361);
   border-radius: 60px;
@@ -177,6 +179,7 @@ p{
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  font-family: var(--Tertiaire)!important;
   font-size: 1.125rem;
   font-weight: 600;
   isolation: isolate;
@@ -219,7 +222,7 @@ p{
   }
   &:hover .icon-transp {
     transform: rotate(90deg);
-    background-color: #f9fafb;
+    background-color: var(--gold);
     border: none;
   }
   &:hover .icon-transp-big {
@@ -236,7 +239,7 @@ p{
     justify-content: flex-end;
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 9999px;
-    border: 1px solid #374151;
+    border: 1px solid #ffffff;
     padding: 0.5rem;
     width: 2rem;           // w-8
     background-color: var(--gold);
@@ -249,13 +252,12 @@ p{
     justify-content: flex-end;
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 9999px;
-    border: 1px solid #374151;
+    border: 1px solid #373535;
     padding: 0.5rem;
     width: 2rem;           // w-8
     color: #f9fafb;        // text-gray-50
   }
 }
-
 /*btn transp dark*/
 .btn-transp-dark{
   border: 1px solid rgba(0, 0, 0, 0.34);
@@ -266,9 +268,11 @@ p{
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  font-family: var(--Tertiaire)!important;
   font-size: 1.125rem;
   font-weight: 600;
   isolation: isolate;
@@ -276,7 +280,7 @@ p{
   overflow: hidden;
   & div{
     border-radius: 100px;
-    background-color: rgba(0, 0, 0, 0.402);
+    background-color: #324f9e94;
     color: white;
     text-align: center;
     padding: .5rem 1rem;
@@ -286,9 +290,15 @@ p{
     align-items: center;
     flex-wrap: nowrap;
     gap: .5rem;
+    & a{
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
+      align-items: center;
+    }
    }
-  &:hover{
-    color:var(--gold)
+  &:hover div{
+      background-color:#f9fafb4e
   }
   
   &.btn-transp-dark::before {
@@ -311,13 +321,7 @@ p{
   }
   &:hover .icon-transp {
     transform: rotate(90deg);
-    background-color: #f9fafb;
-    border: none;
-  }
-  &:hover .icon-transp-big {
-    transform: scale(3.7);
-    overflow: hidden;
-    background-color: #f9fafb;
+    background-color: var(--gold);
     border: none;
   }
   .icon-transp {
@@ -328,11 +332,10 @@ p{
     justify-content: flex-end;
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 9999px;
-    border: 1px solid #374151;
+    border: 1px solid #ffffff;
     padding: 0.5rem;
-    width: 2rem;           // w-8
+    width: 2rem;
     background-color: var(--gold);
-    color: #f9fafb;        // text-gray-50
   }
   .icon-transp-big {
     width: 1rem;
@@ -341,14 +344,12 @@ p{
     justify-content: flex-end;
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 9999px;
-    border: 1px solid #374151;
+    border: 1px solid #ffffff;
     padding: 0.5rem;
     width: 2rem;           // w-8
     color: #f9fafb;        // text-gray-50
   }
 }
-
-
 .btn-black{
     border: 2px  solid #272221;
     border-radius: 3rem;
@@ -382,6 +383,60 @@ p{
 #discover-hp2{
   display: none!important;
  }
+
+/*Animation logo*/
+@keyframes move1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+.bg-color-anim{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  animation: color 3s ease-in-out infinite;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  & img{
+    position: relative;
+    z-index: 5;
+  }
+  & div{
+    width: 100vw;
+    height: 100vh;
+    top: 0;bottom:0; left:0;right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    & img{
+      opacity: 0;
+    }
+  }
+}
+#anim-logo1{
+  background-color: #000000;
+  z-index: 4;
+  animation: move1 1s ease-in-out 0s forwards; /* Démarre immédiatement, dure 1s */
+}
+#anim-logo2{
+  background-color: var(--blue);
+  z-index: 3;
+  animation: move1 0.9s ease-in-out 0.5s forwards; /* Démarre après 1s */
+}
+#anim-logo3{
+  background-color: var(--gold);
+  z-index: 2;
+  animation: move1 0.8s ease-in-out 1s forwards; /* Démarre après 1s */
+}
 
 /*FOOTER*/
 .footer{
@@ -493,7 +548,7 @@ pointer-events: auto;
   gap: .5rem;
   &:hover p{
     color: white;
-    font-family: var(--Tertiaire);
+    font-family: var(--Tertiaire)!important;
     font-weight: 700;
     transition: font-family 0.3s ease, font-weight 0.3s ease, color 0.3s ease; /* Ajout de la transition */  
   }
@@ -1320,15 +1375,16 @@ justify-content: center;
   justify-content: center;
   align-items: center;
   text-align: center;
-  & .btn-transp-p{
+  }
+  .btn-transp-p{
     color: #000000;
-    font-weight: 600;
-    font-family: var(--Tertiaire);
+  
+    font-weight: 600!important;
+    font-family: var(--Tertiaire)!important;
     &:hover{
       font-weight: 800;
       color: white;
     }
-  }
   & div{
     display: flex;
     flex-wrap: nowrap;
@@ -1341,6 +1397,9 @@ justify-content: center;
 
 .btn-transp-hp:hover{
   background-color: var(--gold);
+  & p{
+    font-family: var(--Tertiaire);
+  }
 }
 
 .grid-col3-item p {

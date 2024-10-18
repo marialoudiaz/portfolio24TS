@@ -2,8 +2,7 @@
 import React from 'react';
 import { useRouter, useSearchParams } from 'next/navigation'; // Importer useRouter depuis next/navigation
 import '../../styles/App.scss';
-import HeaderFirst from '../../components/navbar/headerFirst';
-
+import {useData} from '@/app/context/DataContext';
 /*MEDIAS*/
 import visual_indentity_specialist from '../../public/img/marialoudiaz-independant.jpg';
 import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
@@ -27,6 +26,8 @@ import aftereffect from '../../public/icons/softs/aftereffect.png';
 
 const Chargement = () => {
   const router = useRouter();
+  const {updateData} = useData();
+
   // Données des projets
   const indepArray = [
     {
@@ -104,11 +105,13 @@ const Chargement = () => {
     } else {
       arrayRecue = indepArray;
     }
-    const dataToSend = {arrayRecue};
-    localStorage.setItem('data', JSON.stringify(dataToSend));
+    //Si j'utilise LS
+    // const dataToSend = {arrayRecue};
+    // localStorage.setItem('data', JSON.stringify(dataToSend));
+    updateData(arrayRecue);
     router.push(`/homepage`)
   };
-
+//choix langue based on navigator
   const selectLang =()=>{
     if (/^fr\b/.test(navigator.language)) {
       return(

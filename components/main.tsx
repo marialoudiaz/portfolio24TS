@@ -4,35 +4,37 @@ import dynamic from 'next/dynamic';
 import '../globals.css';
 import { useScroll } from 'framer-motion';
 import Lenis from 'lenis';
+import { useData } from '@/app/context/DataContext'; // Import du contexte
 
 const Cible = dynamic(() => import('../components/cible'), { ssr: false });
 const VideoReveal = dynamic(() => import('../components/videoreveal'), { ssr: false });
 
-// Le composant - Suivant l'interface
-const Main = ({infos}) => {
+const Main = () => {
 
+  const { indepArray } = useData();
   const container = useRef();
-  const {scrollYProgress} = useScroll({
+  const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end end"]
-  })
-
-  useEffect( () => {
-    const lenis = new Lenis()
+    offset: ["start start", "end end"],
+  });
+  useEffect(() => {
+    const lenis = new Lenis();
     function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf)
-    }, [])
- 
+    requestAnimationFrame(raf);
+  }, []);
+  if (!indepArray) {
+    return <div>Loading...</div>; // Si les données ne sont pas encore disponibles
+  }
+
   return (
     <div ref={container}>
-      <Cible infos={infos} scrollYProgress={scrollYProgress}/>
-      <VideoReveal scrollYProgress={scrollYProgress} infos={infos} />
+      <Cible infos={indepArray} scrollYProgress={scrollYProgress} />
+      <VideoReveal scrollYProgress={scrollYProgress} infos={indepArray} />
     </div>
-  )
-}
+  );
+};
 
-export default Main
-
+export default Main;

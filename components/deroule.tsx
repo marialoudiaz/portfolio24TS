@@ -95,15 +95,11 @@ const Deroule: React.FC = () => {
           </div>
         </div>
 
-        {/* <p>{cta[2]}</p>
-        <p>{cta[3]}</p> */}
-
         {/* CTA */}
-        <div style={{ position: 'relative', display: 'flex', flexDirection: 'row', gap: '2rem' }}>
+        <div className='inline'>
           <div
             className='btn-transp-dark'
-            style={{ position: 'absolute', top: '20%', left: '20%', transform: 'translate(-20%, -20%)' }}
-            onClick={() => goToCalendar()}
+            // onClick={() => goToCalendar()}
           >
             <div>
               <svg
@@ -119,10 +115,10 @@ const Deroule: React.FC = () => {
               </svg>
               {cta[4]}
             </div>
+
           </div>
           <div
             className='btn-transp-dark'
-            style={{ position: 'absolute', top: '40%', left: '40%', transform: 'translate(-40%, -40%)' }}
           >
             <div>
             <Link href="#Contact">
@@ -138,10 +134,11 @@ const Deroule: React.FC = () => {
                 ></path>
               </svg>
               {cta[5]}
-              </Link>
+            </Link>
             </div>
           </div>
         </div>
+
       </section>
     </>
   );

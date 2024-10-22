@@ -13,21 +13,21 @@ const Logo = () => {
 useEffect(() => {
   setTimeout(() => {
     setOpacity(0);
-  }, 1800);
+  }, 1000);
   setTimeout(() => {
     router.push(`/chargement`);
-  }, 3000); 
+  }, 2000); 
 }, [router]);
 
   return (
     <>
     <div className='bg-color-anim'>
       <div style={{position:'relative'}}>
-       <Image id='logo-bg' src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={380} height={210} style={{ opacity: opacity, transition: 'opacity 1s ease' }}/>
+       <Image id='logo-bg' src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={380} height={210}/>
       </div>
-      <div id='anim-logo1'><Image src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={400} height={210}/></div>
-      <div id='anim-logo2'><Image src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={400} height={210}/></div>
-      <div id='anim-logo3'><Image src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={400} height={210}/></div>
+      {/* <div id='anim-logo1'><Image src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={380} height={210}/></div>
+      <div id='anim-logo2'><Image src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={380} height={210}/></div>
+      <div id='anim-logo3'><Image src='/logo/logo-ful-yt.png' alt='logo en blanc sur fond de couleur' width={380} height={210} style={{ opacity: opacity, transition: 'opacity 1s ease' }}/></div> */}
     </div>
     </>
   );

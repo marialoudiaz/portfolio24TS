@@ -96,7 +96,7 @@ const Deroule: React.FC = () => {
         </div>
 
         {/* CTA */}
-        <div className='inline'>
+        <div className='inline-flex'>
           <div
             className='btn-transp-dark'
             // onClick={() => goToCalendar()}

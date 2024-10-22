@@ -11,7 +11,7 @@ import Typewriter from 'typewriter-effect';
 import '../styles/App.scss'
 import { useData } from '@/app/context/DataContext';
 
-// LS
+// Approche avec LS
 // interface ApprocheProps {
 //   infos: {
 //     approche: string[];

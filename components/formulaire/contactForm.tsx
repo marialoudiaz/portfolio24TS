@@ -2,6 +2,8 @@ import React, { useState,useRef} from 'react';
 import '../../styles/App.scss';
 import '../../globals.css';
 import emailjs from '@emailjs/browser';
+import Image from 'next/image';
+import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 
 interface contactFormProps {
   infos: {
@@ -13,7 +15,7 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 
   // EN OU FR pour messages erreurs
 	const isEnglish = lang
-	const yesmessage = ['See you soon ! 🌟','Au plaisir de vous rencontrer ! 🌟'];
+	const yesmessage = [ 'Thank you for your message !', 'I come back to you really soon','Reçu 5/5 !', 'Je reviens vers vous très prochainement'];
 	const nomessage = ['Please, try again soon :)','Veuillez rééssayer ultérieurement :)'];
 	const [emailData, setEmailData] = useState({
 		prenom: '',
@@ -21,14 +23,14 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 		message: '',
 	});
 	const [message, setMessage] = useState('');
-	const [submitting, setSubmitting] = useState(false);
+	// const [submitting, setSubmitting] = useState(false);
 	const [question, setQuestion] = useState('');
 	const [acceptTerms, setAcceptTerms] = useState(false); // Ajoutez l'état pour la case à cocher
 
 // Extraire l'identifiant de l'URL
 const id = location.pathname.split('/').pop();
 const form = useRef();
-const sendEmail = (e) => {
+const sendEmail = (e:any) => {
 	e.preventDefault();
 	emailjs
 		.sendForm('service_ivm0jcp', 'template_9e5o1we', form.current, {
@@ -37,7 +39,8 @@ const sendEmail = (e) => {
 		.then(
 			() => {
 				console.log('SUCCESS!');
-				setMessage(isEnglish=='EN' ? yesmessage[0] : yesmessage[1]);
+				onOpen();
+				setMessage(isEnglish=='EN' ? yesmessage[0] : yesmessage[3]);
 			},
 			(error) => {
 				console.log('FAILED...', error.text);
@@ -46,11 +49,11 @@ const sendEmail = (e) => {
 		);
 };
 //modifier form
-const handleInputChange = (e) => {
+const handleInputChange = (e:any) => {
 	setEmailData({ ...emailData, [e.target.id]: e.target.value });
 };
 // question c - handlechange
-const handleChange = (e) => {
+const handleChange = (e:any) => {
   let valueC = '';
   valueC = e;
   setQuestion(valueC);
@@ -58,7 +61,7 @@ const handleChange = (e) => {
   handleSubmitQuestion(valueC);
 };
 // question c - validation form
-const handleSubmitQuestion = (props) => {
+const handleSubmitQuestion = (props:any) => {
   if (props !== '' && acceptTerms) {
   console.log('See you in hell,bitch');
   window.location.href = 'https://www.bible.com/fr/bible/63/MAT.13.24-48.BFC';
@@ -109,12 +112,14 @@ return (
   </div>   
 
 	<div className='flexForm'>
-
-			<div
+	<Popover placement="top" showArrow={true}>
+      <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem 0rem 3rem 0rem'}}>
+        <Button className='bg-white b-0'>
+				<div
 			  className='btn-transp-dark'
-				// style={{ position: 'absolute', top: '40%', left: '40%', transform: 'translate(-40%, -40%)' }}
-				// type="submit"
-				// disabled={submitting}
+				onClick={sendEmail} // Handle click to trigger form submission
+				role="button" // Optional: Make it clear that this is an interactive element
+				tabIndex={0} // Optional: Make it focusable for accessibility
 			>
 					<div>
 					<svg
@@ -131,8 +136,21 @@ return (
 								{infos.form[6]}
 					</div>  
       </div>
-		<p>{message}</p>
-		</div>
+			<p>{message}</p>
+
+				</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div className="px-1 py-2">
+					<Image src='/icons/projets/devis.png' alt='icon enveloppe avec un coeur' width={50} height={50}/>
+          <div className="text-small font-bold"><p style={{fontWeight:'bold'}}>{isEnglish=='EN' ? yesmessage[0] : yesmessage[2]}</p></div>
+          <div className="text-tiny"><p>{isEnglish=='EN' ? yesmessage[1] : yesmessage[3]}</p></div>
+        </div>
+      </PopoverContent>
+    </Popover>
+			
+	</div>
+        
 	</form>
 </>
 	);

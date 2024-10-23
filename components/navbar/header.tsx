@@ -47,7 +47,7 @@ const Header = () => {
       {/* Navbar desktop */}
       <div className="navbar hidden md:block">
         <div className='navbar-container'>
-          <div className='navbar-left' onClick={()=>handleClick('/homepage')}>
+          <div className='navbar-left' onClick={() => router.push('/homepage')}>
             <Image src={logo} width={220} height={120} alt="logo" />
           </div>
          

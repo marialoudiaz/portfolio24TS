@@ -1,42 +1,44 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react';
-// Passer l'id a la page projet
+import { useData } from '../context/DataContext'; // Importer le contexte
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useData } from '../../app/context/DataContext'; // Importer le contexte
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '../../styles/App.scss';
 import '../../globals.css';
-import prev from '../../public/icons/interface/icon-eye-1.png';
-import next from '../../public/icons/interface/icon-eye-2.png';
 import Header from '../../components/navbar/header';
 
 
-const Projets: React.FC = () => {
+const Projets = () => {
 
-    // Aller aux pages explicatives
-    const router = useRouter();
     const { indepArray } = useData();
-    console.log('context', indepArray[0]);
+    const router = useRouter();
+    useEffect(()=>{
+      if (!indepArray){
+        router.push('/');
+      }
+    }, [])
       //Determiner la langue et affiche en fonction
       const isEnglish = indepArray[0].lang === 'EN';
       const variableENorFr = [
         ['My projects', 'Discover', 'Previous', 'scroll right to learn more', 'Discover my other projects'],
         ['Mes projets', 'Découvrir', 'Précédent', 'scroller à droite pour en apprendre +', 'Découvrir mes autres projets'],];
       const textVariables = isEnglish ? variableENorFr[0] : variableENorFr[1];
-
+      const prev = '/icons/interface/icon-eye-1.png';
+      const next= '/icons/interface/icon-eye-2.png';
     //Variables
       const gridContainerRef = useRef<HTMLDivElement>(null);
       const descriptionRef = useRef<HTMLDivElement>(null);
       const imgContainerRef = useRef<(HTMLDivElement | null)[]>([]);
-      const textRef = useRef<HTMLDivElement>(null);
-      const [isHovered, setIsHovered] = useState<boolean>(false);
-      const [imageSource, setImageSource] = useState<string | null>(null);
-      const [videoSource, setVideoSource] = useState<string | null>(null);
-      const [currentIndex, setCurrentIndex] = useState<number>(0);
+      const [imageSource, setImageSource] = useState(prev);
       const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
       const [showFullText, setShowFullText] = useState<boolean>(false);
+      // Pas lues
+      // const textRef = useRef<HTMLDivElement>(null);
+      // const [isHovered, setIsHovered] = useState<boolean>(false);
+      // const [videoSource, setVideoSource] = useState<string | null>(null);
+      // const [currentIndex, setCurrentIndex] = useState<number>(0);
 
     // Menu des projets
       const projectsArr = [
@@ -44,7 +46,7 @@ const Projets: React.FC = () => {
         {
           id: 1,
           img: '/projets/os/os-img.png',
-          video: '/projets/os/video-onsight.mp4',
+          video: '/projets/os/video-onsight-hover.mp4',
           title: ["OnSight","OnSight"],
           baseline: ['An app to keep an eye on your films, on sight','Une application mobile pour garder un oeil sur tes films'],
           text:[
@@ -109,7 +111,7 @@ const Projets: React.FC = () => {
         },
         //dessin
         {
-          id: 6,
+          id: 5,
           img: '/projets/topos/topos-img.png',
           video: '/projets/topos/topos-video-hover.mp4',
           title: ["Topographies",'Topographies'],
@@ -132,27 +134,17 @@ const Projets: React.FC = () => {
           onClick: ['', '_blank']
         },
       ]; 
-    //Styles CSS
-      const customStyles = {
-            fontSize: '1.5rem',
-            padding: '1em',
-            textAlign: 'left',
-      };
     //Lancer vidéos de survol
       const handleHover = () => {
-        setImageSource('next'); // Remplacez 'next' par l'image correspondante
+        setImageSource(next); // Remplacez 'next' par l'image correspondante
       };
       const handleHoverOut = () => {
-        setImageSource('prev'); // Remplacez 'prev' par l'image correspondante
+        setImageSource(prev); // Remplacez 'prev' par l'image correspondante
       };
+
     // Gestion du carousel des projets
       const handleDiscover = (projectId: number) => {
-        // const idx = infosComposants?.ids;
-        const projectDescription = projectsArr.find((project) => project.id === projectId);
-        if (projectDescription) {
-          // navigate(`/projet/`, { state: { projectDescription, Lang } });
-          router.push(`/[${projectId}]/page.tsx`)
-        }
+        router.push(`/projet/${projectId}`)
       };
       const handleNext = (index: number) => {
         const descriptionElements = document.querySelectorAll('.project-description');
@@ -181,6 +173,7 @@ const Projets: React.FC = () => {
           window.removeEventListener('resize', handleResize);
         };
       }, []);
+       // Redir si pas datas
 
   return (
     <>
@@ -190,9 +183,7 @@ const Projets: React.FC = () => {
       <div id='projets'>
 
         <div className='grid-container-projets' ref={gridContainerRef}>
-          
           {projectsArr.map((project, index) => (
-          
           <div className='project-wrapper' key={index} style={{ marginBottom: '2rem' }}>
               <div className='projectImgContainer' ref={(el) => (imgContainerRef.current[index] = el)} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
                 <video className='projectHoverVideo' autoPlay loop muted playsInline>
@@ -226,31 +217,69 @@ const Projets: React.FC = () => {
                   </div>
                 )}
 
-                <div className='flex-wrap' style={{ flexWrap: 'nowrap' }}>
-                  <div className='btn-black' style={{ marginLeft: '3rem' }} onClick={() => handleDiscover(project.id)}>
-                    <p>{textVariables[1]}</p>
-                  </div>
-                  <div className='btn-black' onClick={() => { setCurrentIndex(index); handlePrev(index); }}>
-                    <p>{textVariables[2]}</p>
-                  </div>
+                <div className='inline-flex'>
+                  <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => handleDiscover(project.id)}>
+                    <div>
+                      <svg
+                        className="icon-transp"
+                        viewBox="0 0 16 19"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-label='Arrow Icon'
+                      >
+                        <path
+                          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                          className="fill-white group-hover:fill-gray-400"
+                        ></path>
+                      </svg>
+                      <p className='btn-transp-p' style={{ color: 'white' }}>
+                      {textVariables[1]}
+                      </p>
+                    </div>
+                  </button>
+                  <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => {setCurrentIndex(index); handlePrev(index)}}>
+                    <div>
+                      <svg
+                        className="icon-transp"
+                        viewBox="0 0 16 19"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-label='Arrow Icon'
+                      >
+                        <path
+                          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                          className="fill-white group-hover:fill-gray-400"
+                        ></path>
+                      </svg>
+                      <p className='btn-transp-p' style={{ color: 'white' }}>
+                      {textVariables[2]}
+                      </p>
+                    </div>
+                  </button>            
                 </div>
               </div>
-
+              
               <div className='project-details'>
-                <p style={{ fontSize: '1.5rem' }}>{project.title[isEnglish ? 0 : 1]}</p>
+                <p>{project.title[isEnglish ? 0 : 1]}</p>
                 <div className='carousel-btn' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
-                  <Image src={imageSource ?? ''} alt='icon' onMouseOver={handleHover} onMouseOut={handleHoverOut} style={{display: 'flex',flexWrap: 'nowrap',margin: '.2rem 0rem 0rem .3rem',width: '50px',height: 'auto',transition: 'transform 2s ease',}} />
+                  <Image 
+                    src={imageSource ?? ''} 
+                    alt='icon' 
+                    onMouseOver={handleHover}
+                    onMouseOut={handleHoverOut} 
+                    width={100} 
+                    height={0}
+                    style={{display: 'flex', width:'40px', flexWrap: 'nowrap',margin: '.2rem 0rem 0rem .3rem',transition: 'transform 2s ease'}} 
+                  />
                 </div>
                 <p style={{ color: 'black' }}>{textVariables[3]}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className='social'>
-          <div className='btn-black' onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}>
-            <p>{textVariables[4]}</p>
-          </div>
+
           <div className='social'>
+            <div className='btn-black' onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}>
+              <p>{textVariables[4]}</p>
+            </div>
             <button className='social-button' onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}>
               <FontAwesomeIcon className='svgIcon' icon={faLinkedinIn} style={{ color: 'white' }} />
             </button>
@@ -261,7 +290,7 @@ const Projets: React.FC = () => {
               <FontAwesomeIcon className='svgIcon' icon={faInstagram} style={{ color: 'white' }} />
             </button>
           </div>
-        </div>
+
       </div>
     </div>
     </>

@@ -1,7 +1,8 @@
 "use client"; // Marquer ce composant comme Client Component
-import React from 'react';
+import React, {useState} from 'react';
 import { useRouter, useSearchParams } from 'next/navigation'; // Importer useRouter depuis next/navigation
 import '../../styles/App.scss';
+import '../../globals.css';
 import {useData} from '@/app/context/DataContext';
 /*MEDIAS*/
 import visual_indentity_specialist from '../../public/img/marialoudiaz-independant.jpg';
@@ -27,7 +28,18 @@ import aftereffect from '../../public/icons/softs/aftereffect.png';
 const Chargement = () => {
   const router = useRouter();
   const {updateData} = useData();
-
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const navLinks = [
+    { label: 'Français', id: 'fr'},
+    { label: 'English', id: 'en'},
+  ];
+  //Hover boutons nav
+  const onHover = (lien:any) => {
+    setHoveredLink(lien);
+  };
+  const onLeave = () => {
+    setHoveredLink(null);
+  };
   // Données des projets
   const indepArray = [
     {
@@ -97,7 +109,7 @@ const Chargement = () => {
       words: ['self-employed', 'small business', 'start-up', 'project leader', 'idealist', 'dreamer'],
   },
   ]; 
-  const selectMenu = (lang) => { // Ajouter le type 'number' au paramètre index
+  const selectMenu = (lang:string) => { // Ajouter le type 'number' au paramètre index
     let arrayRecue;
     // Déterminer le tableau à envoyer selon la langue et l'index sélectionné
     if (lang === 'en') {
@@ -130,9 +142,6 @@ const Chargement = () => {
     }
   }
   
-
-
-
   
   return (
     <>
@@ -142,21 +151,23 @@ const Chargement = () => {
         <div className='gridHover'>
           {selectLang()}
 
-          <div>
-            <button className='btn-transp-hp' style={{marginTop:'2rem'}}>  
-            <p className='btn-transp-p' onClick={() => selectMenu('fr')}>Français</p>
-            </button>
-
-            <button className='btn-transp-hp' style={{marginTop:'2rem'}}>  
-              <p className='btn-transp-p' onClick={() => selectMenu('en')}>English</p>
-            </button>
+          {navLinks.map(link => (
+          <div className='inline-flex button-navbar'>     
+            <p  className={hoveredLink === link.id ? 'hovered-link' : ''} 
+                onMouseEnter={() => onHover(link.id)}
+                onMouseLeave={onLeave}
+                onClick={() => selectMenu(link.id)}>
+             {link.label}
+            </p>
           </div>
-        </div>
+          ))}
 
-        <video className='background-video2' autoPlay muted playsInline>
-          <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
-        </video>
-      </div>
+          </div>
+
+          <video className='background-video2' autoPlay muted playsInline>
+           <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
+          </video>
+        </div>
     </>
   );
 };

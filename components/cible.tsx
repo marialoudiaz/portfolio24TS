@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, useTransform } from 'framer-motion';
 import TextDisperse from './TextDisperse/index';
 import { useData } from '@/app/context/DataContext'; // Importer le contexte
+import { useRouter} from 'next/navigation';
 import '../styles/App.scss';
 import '../globals.css';
 
@@ -14,6 +15,7 @@ const Cible: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   const [isHovered, setisHovered] = useState<boolean>(false);
+  const router = useRouter();
 
   const sendChildren = () => {
     setisHovered(true);
@@ -51,7 +53,7 @@ const Cible: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
             ></path>
           </svg>
 
-          <p className='btn-transp-p' style={{ fontFamily: 'syne', fontWeight: '600', color: 'white' }}>
+          <p className='btn-transp-p' style={{ fontFamily: 'syne', fontWeight: '600', color: 'white' }} onClick={() => router.push('/homepage/#Contact')}>
             {indepArray[0].cta[0]}
           </p>
         </div>

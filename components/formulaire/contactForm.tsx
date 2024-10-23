@@ -16,7 +16,7 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
   // EN OU FR pour messages erreurs
 	const isEnglish = lang
 	const yesmessage = [ 'Thank you for your message !', 'I come back to you really soon','Reçu 5/5 !', 'Je reviens vers vous très prochainement'];
-	const nomessage = ['Please, try again soon :)','Veuillez rééssayer ultérieurement :)'];
+	const nomessage = ["Oh no.., it looks like it didn't work",'Please, try again soon :)',"Oops.. Ça n'a pas fonctionné",'Merci de réessayer dans un moment :)'];
 	const [emailData, setEmailData] = useState({
 		prenom: '',
 		email: '',
@@ -39,12 +39,11 @@ const sendEmail = (e:any) => {
 		.then(
 			() => {
 				console.log('SUCCESS!');
-				onOpen();
-				setMessage(isEnglish=='EN' ? yesmessage[0] : yesmessage[3]);
+				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
 			},
 			(error) => {
 				console.log('FAILED...', error.text);
-				setMessage(isEnglish=='EN' ? nomessage[0] : nomessage[1]);
+				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
 			},
 		);
 };
@@ -113,7 +112,7 @@ return (
 
 	<div className='flexForm'>
 	<Popover placement="top" showArrow={true}>
-      <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem 0rem 3rem 0rem'}}>
+      <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem'}}>
         <Button className='bg-white b-0'>
 				<div
 			  className='btn-transp-dark'
@@ -136,15 +135,14 @@ return (
 								{infos.form[6]}
 					</div>  
       </div>
-			<p>{message}</p>
 
 				</Button>
       </PopoverTrigger>
       <PopoverContent>
         <div className="px-1 py-2">
 					<Image src='/icons/projets/devis.png' alt='icon enveloppe avec un coeur' width={50} height={50}/>
-          <div className="text-small font-bold"><p style={{fontWeight:'bold'}}>{isEnglish=='EN' ? yesmessage[0] : yesmessage[2]}</p></div>
-          <div className="text-tiny"><p>{isEnglish=='EN' ? yesmessage[1] : yesmessage[3]}</p></div>
+          <div className="text-small font-bold"><p style={{fontWeight:'bold'}}>{message[0]}</p></div>
+          <div className="text-tiny"><p>{message[1]}</p></div>
         </div>
       </PopoverContent>
     </Popover>

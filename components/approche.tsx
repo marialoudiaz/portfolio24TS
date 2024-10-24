@@ -25,7 +25,6 @@ const Approche: React.FC = () => {
       if (!indepArray[0] || !indepArray[0].approche){
         return <div>Loading...</div>
       }
-
       //le portrait
       const portrait = indepArray[0].approche[14].src;
       // Les éléments de la section
@@ -80,7 +79,7 @@ const Approche: React.FC = () => {
 
   return (
     <>
-      <div style={{marginTop:'15rem'}}>
+      <div>
         <div className='grid-col2'>
           <img className='grid-col2-img' src={portrait} alt='autoportrait souriant en noir et blanc'/>
           <div className='flex-col' style={{justifyContent:'center'}}>
@@ -93,7 +92,6 @@ const Approche: React.FC = () => {
               />
               <h2>{approchez}</h2>
               <h3 className='syne'>
-
               <Typewriter
                   options={{
                   strings: [`${citation}`],
@@ -101,7 +99,6 @@ const Approche: React.FC = () => {
                   loop: true,
                   }}
               />
-
               </h3>
               <Carousel dataArray={dataArray} />
             </div>

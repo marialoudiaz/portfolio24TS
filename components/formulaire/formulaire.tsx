@@ -29,12 +29,12 @@ const Form: React.FC = () => {
       <div className='flex-wrap'>
         <div className='grid-col2'>
           <div className='flex-col' id="citation-form">
-            <h3>{form[0]}</h3>
-            <h3>{form[1]}</h3>
-            <h3 className='syne gold'>{form[2]}</h3>
+            <h2>{form[0]}</h2>
+            <h2>{form[1]}</h2>
+            <h2 className='syne gold' style={{textTransform:'lowercase'}}>{form[2]}</h2>
             <div className='text-block' style={{ borderTop: 'black 1px solid', paddingTop: '1rem', display: display, flexDirection: 'column' }}>
               <TextTransition className='textTransition' springConfig={presets.gentle}>
-                {words[index % words.length]}
+              <h2 className='syne gold' style={{textTransform:'lowercase'}}>{words[index % words.length]}</h2>
               </TextTransition>
               <p>{blabla}</p>
             </div>

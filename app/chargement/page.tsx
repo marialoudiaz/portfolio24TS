@@ -56,6 +56,15 @@ const Chargement = () => {
       expertise: [' • Design imprimé • Packaging • Signalétique • Développement web • Motion • Vidéo • Photo • Illustration '],
       services: ['Mes services','Une multitude de compétences pour un projet unique.','Nous élaborons, ensemble, une offre sur-mesure selon vos besoins.','Site vitrine','Site multipages','Vidéos & photos','Réseaux sociaux','Articles de blog','Identité visuelle', 'Logotype','Signalétique','Packaging','Illustration'],
       logiciels: [html,css,js,node,react,wordpress,webflow,figma,adobexd,github,fontlab,photoshop,lightroom,illustrator,indesign,premiere,aftereffect],
+      accordion: [
+        'Directeur artistique spécialisé dans le branding ?',
+        'Écoute attentive, passion & créativité, communication claire et sans jargon. Nous travaillons en équipe main dans la main',
+        'Le branding c’est quoi ?',
+        'Imaginez que vous lanciez votre entreprise. Le designer de marque, c’est celui qui traduit votre histoire en images. Il crée votre logo, choisit les couleurs et les typographies qui reflètent votre personnalité. Grâce à lui, ta marque devient reconnaissable et mémorable dès le premier regard, parlant de vous sans un mot. Plus simplement ? Je crée l’identité visuelle et émotionnelle de votre marque. Le logo, les couleurs, la typographie jusqu’aux supports visuelles imprimés et web. Pour que votre marque soit instantanément reconnaissable et connecte avec votre audience.',
+        'Qu’est-ce qui vous rend différent des autres?',
+        "Ce qui me distingue, c'est mon approche basée sur une écoute attentive et approfondie de vos besoins. Plutôt que de proposer des solutions prédéfinies, je m'assure de comprendre pleinement vos attentes pour vous offrir des services réellement adaptés. Ma polyvalence, aussi bien en design web qu'en print, me permet de vous proposer une offre complète, alliant maîtrise des enjeux du digital et de l'imprimé. Grâce à mon expérience en tant que designer graphique et développeur, je saisis les subtilités de ces deux mondes, pour un résultat à la hauteur de vos ambitions.",
+        "Et si on prenait le temps d'en parlez ?"
+      ],
       approche: [
         'Mon approche',
         'Créer, c\'est rendre visible l\'invisible.',
@@ -101,6 +110,15 @@ const Chargement = () => {
       expertise: [' • Print • Packaging • Signage • Web development • Motion • Video • Photo • Illustration '],
       services: ['My services','A multitude of skills for a unique project.','We develop, together, a tailor-made offer according to your needs.','Showcase website', 'Multipage website','Videos & photos', 'Social medias', 'Blog', 'Visual identity', 'Logotype', 'Signage', 'Packaging', 'Illustration'],
       logiciels: [html,css,js,node,react,wordpress,webflow,figma,adobexd,github,fontlab,photoshop,lightroom,illustrator,indesign,premiere,aftereffect],
+      accordion: [
+        'Art director specialized in branding?',
+        'Attentive listening, passion & creativity, clear & jargon-free communication. We work as a team.',
+        'What is branding?',
+        'Imagine you’re launching your business. The brand designer is the one who translates your story into images. They create your logo, choose the colors and fonts that reflect your personality. Thanks to them, your brand becomes recognizable and memorable at first glance, speaking for you without a word. In simpler terms? I create your brand’s visual and emotional identity. The logo, colors, typography, and all visual materials, both printed and digital. So that your brand is instantly recognizable and connects with your audience.',
+        'What makes you different from others?',
+        "What sets me apart is my approach, which is based on attentive and thorough listening to your needs. Rather than offering pre-packaged solutions, I make sure to fully understand your expectations to provide truly tailored services. My versatility in both web and print design allows me to offer a comprehensive service, combining expertise in both digital and print mediums. With my experience as a graphic designer and developer, I grasp the nuances of these two worlds, delivering results that meet your ambitions.",
+        "Shall we take the time to discuss it?"
+      ],
       approche: ['My approach', 'To create is to make the invisible visible.','Authenticity','Creating a form of preciousness beyond paper.','Detail','The poetry of detail: symbolism, framing, choice of words.','Harmony',
 'The pursuit of beauty: shape, curves of a font, the symbiosis of colors.',"Nature","Inspired by the harmony, symmetry, and symbolism of plants and flowers.","Minimalism","Seeking the essence of an idea to communicate with memorability.","Color","Express an emotion & animate your universe with the power of color.",visual_indentity_specialist],
       deroule:['flex','Your project',"It's a tailor-made collaboration to bring it to life. Each project is unique, just like you. That's why I support you at every step, to create a custom solution that best fits your needs.","Just a clarification","We discuss your project and together establish a strategy. Depending on your project, we define the services required. Each quote is custom-made to closely match your needs.","The adventure begins","I will send you a quote including all services as well as the time needed for their completion. The delivery date is set.","Tada!","This is the day you receive your first deliverable. From then on, you have the option to request two modifications (free of charge)."],
@@ -141,7 +159,6 @@ const Chargement = () => {
     )
     }
   }
-  
   
   return (
     <>

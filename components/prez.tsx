@@ -3,7 +3,11 @@ import React from 'react';
 import Marquee from "react-fast-marquee";
 import Image from 'next/image';
 import '../styles/App.scss';
+import '../globals.css';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
+import Services from '../components/services';
+import {Accordion, AccordionItem} from "@nextui-org/react";
+
 
 const Prez: React.FC = () => {
 
@@ -11,12 +15,12 @@ const Prez: React.FC = () => {
   if (!indepArray || !indepArray[0].presentation || !indepArray[0].expertise || !indepArray[0].cta) {
     return <div>Loading...</div>;
   }
-  const { expertise, presentation = [], cta } = indepArray[0];
+  const { expertise, presentation = [], cta, accordion } = indepArray[0];
 
   return (
     <>
       <div className='text-homepage'>
-        <div className='name' style={{ marginTop: '3rem' }}>
+        <div className='name'>
           <h1 style={{ fontSize: '1px', color: '#00000000' }}>Maria Lou Diaz | Art Director • Directeur artistique</h1>
           <Image
             src='/logo/marialoudiaz.png'
@@ -54,13 +58,69 @@ const Prez: React.FC = () => {
             </div>
           </button>
         </div>
-      </div>
+      
 
-      <Marquee speed={30} style={{ marginTop: '1rem', borderTop: '2px solid black', borderBottom: '2px solid black', padding: '1rem' }}>
-        <h3 className='syne-bold' style={{ textTransform: 'uppercase', fontSize: '30px' }}>
+      <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
+        <h3 className='syne-bold' style={{ textTransform: 'uppercase', fontSize:'50px'}}>
           {expertise + ' '}
         </h3>
       </Marquee>
+
+      <Services />
+      <div className='flex-wrap' style={{marginBottom:'2rem'}}>
+       <h2 style={{color:"white"}}>{accordion[0]}</h2>
+        {/* <div>
+          <h3 style={{textAlign:'left'}}>{accordion[1]}</h3>
+        </div> */}
+        
+        <Accordion
+          motionProps={{
+            variants: {
+              enter: {
+                y: 0,
+                opacity: 1,
+                height: "auto",
+                transition: {
+                  height: {
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30,
+                    duration: 1,
+                  },
+                  opacity: {
+                    easings: "ease",
+                    duration: 1,
+                  },
+                },
+              },
+              exit: {
+                y: -10,
+                opacity: 0,
+                height: 0,
+                transition: {
+                  height: {
+                    easings: "ease",
+                    duration: 0.25,
+                  },
+                  opacity: {
+                    easings: "ease",
+                    duration: 0.3,
+                  },
+                },
+              },
+            },
+          }}
+        >
+        <AccordionItem key="1" aria-label={accordion[2]} title={accordion[2]} className='accordion-title'>
+          <p>{accordion[3]}</p>
+        </AccordionItem>
+        <AccordionItem key="2" aria-label={accordion[4]} title={accordion[4]}  className='accordion-title' style={{marginTop:'1rem'}}>
+          <p>{accordion[5]}</p>
+        </AccordionItem>
+      </Accordion>
+
+      </div>
+    </div>
     </>
   );
 }

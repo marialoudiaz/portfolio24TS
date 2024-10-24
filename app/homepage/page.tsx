@@ -15,9 +15,6 @@ const Main = dynamic(() => import('../../components/main'), {
 const Prez = dynamic(() => import('../../components/prez'), {
   loading: () => <p>Loading Prez...</p>,
 });
-const Services = dynamic(() => import('../../components/services'), {
-  loading: () => <p>Loading Services...</p>,
-});
 const Approche = dynamic(() => import('../../components/approche'), {
   loading: () => <p>Loading Approche...</p>,
 });
@@ -69,7 +66,6 @@ const Homepage = () => {
         <Header infos={indepArray}/>
         <Main infos={indepArray} />
         <Prez infos={indepArray}/>
-        <Services infos={indepArray} />
         <Approche infos={indepArray} />
         <Deroule infos={indepArray} />
         <Formulaire infos={indepArray} />

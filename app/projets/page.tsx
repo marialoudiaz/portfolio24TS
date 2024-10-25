@@ -8,6 +8,7 @@ import { faLinkedinIn, faGithub, faInstagram } from '@fortawesome/free-brands-sv
 import '../../styles/App.scss';
 import '../../globals.css';
 import Header from '../../components/navbar/header';
+import '../../styles/App.scss';
 
 
 const Projets = () => {
@@ -19,6 +20,7 @@ const Projets = () => {
         router.push('/');
       }
     }, [])
+
       //Determiner la langue et affiche en fonction
       const isEnglish = indepArray[0].lang === 'EN';
       const variableENorFr = [
@@ -34,11 +36,6 @@ const Projets = () => {
       const [imageSource, setImageSource] = useState(prev);
       const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
       const [showFullText, setShowFullText] = useState<boolean>(false);
-      // Pas lues
-      // const textRef = useRef<HTMLDivElement>(null);
-      // const [isHovered, setIsHovered] = useState<boolean>(false);
-      // const [videoSource, setVideoSource] = useState<string | null>(null);
-      // const [currentIndex, setCurrentIndex] = useState<number>(0);
 
     // Menu des projets
       const projectsArr = [
@@ -141,7 +138,6 @@ const Projets = () => {
       const handleHoverOut = () => {
         setImageSource(prev); // Remplacez 'prev' par l'image correspondante
       };
-
     // Gestion du carousel des projets
       const handleDiscover = (projectId: number) => {
         router.push(`/projet/${projectId}`)
@@ -177,8 +173,9 @@ const Projets = () => {
 
   return (
     <>
-    <Header />
+    
     <div className='section' id='projets'>
+    <Header />
       <h2>{textVariables[0]}</h2>
       <div id='projets'>
 

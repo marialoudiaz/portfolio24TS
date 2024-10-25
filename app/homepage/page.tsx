@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { useData } from '../context/DataContext';
 import '../../styles/App.scss';
+import transition from '../transition';
+import '../../styles/App.scss';
+
 
 // Importations dynamiques pour le lazy loading
 const Header = dynamic(() => import('../../components/navbar/header'), {
@@ -29,9 +32,11 @@ const Footer = dynamic(() => import('../../components/footer'), {
 });
 
 const Homepage = () => {
+
   //l'array updatée dans chargement
   const { indepArray } = useData();
   const router = useRouter();
+
   // Redir si pas datas
     useEffect(()=>{
       if (!indepArray){
@@ -63,13 +68,13 @@ const Homepage = () => {
 
   return (
     <div className='scrollable-container'>
-        <Header infos={indepArray}/>
-        <Main infos={indepArray} />
-        <Prez infos={indepArray}/>
-        <Approche infos={indepArray} />
-        <Deroule infos={indepArray} />
-        <Formulaire infos={indepArray} />
-        <Footer infos={indepArray}/>
+          <Header infos={indepArray}/>
+          <Main infos={indepArray} />
+          <Prez infos={indepArray} />
+          <Approche infos={indepArray} />
+          <Deroule infos={indepArray} />
+          <Formulaire infos={indepArray} />
+          <Footer infos={indepArray}/>
     </div>    
   );
 };

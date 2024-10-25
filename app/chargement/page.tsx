@@ -57,6 +57,7 @@ const Chargement = () => {
       services: ['Mes services','Une multitude de compétences pour un projet unique.','Nous élaborons, ensemble, une offre sur-mesure selon vos besoins.','Site vitrine','Site multipages','Vidéos & photos','Réseaux sociaux','Articles de blog','Identité visuelle', 'Logotype','Signalétique','Packaging','Illustration'],
       logiciels: [html,css,js,node,react,wordpress,webflow,figma,adobexd,github,fontlab,photoshop,lightroom,illustrator,indesign,premiere,aftereffect],
       accordion: [
+        'Découvrir mes services',
         'Directeur artistique spécialisé dans le branding ?',
         'Écoute attentive, passion & créativité, communication claire et sans jargon. Nous travaillons en équipe main dans la main',
         'Le branding c’est quoi ?',
@@ -111,6 +112,7 @@ const Chargement = () => {
       services: ['My services','A multitude of skills for a unique project.','We develop, together, a tailor-made offer according to your needs.','Showcase website', 'Multipage website','Videos & photos', 'Social medias', 'Blog', 'Visual identity', 'Logotype', 'Signage', 'Packaging', 'Illustration'],
       logiciels: [html,css,js,node,react,wordpress,webflow,figma,adobexd,github,fontlab,photoshop,lightroom,illustrator,indesign,premiere,aftereffect],
       accordion: [
+        'Discover my services',
         'Art director specialized in branding?',
         'Attentive listening, passion & creativity, clear & jargon-free communication. We work as a team.',
         'What is branding?',
@@ -162,12 +164,10 @@ const Chargement = () => {
   
   return (
     <>
-    {/* <HeaderFirst /> */}
       <div className='film2'>
 
         <div className='gridHover'>
           {selectLang()}
-
           {navLinks.map(link => (
           <div className='inline-flex button-navbar'>     
             <p  className={hoveredLink === link.id ? 'hovered-link' : ''} 
@@ -178,7 +178,6 @@ const Chargement = () => {
             </p>
           </div>
           ))}
-
           </div>
 
           <video className='background-video2' autoPlay muted playsInline>

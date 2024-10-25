@@ -1,9 +1,9 @@
 'use client'
-import React, { useRef, useEffect } from 'react';
-import Marquee from "react-fast-marquee";
+import React, { useRef, useEffect, useState } from 'react';
+import { useData } from '@/app/context/DataContext'; // Importer le contexte
 import '../styles/App.scss';
+import '../globals.css';
 import {Card, CardFooter, Image, Button} from "@nextui-org/react";
-import Cardz from '../components/card';
 import ReactLenis from "@studio-freight/react-lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -11,126 +11,112 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
+const { indepArray } = useData(); 
+const {accordion } = indepArray[0];
+const Lang = indepArray[0].Lang;
 const imgArr =[
  {
   link:'/cards/web.jpg',
   alt:'Front page of Pascale Laffon website',
-  title:'Design web'
+  title:['Design web','Web Design'],
+  text: [
+    "Sites web, Applications mobile, E-commerce, Newsletters, Gestion des réseaux sociaux + Création contenu",
+    "Websites, Mobile applications, E-commerce, Newsletters, Social media management + content creation"]
  },
  {
   link:'/cards/print.png',
   alt:"Papeterie de l'Hôtel Regina in Puy-en-Velay, France",
-  title:'Design imprimé'
+  title:['Design imprimé','Print Design'],
+  text: [
+    "Papeterie, Livres, Catalogues/Brochures, Covering, Affichages",
+    "Stationery, Books, Catalogs/Brochures, Wrapping, Displays"]
+
  },
  {
   link:'/cards/illu.png',
   alt:"Cover of Naissance d'une amitié by Emile Trubert",
-  title:'Illustration'
+  title:['Illustration','Illustration'],
+  text: [
+    "Couverture de livre, Affiche, Carterie, Textile",
+    "Book covers, Posters, Stationery, Textiles"]
  }]
- const containerCardz = useRef(null);
- const cardRefs = useRef([]);
+const containerCardz = useRef(null);
+const cardRefs = useRef([]);
+const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
 
- useGSAP(()=> {
+useGSAP(() => {
   const cards = cardRefs.current;
-  // const totalScrollHeight = window.innerHeight/3;
-  const position = [25,48,72,95];
-  const rotation = [-15,-7.5, 7.5, 15]
+  const position = [15, 32, 50];
+  const positionz = [-200, 100, 420]; // centrer
+  const rotation = [-15, -7.5, 15];
 
-  ScrollTrigger.create({
-    trigger: containerCardz.current.querySelector(".cards"),
-    start: "top top",
-    end: ()=> `end end`,
-    // pin: true,
-    // pinSpacing: true
+  // Initialisation de la timeline
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: containerCardz.current.querySelector(".cards"),
+      start: "top top",
+      end: "center center", // bottom bottom
+      markers: true,
+      scrub: 0.5,
+      id: 'spreading-timeline' // nouveau
+      //  id: `card-${index+1}`,
+    }
   });
-    //Spreading
-    cards.forEach((card,index)=>{
-      gsap.to(card, {
-        left: `${position[index]}%`,
-        rotation: `${rotation[index]}`,
-        ease:"none",
-        scrollTrigger:{
-          trigger: containerCardz.current.querySelector(".cards"),
-          start: "top top",
-          end: "middle end",
-          scrub:0.5,
-          id: `spread-${index}`,
-        }
-      })
+  // Animation Spreading
+  cards.forEach((card, index) => {
+    tl.to(card, {
+      left: `${position[index]}%`,
+      rotation: `${rotation[index]}`,
+      ease: "none",
     })
+  });
+  // Animation Alignement (se déclenche automatiquement après Spreading)
+  cards.forEach((card, index) => {
+    tl.to(card, {
+      left: `${positionz[index]}px`,
+      rotation: 0,
+      ease: "power2.out",
+      duration: 1, // Durée de chaque animation dans alignement
+      delay:6
+    });
+  });
+}, { scope: containerCardz });
 
-    // //Flip cards + reset rotation &stragger
-    // cards.forEach((card,index)=>{
-    //   const frontEl = card.querySelector(".flip-card-front");
-    //   const backEl = card.querySelector(".flip-card-back");
-    // // Chaque carte commence en décalé
-    //   const staggerOffset = index * 0.05;
-    // // Debut et fin des animations de retournement
-    //   const startOffset = 1/3 + staggerOffset;
-    //   const endOffset = 2/3 + staggerOffset;
-
-    //   ScrollTrigger.create({
-    //     trigger: containerCardz.current.querySelector(".cards"),
-    //     start: "top top",
-    //     end: ()=> `end end`,
-    // // Animation synchronisée avec le defilement (scroll)
-    //     scrub:1,
-    // // Un id pour le ScrollTrigger de chaque carte selon son index
-    //     id: `rotate-flip-${index}`,
-
-    // // Calcul la progression (self.progress) de l'animation en fonction de la position actuelle du défilement
-    //     onUpdate: (self)=>{
-    //       const progress = self.progress;
-    // // Si progression se situe entre startOffset et EndOffset - Rotation avant/arriere selon faces
-    //       // if (progress >= startOffset && progress <= endOffset){
-    //         const animationProgress = (progress - startOffset) / (1/3);
-    //         const frontRotation = -180 * animationProgress;
-    //         const backRotation = 180 - 180 * animationProgress;
-    //         const cardRotation = rotation[index]*(1- animationProgress);
-
-    // // Face avant - rotation en Y
-    //         gsap.to(frontEl, {rotateY: frontRotation, ease: "power1.out"});
-    // // Face Arrière - Rotation en Y
-    //         gsap.to(backEl, {rotateY: backRotation, ease: "power1.out"});
-    // // Anime position + rotation carte entière
-    //         gsap.to(card, {
-    //           xPercent: -50,
-    //           yPercent: - 50,
-    //           rotate: cardRotation,
-    //           ease: "power1.out"
-    //         })
-    //       }
-    //     // }
-    //   })
-    // })
- }, {scope: containerCardz});
-
- useEffect(()=>{
-  return()=>{
-    ScrollTrigger.getAll().forEach((trigger)=>trigger.kill());
-  }
- }, []);
+// Afficher infos en focntion index
+ const cardUp =(index:Number, Lang:string)=> {
+  // Prend l'id de la carte
+  // Met a jour le footer avec explications
+  const updatedTexts = Array(imgArr.length).fill(null);
+  if (Lang ==='FR') {
+    updatedTexts[index]= imgArr[index].text[1];
+    setfooterTexts(updatedTexts);
+  } else{
+    updatedTexts[index]= imgArr[index].text[0];
+    setfooterTexts(updatedTexts);
+  }    
+  // setfooterText(imgArr[index].text)
+ }
 
 return(
   <>
     <ReactLenis root>
-      <h2 style={{color:'white'}}>Découvrir mes services </h2>
+      {/* <h2 style={{color:'white'}}>Découvrir mes services </h2> */}
+      <h2 style={{color:"white"}}>{accordion[0]}</h2>
       <div id='Services' className='containerCard' ref={containerCardz}>
-        <section className='cards'>
-          
-        <div className="card">
+        <section className='cards' style={{marginTop:'10px'}}>
           {imgArr.map((item,index)=>(
-            
+            <div className="card">
             <div className="card-wrapper">
 
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
                 <Card
                   key={index}
                   id= {`card-${index+1}`}
                   ref={(el)=> (cardRefs.current[index]= el)}
                   isFooterBlurred
                   radius="lg"
+                  className="flip-card-inner flip-card-front"
+                  onPress={()=>cardUp(index)}
+                  onPressEnd={()=>setfooterTexts(Array(imgArr.length).fill(null))}
                 >
                   <Image
                     alt="Woman listing to music"
@@ -139,20 +125,25 @@ return(
                     height={500}
                     src={item.link}
                   />
-                  <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                    <p className="text-tiny text-black/80">{item.title}</p>
-                    <Button className="text-tiny text-white bg-black/20" variant="flat" color="default" radius="lg" size="sm">
-                      Notify me
+                  <CardFooter id={`footer-text-${index+1}`} className=" flex flex-col gap-[2px] justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                    <p id='footerTitle' className="text-tiny text-black/80">{Lang=='FR' ? item.title[0] : item.title[1] }</p>
+                    <p>{footerTexts[index]}</p>
+                    <Button 
+                      className="text-tiny text-white bg-black/20" 
+                      variant="flat" 
+                      color="default" 
+                      radius="lg" 
+                      size="sm" 
+                      onPress={()=>cardUp(index)}
+                      onPressEnd={()=>setfooterTexts(Array(imgArr.length).fill(null))}
+                      >
+                      {Lang=='FR' ? 'En apprendre davantage' : 'Learn more' }
                     </Button>
                   </CardFooter>
                 </Card>
                 </div>
-
               </div>
-            </div>
-        
           ))}
-           </div>
         </section>
       </div>
     </ReactLenis>

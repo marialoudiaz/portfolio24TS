@@ -1,7 +1,6 @@
 // // context/DataContext.js
 // 'use client'
 // import React, { createContext, useContext, useState, useEffect } from 'react';
-
 // const DataContext = createContext();
 
 // export const DataProvider = ({ children }) => {
@@ -31,18 +30,14 @@
 //     return context;
 // };
 
-
-
 'use client';
 import React, { createContext, useContext, useState } from 'react';
-
 // Créer le contexte
 const DataContext = createContext();
-
 // Créer le fournisseur de données
+
 export const DataProvider = ({ children }) => {
   const [indepArray, setIndepArray] = useState(null);  // Array FR ou EN
-  
   const updateData = (newArray) => {
     setIndepArray(newArray);  // Met à jour l'array actif
   };

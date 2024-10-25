@@ -16,7 +16,6 @@ const Prez: React.FC = () => {
     return <div>Loading...</div>;
   }
   const { expertise, presentation = [], cta, accordion } = indepArray[0];
-
   return (
     <>
       <div className='text-homepage'>
@@ -66,9 +65,10 @@ const Prez: React.FC = () => {
         </h3>
       </Marquee>
 
+      
       <Services />
       <div className='flex-wrap' style={{marginBottom:'2rem'}}>
-       <h2 style={{color:"white"}}>{accordion[0]}</h2>
+       <h2 style={{color:"white"}}>{accordion[1]}</h2>
         {/* <div>
           <h3 style={{textAlign:'left'}}>{accordion[1]}</h3>
         </div> */}
@@ -111,11 +111,11 @@ const Prez: React.FC = () => {
             },
           }}
         >
-        <AccordionItem key="1" aria-label={accordion[2]} title={accordion[2]} className='accordion-title'>
-          <p>{accordion[3]}</p>
+        <AccordionItem key="1" aria-label={accordion[3]} title={accordion[3]} className='accordion-title'>
+          <p>{accordion[4]}</p>
         </AccordionItem>
-        <AccordionItem key="2" aria-label={accordion[4]} title={accordion[4]}  className='accordion-title' style={{marginTop:'1rem'}}>
-          <p>{accordion[5]}</p>
+        <AccordionItem key="2" aria-label={accordion[5]} title={accordion[5]}  className='accordion-title' style={{marginTop:'1rem'}}>
+          <p>{accordion[6]}</p>
         </AccordionItem>
       </Accordion>
 

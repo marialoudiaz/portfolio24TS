@@ -8,7 +8,9 @@ import '../../../globals.css';
 import Image from 'next/image';
 import Header from '../../../components/navbar/header';
 import { FiArrowDownRight } from "react-icons/fi";
-import { width } from '@fortawesome/free-brands-svg-icons/fa42Group';
+import '../../../styles/App.scss';
+
+
 
 function Projet() {
 
@@ -293,6 +295,7 @@ function Projet() {
         router.push('/');
       }
     }, [])
+
   // Déterminer les indices en fonction de la langue
     const Lang = indepArray[0].Lang;
     const langIndex = Lang === 'FR' ? 0 : 1;

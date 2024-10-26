@@ -30,24 +30,52 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 // Extraire l'identifiant de l'URL
 const id = location.pathname.split('/').pop();
 const form = useRef();
-const sendEmail = (e:any) => {
-	e.preventDefault();
-	emailjs
-		.sendForm('service_ivm0jcp', 'template_9e5o1we', form.current, {
-			publicKey: 'B1zXmJt5Z5YABJKhe',
-		})
-		.then(
-			() => {
-				console.log('SUCCESS!');
-				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
-			},
-			(error) => {
-				console.log('FAILED...', error.text);
-				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
-			},
-		);
-};
+// const sendEmail = (e:any) => {
+
+// 	e.preventDefault();
+// 	emailjs
+// 		.sendForm('service_ivm0jcp', 'template_9e5o1we', form.current, {
+// 			publicKey: 'B1zXmJt5Z5YABJKhe',
+// 		})
+// 		.then(
+// 			() => {
+// 				console.log('SUCCESS!');
+// 				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
+// 			},
+// 			(error) => {
+// 				console.log('FAILED...', error.text);
+// 				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
+// 			},
+// 		);
+// };
+
+
+
+
 //modifier form
+
+const sendEmail = async (e:any) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(emailData),
+    });
+
+    if (response.ok) {
+      console.log('Email envoyé avec succès');
+      setMessage(isEnglish === 'EN' ? [yesmessage[0], yesmessage[1]] : [yesmessage[2], yesmessage[3]]);
+    } else {
+      throw new Error('Erreur lors de l\'envoi de l\'email');
+    }
+  } catch (error) {
+    console.error('Échec de l\'envoi :', error);
+    setMessage(isEnglish === 'EN' ? [nomessage[0], nomessage[1]] : [nomessage[2], nomessage[3]]);
+  }
+};
+
 const handleInputChange = (e:any) => {
 	setEmailData({ ...emailData, [e.target.id]: e.target.value });
 };

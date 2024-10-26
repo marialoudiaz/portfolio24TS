@@ -19,7 +19,7 @@ const Projets = () => {
       if (!indepArray){
         router.push('/');
       }
-    }, [])
+    }, [indepArray])
 
       //Determiner la langue et affiche en fonction
       const isEnglish = indepArray[0].lang === 'EN';
@@ -178,116 +178,147 @@ const Projets = () => {
     <Header />
       <h2>{textVariables[0]}</h2>
       <div id='projets'>
-
-        <div className='grid-container-projets' ref={gridContainerRef}>
-          {projectsArr.map((project, index) => (
-          <div className='project-wrapper' key={index} style={{ marginBottom: '2rem' }}>
-              <div className='projectImgContainer' ref={(el) => (imgContainerRef.current[index] = el)} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
-                <video className='projectHoverVideo' autoPlay loop muted playsInline>
-                  <source src={project.video} type='video/mp4' />
-                </video>
-
-                {project.img.includes('.mp4') ? 
-                (
-                  <video className='projectImg' autoPlay loop muted playsInline>
-                    <source src={`${project.img}`} type='video/mp4' />
+          <div className='grid-container-projets' ref={gridContainerRef}>
+            {projectsArr.map((project, index) => (
+            <div className='project-wrapper' key={index} style={{ marginBottom: '2rem' }}>
+                <div className='projectImgContainer' ref={(el) => (imgContainerRef.current[index] = el)} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
+                  <video className='projectHoverVideo' autoPlay loop muted playsInline>
+                    <source src={project.video} type='video/mp4' />
                   </video>
-                ) : 
-                (
-                  <div className='projectImg' style={{ backgroundImage: `url(${project.img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}></div>
-                )}
-              </div>
 
-              <div className='project-description' ref={descriptionRef}>
-                <h2 className='project-title'>{project.baseline[isEnglish ? 0 : 1]}</h2>
-                <p className='project-txt short-text' style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
-                  {isMobile && !showFullText
-                    ? `${project.text[isEnglish ? 0 : 1].slice(0, 200)}...`
-                    : project.text[isEnglish ? 0 : 1]}
-                </p>
-                <p className={`project-txt full-text ${isMobile && showFullText ? 'show' : ''}`} style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
-                  {project.text2[isEnglish ? 0 : 1]}
-                </p>
-                {isMobile && (
-                  <div className='btn-black en-savoir-plus' onClick={toggleFullText} style={{ marginLeft: '3rem' }}>
-                    <p>{showFullText ? 'Afficher moins' : 'En savoir plus'}</p>
+                  {project.img.includes('.mp4') ? 
+                  (
+                    <video className='projectImg' autoPlay loop muted playsInline>
+                      <source src={`${project.img}`} type='video/mp4' />
+                    </video>
+                  ) : 
+                  (
+                    <div className='projectImg' style={{ backgroundImage: `url(${project.img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}></div>
+                  )}
+                </div>
+
+                <div className='project-description' ref={descriptionRef}>
+                  <h2 className='project-title'>{project.baseline[isEnglish ? 0 : 1]}</h2>
+                  <p className='project-txt short-text' style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
+                    {isMobile && !showFullText
+                      ? `${project.text[isEnglish ? 0 : 1].slice(0, 200)}...`
+                      : project.text[isEnglish ? 0 : 1]}
+                  </p>
+                  <p className={`project-txt full-text ${isMobile && showFullText ? 'show' : ''}`} style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
+                    {project.text2[isEnglish ? 0 : 1]}
+                  </p>
+                  {isMobile && (
+                    <div className='btn-black en-savoir-plus' onClick={toggleFullText} style={{ marginLeft: '3rem' }}>
+                      <p>{showFullText ? 'Afficher moins' : 'En savoir plus'}</p>
+                    </div>
+                  )}
+
+                  <div className='inline-flex'>
+                    <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => handleDiscover(project.id)}>
+                      <div>
+                        <svg
+                          className="icon-transp"
+                          viewBox="0 0 16 19"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label='Arrow Icon'
+                        >
+                          <path
+                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                            className="fill-white group-hover:fill-gray-400"
+                          ></path>
+                        </svg>
+                        <p className='btn-transp-p' style={{ color: 'white' }}>
+                        {textVariables[1]}
+                        </p>
+                      </div>
+                    </button>
+                    <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => {setCurrentIndex(index); handlePrev(index)}}>
+                      <div>
+                        <svg
+                          className="icon-transp"
+                          viewBox="0 0 16 19"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label='Arrow Icon'
+                        >
+                          <path
+                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                            className="fill-white group-hover:fill-gray-400"
+                          ></path>
+                        </svg>
+                        <p className='btn-transp-p' style={{ color: 'white' }}>
+                        {textVariables[2]}
+                        </p>
+                      </div>
+                    </button>            
                   </div>
-                )}
-
-                <div className='inline-flex'>
-                  <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => handleDiscover(project.id)}>
-                    <div>
-                      <svg
-                        className="icon-transp"
-                        viewBox="0 0 16 19"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-label='Arrow Icon'
-                      >
-                        <path
-                          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                          className="fill-white group-hover:fill-gray-400"
-                        ></path>
-                      </svg>
-                      <p className='btn-transp-p' style={{ color: 'white' }}>
-                      {textVariables[1]}
-                      </p>
-                    </div>
-                  </button>
-                  <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => {setCurrentIndex(index); handlePrev(index)}}>
-                    <div>
-                      <svg
-                        className="icon-transp"
-                        viewBox="0 0 16 19"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-label='Arrow Icon'
-                      >
-                        <path
-                          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                          className="fill-white group-hover:fill-gray-400"
-                        ></path>
-                      </svg>
-                      <p className='btn-transp-p' style={{ color: 'white' }}>
-                      {textVariables[2]}
-                      </p>
-                    </div>
-                  </button>            
+                </div>
+                
+                <div className='project-details'>
+                  <p>{project.title[isEnglish ? 0 : 1]}</p>
+                  <div className='carousel-btn' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
+                    <Image 
+                      src={imageSource ?? ''} 
+                      alt='icon' 
+                      onMouseOver={handleHover}
+                      onMouseOut={handleHoverOut} 
+                      width={100} 
+                      height={0}
+                      style={{display: 'flex', width:'40px', flexWrap: 'nowrap',margin: '.2rem 0rem 0rem .3rem',transition: 'transform 2s ease'}} 
+                    />
+                  </div>
+                  <p style={{ color: 'black' }}>{textVariables[3]}</p>
                 </div>
               </div>
-              
-              <div className='project-details'>
-                <p>{project.title[isEnglish ? 0 : 1]}</p>
-                <div className='carousel-btn' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
-                  <Image 
-                    src={imageSource ?? ''} 
-                    alt='icon' 
-                    onMouseOver={handleHover}
-                    onMouseOut={handleHoverOut} 
-                    width={100} 
-                    height={0}
-                    style={{display: 'flex', width:'40px', flexWrap: 'nowrap',margin: '.2rem 0rem 0rem .3rem',transition: 'transform 2s ease'}} 
-                  />
-                </div>
-                <p style={{ color: 'black' }}>{textVariables[3]}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-          <div className='social'>
-            <div className='btn-black' onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}>
-              <p>{textVariables[4]}</p>
-            </div>
-            <button className='social-button' onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}>
-              <FontAwesomeIcon className='svgIcon' icon={faLinkedinIn} style={{ color: 'white' }} />
-            </button>
-            <button className='social-button' onClick={() => window.open('https://github.com/marialoudiaz', '_blank', 'noreferrer')}>
-              <FontAwesomeIcon className='svgIcon' icon={faGithub} style={{ color: 'white' }} />
-            </button>
-            <button className='social-button' onClick={() => window.open('https://www.instagram.com/marialoudiaz/', '_blank', 'noreferrer')}>
-              <FontAwesomeIcon className='svgIcon' icon={faInstagram} style={{ color: 'white' }} />
-            </button>
+            ))}
           </div>
-
+          <div className='social'>
+            <button 
+              className='btn-transp-dark' 
+              style={{ marginLeft: '1rem' }} 
+              onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}
+            >
+                      <div>
+                        <svg
+                          className="icon-transp"
+                          viewBox="0 0 16 19"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label='Arrow Icon'
+                        >
+                          <path
+                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                            className="fill-white group-hover:fill-gray-400"
+                          ></path>
+                        </svg>
+                        <p className='btn-transp-p' style={{ color: 'white' }}>
+                        {textVariables[4]}
+                        </p>
+                      </div>
+            </button>
+            <div
+                className="btn-transp-rs"
+                onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+            >
+              <div>
+                <FontAwesomeIcon className='icon-transp-big' icon={faLinkedinIn} />
+              </div>
+            </div>
+            <div
+                className="btn-transp-rs"
+                onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+            >
+              <div>
+                <FontAwesomeIcon className='icon-transp-big' icon={faGithub} />
+              </div>
+            </div>
+            <div
+                className="btn-transp-rs"
+                onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+            >
+              <div>
+                <FontAwesomeIcon className='icon-transp-big' icon={faInstagram} />
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     </>

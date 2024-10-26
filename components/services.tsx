@@ -47,15 +47,15 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
 useGSAP(() => {
   const cards = cardRefs.current;
   const position = [15, 32, 50];
-  const positionz = [-200, 100, 420]; // centrer
+  const positionz = [-120, 1,120]; // centrer
   const rotation = [-15, -7.5, 15];
 
   // Initialisation de la timeline
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: containerCardz.current.querySelector(".cards"),
-      start: "top top",
-      end: "center center", // bottom bottom
+      start: "top center",
+      end: "end end", // bottom bottom
       markers: true,
       scrub: 0.5,
       id: 'spreading-timeline' // nouveau
@@ -73,7 +73,7 @@ useGSAP(() => {
   // Animation Alignement (se déclenche automatiquement après Spreading)
   cards.forEach((card, index) => {
     tl.to(card, {
-      left: `${positionz[index]}px`,
+      left: `${positionz[index]}%`,
       rotation: 0,
       ease: "power2.out",
       duration: 1, // Durée de chaque animation dans alignement
@@ -101,9 +101,9 @@ return(
   <>
     <ReactLenis root>
       {/* <h2 style={{color:'white'}}>Découvrir mes services </h2> */}
-      <h2 style={{color:"white"}}>{accordion[0]}</h2>
+      <h2 style={{color:"white", marginTop:'2rem'}}>{accordion[0]}</h2>
       <div id='Services' className='containerCard' ref={containerCardz}>
-        <section className='cards' style={{marginTop:'10px'}}>
+        <section className='cards'>
           {imgArr.map((item,index)=>(
             <div className="card">
             <div className="card-wrapper">

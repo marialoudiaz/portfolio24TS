@@ -1,11 +1,10 @@
-"use client"; // Marquer ce composant comme Client Component
+"use client";
 import React, {useState} from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; // Importer useRouter depuis next/navigation
+import { useRouter} from 'next/navigation';
+import {useData} from '@/app/context/DataContext';
 import '../../styles/App.scss';
 import '../../globals.css';
-import {useData} from '@/app/context/DataContext';
 /*MEDIAS*/
-import visual_indentity_specialist from '../../public/img/marialoudiaz-independant.jpg';
 import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
 import html from '../../public/icons/softs/html.png';
 import css from '../../public/icons/softs/css.png';
@@ -81,7 +80,7 @@ const Chargement = () => {
         'Rechercher l\'essence d\'une idée pour communiquer avec mémorabilité.',
         'Couleur',
         'Exprimer une émotion & animer votre univers par la puissance de la couleur.',
-        visual_indentity_specialist
+        branding_specialist
       ],
       deroule:['flex', 'Votre projet', "C'est une collaboration sur-mesure pour lui donner vie. Chaque projet est unique tout comme vous. Ainsi, je vous accompagne à chaque étape afin de créer une solution sur-mesure la mieux adaptée à vos besoins.", "Juste une mise au point", "Nous parlons de votre projet et établissons ensemble une stratégie. Nous définissons alors les services qu'il vous faut. Chaque devis est réalisé sur-mesure pour être au plus-prêt de vos besoins.", "L’aventure commence", "Je vous retourne un devis comprenant tous les services ainsi que le temps nécessaire à leurs réalisations. La date du livrable est établie.", "Tada!", "C’est le jour où vous recevez votre premier livrable. À partir de là, vous avez la possibilité de demander deux modifications (offertes)."],
       citation: 'Pour un design qui vous ressemble.',
@@ -122,7 +121,7 @@ const Chargement = () => {
         "Shall we take the time to discuss it?"
       ],
       approche: ['My approach', 'To create is to make the invisible visible.','Authenticity','Creating a form of preciousness beyond paper.','Detail','The poetry of detail: symbolism, framing, choice of words.','Harmony',
-'The pursuit of beauty: shape, curves of a font, the symbiosis of colors.',"Nature","Inspired by the harmony, symmetry, and symbolism of plants and flowers.","Minimalism","Seeking the essence of an idea to communicate with memorability.","Color","Express an emotion & animate your universe with the power of color.",visual_indentity_specialist],
+'The pursuit of beauty: shape, curves of a font, the symbiosis of colors.',"Nature","Inspired by the harmony, symmetry, and symbolism of plants and flowers.","Minimalism","Seeking the essence of an idea to communicate with memorability.","Color","Express an emotion & animate your universe with the power of color.",branding_specialist],
       deroule:['flex','Your project',"It's a tailor-made collaboration to bring it to life. Each project is unique, just like you. That's why I support you at every step, to create a custom solution that best fits your needs.","Just a clarification","We discuss your project and together establish a strategy. Depending on your project, we define the services required. Each quote is custom-made to closely match your needs.","The adventure begins","I will send you a quote including all services as well as the time needed for their completion. The delivery date is set.","Tada!","This is the day you receive your first deliverable. From then on, you have the option to request two modifications (free of charge)."],
       citation: 'For a design that suits you.',
       form: ["Let's tell",'your','story','Surname','Email','Your message','Send',"Let's collaborate to take your business to the next level and make it soar 🚀. Ideas, questions, a strong desire to get in touch? I'm listening."],
@@ -149,14 +148,14 @@ const Chargement = () => {
       return(
         <>
         <h1>Bienvenue</h1>
-        <h2>Choisissez votre langue</h2>
+        <h3>Choisissez votre langue</h3>
         </>
       )
     } else{
       return(
         <>
           <h1>Welcome</h1>
-          <h2>Choose your language</h2>
+          <h3>Choose your language</h3>
         </>
     )
     }
@@ -164,10 +163,11 @@ const Chargement = () => {
   
   return (
     <>
-      <div className='film2'>
+      <div className='relative'>
 
-        <div className='gridHover'>
+        <div className='gridVideo'>
           {selectLang()}
+
           {navLinks.map(link => (
           <div className='inline-flex button-navbar'>     
             <p  className={hoveredLink === link.id ? 'hovered-link' : ''} 
@@ -178,12 +178,12 @@ const Chargement = () => {
             </p>
           </div>
           ))}
-          </div>
-
-          <video className='background-video2' autoPlay muted playsInline>
-           <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
-          </video>
         </div>
+
+        <video className='background-video2' autoPlay muted playsInline>
+           <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
+        </video>
+      </div>
     </>
   );
 };

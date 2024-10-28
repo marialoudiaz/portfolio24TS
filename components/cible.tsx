@@ -20,7 +20,6 @@ const Cible: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
   const sendChildren = () => {
     setisHovered(true);
   };
-
   const handleMouseLeave = () => {
     setisHovered(false);
   };
@@ -30,15 +29,15 @@ const Cible: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
       style={{ scale, rotate }} 
       onMouseEnter={sendChildren}  
       onMouseLeave={handleMouseLeave}
-      className="h-screen text-[3.5vw] flex flex-col items-center justify-center text-white pb-[10vh] bg-[#324f9e] bg-[url('/img/fond-homepage.png')]"
+      className="h-screen text-[3.5vw] text-center flex flex-col items-center justify-center text-white pb-[10vh] bg-[#324f9e] bg-[url('/img/fond-homepage.png')]"
     >
-      <h1 style={{ fontSize: '1.5em' }}>{indepArray[0].hp[0]}</h1>
+      <h1>{indepArray[0].hp[0]}</h1>
       
-      <TextDisperse element={indepArray[0].hp[1]} props={isHovered ? 'true' : 'false'}>
+      <TextDisperse id='text-disperse' element={indepArray[0].hp[1]} props={isHovered ? 'true' : 'false'}>
         <h2>{indepArray[0].hp[1]}</h2>
       </TextDisperse>
 
-      <h2 style={{ color: 'white', fontSize: '1.5em' }}>{indepArray[0].hp[2]}</h2>
+      <h2 style={{ color: 'white' }}>{indepArray[0].hp[2]}</h2>
       <button className='btn-transp'>
         <div>
           <svg

@@ -20,12 +20,12 @@ const Prez: React.FC = () => {
     <>
       <div className='text-homepage'>
         <div className='name'>
-          <h1 style={{ fontSize: '1px', color: '#00000000' }}>Maria Lou Diaz | Art Director • Directeur artistique</h1>
+        <h1 style={{ color: '#00000000'}}> Maria Lou Diaz | Art Director • Specialized in branding</h1>
           <Image
             src='/logo/marialoudiaz.png'
             alt="Maria Lou Diaz"
-            width={700}
-            height={150}
+            width={1000}
+            height={300}
           />
         </div>
 
@@ -60,7 +60,7 @@ const Prez: React.FC = () => {
       
 
       <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
-        <h3 className='syne-bold' style={{ textTransform: 'uppercase', fontSize:'50px'}}>
+        <h3 className='syne-bold' style={{ textTransform: 'uppercase'}}>
           {expertise + ' '}
         </h3>
       </Marquee>
@@ -69,11 +69,8 @@ const Prez: React.FC = () => {
       <Services />
       <div className='flex-wrap' style={{marginBottom:'2rem'}}>
        <h2 style={{color:"white"}}>{accordion[1]}</h2>
-        {/* <div>
-          <h3 style={{textAlign:'left'}}>{accordion[1]}</h3>
-        </div> */}
-        
-        <Accordion
+      
+      <Accordion
           motionProps={{
             variants: {
               enter: {

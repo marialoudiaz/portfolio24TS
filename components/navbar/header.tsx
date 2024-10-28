@@ -20,6 +20,7 @@ const Header = () => {
 //Variables
   const router = useRouter();
   const { indepArray } = useData();
+  const mobile = indepArray[0].header;
   const [hoveredLink, setHoveredLink] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const Lang = indepArray && indepArray[0] && indepArray[0].Lang ? JSON.stringify(indepArray[0].Lang) : '';
@@ -47,6 +48,7 @@ const Header = () => {
       {/* Navbar desktop */}
       <div className="navbar hidden md:block">
         <div className='navbar-container'>
+          
           <div className='navbar-left' onClick={() => router.push('/homepage')}>
             <Image src={logo} width={220} height={120} alt="logo" />
           </div>
@@ -67,12 +69,13 @@ const Header = () => {
               </div>
             ))}
           </div>
+
         </div>
       </div>
 
       {/* Navbar mobile */}
       <div className="md:hidden"> {/* Cache sur les écrans >= 768px */}
-        <MobileNavbar isOpen={isOpen} infos={indepArray.header} toggleMenu={toggleMenu} />
+        <MobileNavbar isOpen={isOpen} infos={mobile} onHover={onHover} onLeave={onLeave} toggleMenu={toggleMenu} hoveredLink={hoveredLink}/>
       </div>
     </>
   );

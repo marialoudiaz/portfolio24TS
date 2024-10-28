@@ -56,7 +56,7 @@ useGSAP(() => {
       trigger: containerCardz.current.querySelector(".cards"),
       start: "top center",
       end: "end end", // bottom bottom
-      markers: true,
+      // markers: true,
       scrub: 0.5,
       id: 'spreading-timeline' // nouveau
       //  id: `card-${index+1}`,

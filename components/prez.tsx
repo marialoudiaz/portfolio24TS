@@ -50,7 +50,6 @@ const Prez: React.FC = () => {
                   className="fill-white group-hover:fill-gray-400"
                 ></path>
               </svg>
-
               <p className='btn-transp-p' style={{ color: 'white' }}>
                 {cta[1]}
               </p>
@@ -67,56 +66,56 @@ const Prez: React.FC = () => {
 
       
       <Services />
-      <div className='flex-wrap' style={{marginBottom:'2rem'}}>
-       <h2 style={{color:"white"}}>{accordion[1]}</h2>
-      
-      <Accordion
-          motionProps={{
-            variants: {
-              enter: {
-                y: 0,
-                opacity: 1,
-                height: "auto",
-                transition: {
-                  height: {
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 30,
-                    duration: 1,
-                  },
-                  opacity: {
-                    easings: "ease",
-                    duration: 1,
-                  },
-                },
-              },
-              exit: {
-                y: -10,
-                opacity: 0,
-                height: 0,
-                transition: {
-                  height: {
-                    easings: "ease",
-                    duration: 0.25,
-                  },
-                  opacity: {
-                    easings: "ease",
-                    duration: 0.3,
-                  },
-                },
-              },
-            },
-          }}
-        >
-        <AccordionItem key="1" aria-label={accordion[3]} title={accordion[3]} className='accordion-title'>
-          <p>{accordion[4]}</p>
-        </AccordionItem>
-        <AccordionItem key="2" aria-label={accordion[5]} title={accordion[5]}  className='accordion-title' style={{marginTop:'1rem'}}>
-          <p>{accordion[6]}</p>
-        </AccordionItem>
-      </Accordion>
 
+      <div className='flex-wrap' style={{marginBottom:'2rem'}}>
+        <h2 style={{color:"white"}}>{accordion[1]}</h2>
+        <Accordion
+            motionProps={{
+              variants: {
+                enter: {
+                  y: 0,
+                  opacity: 1,
+                  height: "auto",
+                  transition: {
+                    height: {
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                      duration: 1,
+                    },
+                    opacity: {
+                      easings: "ease",
+                      duration: 1,
+                    },
+                  },
+                },
+                exit: {
+                  y: -10,
+                  opacity: 0,
+                  height: 0,
+                  transition: {
+                    height: {
+                      easings: "ease",
+                      duration: 0.25,
+                    },
+                    opacity: {
+                      easings: "ease",
+                      duration: 0.3,
+                    },
+                  },
+                },
+              },
+            }}
+          >
+          <AccordionItem key="1" aria-label={accordion[3]} title={accordion[3]} className='accordion-title'>
+            <p>{accordion[4]}</p>
+          </AccordionItem>
+          <AccordionItem key="2" aria-label={accordion[5]} title={accordion[5]}  className='accordion-title' style={{marginTop:'1rem'}}>
+            <p>{accordion[6]}</p>
+          </AccordionItem>
+        </Accordion>
       </div>
+      
     </div>
     </>
   );

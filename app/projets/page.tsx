@@ -34,7 +34,7 @@ const Projets = () => {
       const descriptionRef = useRef<HTMLDivElement>(null);
       const imgContainerRef = useRef<(HTMLDivElement | null)[]>([]);
       const [imageSource, setImageSource] = useState(prev);
-      const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
+      const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 1024);
       const [showFullText, setShowFullText] = useState<boolean>(false);
 
     // Menu des projets
@@ -210,7 +210,7 @@ const Projets = () => {
                     {project.text2[isEnglish ? 0 : 1]}
                   </p>
                   {isMobile && (
-                    <div className='btn-black en-savoir-plus' onClick={toggleFullText} style={{ marginLeft: '3rem' }}>
+                    <div className='btn-black en-savoir-plus' onClick={toggleFullText} style={{ marginLeft: '3rem'}}>
                       <p>{showFullText ? 'Afficher moins' : 'En savoir plus'}</p>
                     </div>
                   )}

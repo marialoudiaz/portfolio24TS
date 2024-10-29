@@ -48,19 +48,19 @@ const carousel: React.FC<CarouselProps> = ({dataArray}) => {
    <>
       <div className="grid-col4">
         {activeItems.map((item, index) => (
-          <div key={index} className="grid-col3-item" id="carousel-item">
+          <div key={index} className="flex-wrap" id="carousel-item">
             <Image 
               src={item.image} 
               alt={item.alt} 
               width={100}
               height={100}
             />
-            <h3>{item.titre}</h3>
+            <p style={{fontWeight:'bold'}}>{item.titre}</p>
             <p>{item.text}</p>
           </div>
         ))}
         {!isMobile && (
-          <div className="carousel-buttons">
+          <div className="flex-wrap">
             <button id="btn-fleche" onClick={changeActiveImage}>
               <Image 
                 id="fleche" 

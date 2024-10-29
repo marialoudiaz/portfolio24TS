@@ -1,7 +1,7 @@
 // src/components/Form.tsx
 import React, { useState, useEffect } from 'react';
 import TextTransition, { presets } from 'react-text-transition';
-import ContactForm from './ContactForm'; // Remplacez par le chemin correct pour le composant
+import ContactForm from './contactForm'; // Remplacez par le chemin correct pour le composant
 import '../../styles/App.scss';
 import '../../globals.css';
 import { useData } from '../../app/context/DataContext'; // Import du contexte
@@ -26,15 +26,16 @@ const Form: React.FC = () => {
 
   return (
     <div className='section' id="Contact">
-      <div className='flex-wrap'>
         <div className='grid-col2'>
-          <div className='flex-col' id="citation-form">
+
+          {/* PARTIE GAUCHE */}
+          <div className='flex-col'>
             <h2>{form[0]}</h2>
             <h2>{form[1]}</h2>
             <h2 className='syne gold' style={{textTransform:'lowercase'}}>{form[2]}</h2>
             <div className='text-block' style={{ borderTop: 'black 1px solid', paddingTop: '1rem', display: display, flexDirection: 'column' }}>
-              <TextTransition className='textTransition' springConfig={presets.gentle}>
-              <h2 className='syne gold' style={{textTransform:'lowercase'}}>{words[index % words.length]}</h2>
+              <TextTransition springConfig={presets.gentle}>
+              <p className='syne gold' style={{textTransform:'lowercase'}}>{words[index % words.length]}</p>
               </TextTransition>
               <p>{blabla}</p>
             </div>
@@ -46,14 +47,14 @@ const Form: React.FC = () => {
               <ContactForm lang={langDisplay} infos={indepArray[0]} />
             </div>
             <div id="muguet">
-              <video id="muguetvideo" autoPlay loop muted playsInline>
-                <source src="/videos/create_brand_identity.mp4" type="video/mp4" />
+              <video id='muguetvideo' width="320" height="240" autoPlay loop muted playsInline>
+                <source src='/video/create_brand_identity.mp4' type='video/mp4' />
               </video>
             </div>
           </div>
+          
         </div>
       </div>
-    </div>
   );
 };
 

@@ -51,7 +51,7 @@ const Chargement = () => {
       discover: "découvrir le showréel",
       location: ['actuellement à','Montpellier, Fr.'], // location
       cta : ['une idée, un projet ? parlons-en','je réserve une consultation','oui mais combien ça coûte une identité visuelle ?','Pas d’offres prédéfinies, car chaque projet est unique.','programmer une visio','je préfère vous écrire'],
-      presentation: ["Directeur artistique spécialisé dans le branding","Du développement web au design imprimé,","j'aide les travailleurs indépendants à construire","leur identité visuelle et à lancer leur projet."],
+      presentation: ["Directeur artistique spécialisé dans le branding","Du développement web au design imprimé, j'aide les travailleurs indépendants à construire leur identité visuelle et à lancer leur projet."],
       expertise: [' • Design imprimé • Packaging • Signalétique • Développement web • Motion • Vidéo • Photo • Illustration '],
       services: ['Mes services','Une multitude de compétences pour un projet unique.','Nous élaborons, ensemble, une offre sur-mesure selon vos besoins.','Site vitrine','Site multipages','Vidéos & photos','Réseaux sociaux','Articles de blog','Identité visuelle', 'Logotype','Signalétique','Packaging','Illustration'],
       logiciels: [html,css,js,node,react,wordpress,webflow,figma,adobexd,github,fontlab,photoshop,lightroom,illustrator,indesign,premiere,aftereffect],
@@ -106,7 +106,7 @@ const Chargement = () => {
         "schedule a video call",
         "I'd rather call you"
       ],
-      presentation: ["Art director specialized in branding.", "From web development to print design,", "I help independent workers build their", "visual identity and launch their project."],
+      presentation: ["Art director specialized in branding.", "From web development to print design, I help independent workers build their visual identity and launch their project."],
       expertise: [' • Print • Packaging • Signage • Web development • Motion • Video • Photo • Illustration '],
       services: ['My services','A multitude of skills for a unique project.','We develop, together, a tailor-made offer according to your needs.','Showcase website', 'Multipage website','Videos & photos', 'Social medias', 'Blog', 'Visual identity', 'Logotype', 'Signage', 'Packaging', 'Illustration'],
       logiciels: [html,css,js,node,react,wordpress,webflow,figma,adobexd,github,fontlab,photoshop,lightroom,illustrator,indesign,premiere,aftereffect],
@@ -169,7 +169,7 @@ const Chargement = () => {
           {selectLang()}
 
           {navLinks.map(link => (
-          <div className='inline-flex button-navbar'>     
+          <div key={link.id} className='inline-flex button-navbar'>     
             <p  className={hoveredLink === link.id ? 'hovered-link' : ''} 
                 onMouseEnter={() => onHover(link.id)}
                 onMouseLeave={onLeave}

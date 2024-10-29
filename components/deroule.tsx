@@ -46,21 +46,21 @@ const Deroule: React.FC = () => {
   return (
     <>
       <section className='section' style={{ display: `${deroule}` }}>
-        <div className='flex-wrap-deroule'>
-          <div className='flex-wrap-deroule'>
+        <div className='flex-wrap' id='deroule'>
+          <div className='flex-wrap'>
             <h2>{deroule[1]}</h2>
             <p>{deroule[2]}</p>
           </div>
 
-          <div className='flex-wrap-deroule' id='deroule-item' ref={el1}>
+          <div className='flex-wrap' id='deroule-item' ref={el1}>
             <Image
               src='/icons/projets/projet.png'
               alt="icone à l'encre d'un couple de deux personnes"
               width={300}
               height={300}
             />
-            <div className='flex-wrap-deroule'>
-              <h3 style={{ fontWeight: '600' }}>{deroule[3]}</h3>
+            <div className='flex-wrap'>
+              <h3>{deroule[3]}</h3>
               <p>{deroule[4]}</p>
             </div>
           </div>
@@ -69,15 +69,15 @@ const Deroule: React.FC = () => {
             <div className='tiret'></div><div className='tiret2'></div>
           </div>
 
-          <div className='flex-wrap-deroule' id='deroule-item' ref={el2}>
+          <div className='flex-wrap' id='deroule-item' ref={el2}>
             <Image
               src='/icons/projets/devis.png'
               alt="icone à l'encre d'une enveloppe avec un coeur"
               width={300}
               height={300}
             />
-            <div className='flex-wrap-deroule'>
-              <h3 style={{ fontWeight: '600' }}>{deroule[5]}</h3>
+            <div className='flex-wrap'>
+              <h3>{deroule[5]}</h3>
               <p>{deroule[6]}</p>
             </div>
           </div>
@@ -86,15 +86,15 @@ const Deroule: React.FC = () => {
             <div className='tiret'></div><div className='tiret2'></div>
           </div>
 
-          <div className='flex-wrap-deroule' id='deroule-item' ref={el3}>
+          <div className='flex-wrap' id='deroule-item' ref={el3}>
             <Image
               src='/icons/projets/livrable.png'
               alt="icone à l'encre d'un cadeau"
               width={300}
               height={300}
             />
-            <div className='flex-wrap-deroule'>
-              <h3 style={{ fontWeight: '600' }}>{deroule[7]}</h3>
+            <div className='flex-wrap'>
+              <h3>{deroule[7]}</h3>
               <p>{deroule[8]}</p>
             </div>
           </div>

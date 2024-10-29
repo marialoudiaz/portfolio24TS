@@ -83,7 +83,7 @@ const Approche: React.FC = () => {
         <div className='grid-col2'>
           <img className='grid-col2-img' src={portrait} alt='autoportrait souriant en noir et blanc'/>
           <div className='flex-col' style={{justifyContent:'center'}}>
-            <div className='flex-col-center'>
+            <div className='flex-wrap'>
               <Image
                 src="/logo/medaillon.png"
                 alt="le logo sous forme de médaillon"
@@ -91,7 +91,7 @@ const Approche: React.FC = () => {
                 height={100}
               />
               <h2>{approchez}</h2>
-              <h3 className='syne'>
+              <p className='syne'>
               <Typewriter
                   options={{
                   strings: [`${citation}`],
@@ -99,7 +99,7 @@ const Approche: React.FC = () => {
                   loop: true,
                   }}
               />
-              </h3>
+              </p>
               <Carousel dataArray={dataArray} />
             </div>
           </div>

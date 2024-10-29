@@ -56,7 +56,6 @@ const form = useRef();
 
 const sendEmail = async (e:any) => {
   e.preventDefault();
-
   try {
     const response = await fetch('/api/sendEmail', {
       method: 'POST',
@@ -75,7 +74,6 @@ const sendEmail = async (e:any) => {
     setMessage(isEnglish === 'EN' ? [nomessage[0], nomessage[1]] : [nomessage[2], nomessage[3]]);
   }
 };
-
 const handleInputChange = (e:any) => {
 	setEmailData({ ...emailData, [e.target.id]: e.target.value });
 };
@@ -100,7 +98,7 @@ const handleSubmitQuestion = (props:any) => {
 return (
 <>
 <form ref={form} onSubmit={sendEmail}>
-	<div className='flexCol'>
+	<div className='flex-wrap'>
 		<label htmlFor="prenom">{infos.form[3]}</label>
 		<input
 			type='text'
@@ -111,7 +109,7 @@ return (
 			required
 		/>
 	</div>
-	<div className='flexCol'>
+	<div className='flex-wrap'>
 		<label htmlFor="email">{infos.form[4]}</label>
 		<input
 			type='email'
@@ -122,7 +120,7 @@ return (
 			required
 		/>
 	</div>
-	<div className='flexCol'>
+	<div className='flex-wrap'>
 			<label htmlFor="message">{infos.form[5]}</label>
 			<textarea
 				type="message"
@@ -142,28 +140,27 @@ return (
 	<Popover placement="top" showArrow={true}>
       <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem'}}>
         <Button className='bg-white b-0'>
-				<div
-			  className='btn-transp-dark'
-				onClick={sendEmail} // Handle click to trigger form submission
-				role="button" // Optional: Make it clear that this is an interactive element
-				tabIndex={0} // Optional: Make it focusable for accessibility
-			>
-					<div>
-					<svg
-						className="icon-transp"	
-						viewBox="0 0 16 19"
-						xmlns="http://www.w3.org/2000/svg"
-						aria-label='Arrow Icon'
+					<div
+						className='btn-transp-dark'
+						onClick={sendEmail} // Handle click to trigger form submission
+						role="button" // Optional: Make it clear that this is an interactive element
+						tabIndex={0} // Optional: Make it focusable for accessibility
 					>
-					<path
-						d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-						className="fill-white group-hover:fill-white"
-					></path>
-					</svg>
-								{infos.form[6]}
-					</div>  
-      </div>
-
+						<div>
+						<svg
+							className="icon-transp"	
+							viewBox="0 0 16 19"
+							xmlns="http://www.w3.org/2000/svg"
+							aria-label='Arrow Icon'
+						>
+						<path
+							d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+							className="fill-white group-hover:fill-white"
+						></path>
+						</svg>
+									{infos.form[6]}
+						</div>  
+					</div>
 				</Button>
       </PopoverTrigger>
       <PopoverContent>

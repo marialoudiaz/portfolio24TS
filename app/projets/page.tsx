@@ -177,8 +177,10 @@ const Projets = () => {
     <div className='section' id='projets' style={{marginTop:'0rem'}}>
     <Header />
       <h2>{textVariables[0]}</h2>
+
       <div id='projets'>
           <div className='grid-container-projets' ref={gridContainerRef}>
+            
             {projectsArr.map((project, index) => (
             <div className='project-wrapper' key={index} style={{ marginBottom: '2rem' }}>
                 <div className='projectImgContainer' ref={(el) => (imgContainerRef.current[index] = el)} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
@@ -253,7 +255,7 @@ const Projets = () => {
                   </div>
                 </div>
                 
-                <div className='project-details'>
+                <div className='flex-center'>
                   <p>{project.title[isEnglish ? 0 : 1]}</p>
                   <div className='carousel-btn' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
                     <Image 
@@ -263,7 +265,7 @@ const Projets = () => {
                       onMouseOut={handleHoverOut} 
                       width={100} 
                       height={0}
-                      style={{display: 'flex', width:'40px', flexWrap: 'nowrap',margin: '.2rem 0rem 0rem .3rem',transition: 'transform 2s ease'}} 
+                      style={{display: 'flex', width:'40px', flexWrap: 'nowrap', margin: '.2rem 0rem 0rem .3rem',transition: 'transform 2s ease'}} 
                     />
                   </div>
                   <p style={{ color: 'black' }}>{textVariables[3]}</p>
@@ -271,7 +273,9 @@ const Projets = () => {
               </div>
             ))}
           </div>
-          <div className='social'>
+
+
+          <div className='center'>
             <button 
               className='btn-transp-dark' 
               style={{ marginLeft: '1rem' }} 

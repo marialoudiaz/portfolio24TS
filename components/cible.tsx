@@ -29,6 +29,7 @@ const Cible: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
       style={{ scale, rotate }} 
       onMouseEnter={sendChildren}  
       onMouseLeave={handleMouseLeave}
+      id='div-hp'
       className="h-screen text-[3.5vw] bg-no-repeat bg-cover text-center flex flex-col items-center justify-center text-white pb-[10vh] bg-[#324f9e] bg-[url('/img/fond-homepage.png')]"
     >
       <h1>{indepArray[0].hp[0]}</h1>

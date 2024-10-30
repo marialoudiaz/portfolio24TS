@@ -1,7 +1,6 @@
 import React, { useState,useRef} from 'react';
 import '../../styles/App.scss';
 import '../../globals.css';
-import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 
@@ -30,30 +29,6 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 // Extraire l'identifiant de l'URL
 const id = location.pathname.split('/').pop();
 const form = useRef();
-// const sendEmail = (e:any) => {
-
-// 	e.preventDefault();
-// 	emailjs
-// 		.sendForm('service_ivm0jcp', 'template_9e5o1we', form.current, {
-// 			publicKey: 'B1zXmJt5Z5YABJKhe',
-// 		})
-// 		.then(
-// 			() => {
-// 				console.log('SUCCESS!');
-// 				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
-// 			},
-// 			(error) => {
-// 				console.log('FAILED...', error.text);
-// 				setMessage(isEnglish=='EN' ? [yesmessage[0],yesmessage[1]] : [yesmessage[2],yesmessage[3]]);
-// 			},
-// 		);
-// };
-
-
-
-
-//modifier form
-
 const sendEmail = async (e:any) => {
   e.preventDefault();
   try {
@@ -62,7 +37,6 @@ const sendEmail = async (e:any) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(emailData),
     });
-
     if (response.ok) {
       console.log('Email envoyé avec succès');
       setMessage(isEnglish === 'EN' ? [yesmessage[0], yesmessage[1]] : [yesmessage[2], yesmessage[3]]);
@@ -120,7 +94,7 @@ return (
 			required
 		/>
 	</div>
-	<div className='flex-wrap'>
+	<div className='flex-wrap' style={{gap:'2.5rem'}}>
 			<label htmlFor="message">{infos.form[5]}</label>
 			<textarea
 				type="message"
@@ -163,6 +137,7 @@ return (
 					</div>
 				</Button>
       </PopoverTrigger>
+
       <PopoverContent>
         <div className="px-1 py-2">
 					<Image src='/icons/projets/devis.png' alt='icon enveloppe avec un coeur' width={50} height={50}/>

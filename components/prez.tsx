@@ -21,17 +21,17 @@ const Prez: React.FC = () => {
       <div className='text-homepage'>
         <div className='name'>
         <h1 style={{ color: '#00000000'}}> Maria Lou Diaz | Art Director • Specialized in branding</h1>
-          <Image
+          {/* <Image
             src='/logo/marialoudiaz.png'
             alt="Maria Lou Diaz"
             width={1000}
             height={300}
-          />
+          /> */}
         </div>
 
         <div className='prez'>
-            <p className='syne' id='p-hp'> {presentation[0]}</p>
-            <p> {presentation[1]}</p>
+            <h4 id='p-hp'> {presentation[0]}</h4>
+            <p id='prez-txt'> {presentation[1]}</p>
 
             <button className='btn-transp' style={{ margin: '2rem auto' }}>
               <div>
@@ -63,8 +63,8 @@ const Prez: React.FC = () => {
 {/*       
       <Services /> */}
 
-      <div className='flex-wrap' style={{margin:'2rem 0rem'}}>
-        <h2 style={{color:"white"}}>{accordion[1]}</h2>
+      <div className='flex-wrap' style={{margin:'2rem 0rem', padding:'0rem 1rem'}}>
+        <h3 style={{color:"white"}}>{accordion[1]}</h3>
         <Accordion
             motionProps={{
               variants: {

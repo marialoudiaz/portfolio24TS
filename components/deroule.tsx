@@ -60,7 +60,7 @@ const Deroule: React.FC = () => {
               height={300}
             />
             <div className='flex-wrap'>
-              <h3>{deroule[3]}</h3>
+              <h4>{deroule[3]}</h4>
               <p>{deroule[4]}</p>
             </div>
           </div>
@@ -77,7 +77,7 @@ const Deroule: React.FC = () => {
               height={300}
             />
             <div className='flex-wrap'>
-              <h3>{deroule[5]}</h3>
+              <h4>{deroule[5]}</h4>
               <p>{deroule[6]}</p>
             </div>
           </div>
@@ -94,7 +94,7 @@ const Deroule: React.FC = () => {
               height={300}
             />
             <div className='flex-wrap'>
-              <h3>{deroule[7]}</h3>
+              <h4>{deroule[7]}</h4>
               <p>{deroule[8]}</p>
             </div>
           </div>

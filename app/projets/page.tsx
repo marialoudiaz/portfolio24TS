@@ -15,14 +15,18 @@ const Projets = () => {
 
     const { indepArray } = useData();
     const router = useRouter();
+    // Redir si pas datas
     useEffect(()=>{
       if (!indepArray){
         router.push('/');
       }
-    }, [indepArray])
+    }, [indepArray, router])
+    if (!indepArray){
+      return <div>Loading...</div>
+    }
 
       //Determiner la langue et affiche en fonction
-      const isEnglish = indepArray[0].lang === 'EN';
+      const isEnglish = indepArray[0].Lang === 'EN';
       const variableENorFr = [
         ['My projects', 'Discover', 'Previous', 'scroll right to learn more', 'Discover my other projects'],
         ['Mes projets', 'Découvrir', 'Précédent', 'scroller à droite pour en apprendre +', 'Découvrir mes autres projets'],];
@@ -45,7 +49,7 @@ const Projets = () => {
           img: '/projets/os/os-img.png',
           video: '/projets/os/video-onsight-hover.mp4',
           title: ["OnSight","OnSight"],
-          baseline: ['An app to keep an eye on your films, on sight','Une application mobile pour garder un oeil sur tes films'],
+          baseline: ['An app to keep an eye on your films','Une application mobile pour garder un oeil sur tes films'],
           text:[
             "OnSight is an application that allows you to search for any movie or TV series and add it to a list that you can regularly update based on new releases or your preferences.",
             "OnSight est une application qui vous permet de rechercher n'importe quel film ou série et de l'ajouter à une liste que vous pouvez régulièrement mettre à jour en fonction des nouvelles sorties ou de vos préférences. ",
@@ -54,7 +58,7 @@ const Projets = () => {
             "Immerse yourself in a retro universe inspired by the 80s, where each interaction takes you into cinematic history. With OnSight, you can easily manage your movies and series to watch all while enjoying a captivating vintage design. Available on iOS.",
             "Plongez dans un univers graphique rétro inspiré des années 80, où chaque interaction vous fait voyager. Avec OnSight, vous pouvez facilement gérer vos films et séries à regarder tout en savourant un design vintage captivant. Découvrez l'application sur iOS."
           ],
-          link: ['Discover',"Découvrir"],
+          link: ['Discover the project',"Découvrir le projet"],
           onClick: ['https://apps.apple.com/fr/app/movies-on-sight/id6450311314', '_blank']
         },
         //pl
@@ -66,7 +70,7 @@ const Projets = () => {
           baseline: ['Micropracy','La micropraxie'],
           text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
           text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience intuitive."],
-          link: ['Discover',"Découvrir"],
+          link: ['Discover the project',"Découvrir le projet"],
           onClick: ['https://pascale-laffon.fr', '_blank']
         },
         //pilepoele
@@ -85,7 +89,7 @@ const Projets = () => {
                 "The project aims to facilitate universal and intercultural culinary communication. While gender inclusivity is integrated it is not the main focus but rather an inherent aspect of the communication.",
                 "Le projet vise à faciliter une communication culinaire universelle et interculturelle. Bien que l'inclusivité des genres soit intégrée, ce n'est pas l'objectif principal du projet mais un aspect évident & crucial de la communication."
                 ],
-          link: ['Discover',"Découvrir"],
+          link: ['Discover the project',"Découvrir le projet"],
           onClick: ['', '_blank']      
         },
         //vb
@@ -103,8 +107,8 @@ const Projets = () => {
                 "The redesign aimed to bring new dynamism while respecting the company's values and history. This included a revamp of the logo, stationery and signage elements.",
                 "La refonte visait à insuffler un nouveau dynamisme tout en respectant les valeurs et l'histoire de l'entreprise. Cela comprenait une refonte du logo, de la papeterie & de la signalétique."
                 ],
-          link: ['discover',"découvrir"],
-          onClick: ['https://www.vb-avocats.fr', '_blank']      
+                link: ['Discover the project',"Découvrir le projet"],
+                onClick: ['https://www.vb-avocats.fr', '_blank']      
         },
         //dessin
         {
@@ -114,7 +118,7 @@ const Projets = () => {
           title: ["Topographies",'Topographies'],
           baseline: 
           [
-            "Designing the city through its ornamentation",
+            "Designing the city through its ornaments",
             "Dessiner la ville par ses ornementations"
           ],
           text:
@@ -127,7 +131,7 @@ const Projets = () => {
             "This project aims to visually map the city through detailed drawings and unique urban patterns identifiable on various facades and door fronts.",
             "Ce projet vise à cartographier visuellement la ville à travers des dessins détaillés et des motifs urbains uniques identifiables sur les différentes façades et devantures de portes."
           ],
-          link: ['Discover',"Découvrir"],
+          link: ['Discover the project',"Découvrir le projet"],
           onClick: ['', '_blank']
         },
       ]; 
@@ -169,12 +173,12 @@ const Projets = () => {
           window.removeEventListener('resize', handleResize);
         };
       }, []);
-       // Redir si pas datas
+// ne fonctionne pas
 
   return (
     <>
     
-    <div className='section' id='projets' style={{marginTop:'0rem'}}>
+    <div className='section' id='projets' style={{marginTop:'7rem'}}>
     <Header />
       <h2>{textVariables[0]}</h2>
 
@@ -200,63 +204,38 @@ const Projets = () => {
                 </div>
 
                 <div className='project-description' ref={descriptionRef}>
-                  <h2 className='project-title'>{project.baseline[isEnglish ? 0 : 1]}</h2>
+                  <h3 className='project-title'>{project.baseline[isEnglish ? 0 : 1]}</h3>
                   <p className='project-txt short-text' style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
                     {isMobile && !showFullText
                       ? `${project.text[isEnglish ? 0 : 1].slice(0, 200)}...`
                       : project.text[isEnglish ? 0 : 1]}
                   </p>
-                  <p className={`project-txt full-text ${isMobile && showFullText ? 'show' : ''}`} style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
-                    {project.text2[isEnglish ? 0 : 1]}
+                  <p className={`project-txt full-text${isMobile && showFullText ? 'show' : ''}`} style={{ paddingLeft: '3rem', paddingRight: '2rem' }}>
+                  {/* {isMobile && showFullText */}
+                  {/* ?  */}
+                  {project.text2[isEnglish ? 0 : 1]}
+                  {/* : ''
+                  } */}
                   </p>
                   {isMobile && (
-                    <div className='btn-black en-savoir-plus' onClick={toggleFullText} style={{ marginLeft: '3rem'}}>
-                      <p>{showFullText ? 'Afficher moins' : 'En savoir plus'}</p>
+                    <div className='btn-black en-savoir-plus' onClick={toggleFullText} >
+                      <p style={{textAlign:'center'}}> {showFullText ? `${isEnglish ? 'Show less' :'Afficher moins'}` : `${isEnglish ? 'Show full text' :'Afficher le texte complet'}`}</p>
                     </div>
                   )}
 
                   <div className='inline-flex'>
-                    <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => handleDiscover(project.id)}>
-                      <div>
-                        <svg
-                          className="icon-transp"
-                          viewBox="0 0 16 19"
-                          xmlns="http://www.w3.org/2000/svg"
-                          aria-label='Arrow Icon'
-                        >
-                          <path
-                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                            className="fill-white group-hover:fill-gray-400"
-                          ></path>
-                        </svg>
-                        <p className='btn-transp-p' style={{ color: 'white' }}>
-                        {textVariables[1]}
-                        </p>
-                      </div>
-                    </button>
-                    <button className='btn-transp-dark' style={{ marginLeft: '2rem' }} onClick={() => {setCurrentIndex(index); handlePrev(index)}}>
-                      <div>
-                        <svg
-                          className="icon-transp"
-                          viewBox="0 0 16 19"
-                          xmlns="http://www.w3.org/2000/svg"
-                          aria-label='Arrow Icon'
-                        >
-                          <path
-                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                            className="fill-white group-hover:fill-gray-400"
-                          ></path>
-                        </svg>
-                        <p className='btn-transp-p' style={{ color: 'white' }}>
-                        {textVariables[2]}
-                        </p>
-                      </div>
-                    </button>            
+
+                    <button className='btn-black' onClick={() => handleDiscover(project.id)}>
+                        <p>{textVariables[1]}</p>
+                    </button>  
+                    <button className='btn-black' onClick={() => handleDiscover(project.id)}>
+                        <p>{textVariables[2]}</p>
+                    </button>           
                   </div>
                 </div>
                 
                 <div className='flex-center'>
-                  <p>{project.title[isEnglish ? 0 : 1]}</p>
+                  <p className='projet-p'>{project.title[isEnglish ? 0 : 1]}</p>
                   <div className='carousel-btn' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={() => { setCurrentIndex(index); handleNext(index); }}>
                     <Image 
                       src={imageSource ?? ''} 
@@ -268,7 +247,7 @@ const Projets = () => {
                       style={{display: 'flex', width:'40px', flexWrap: 'nowrap', margin: '.2rem 0rem 0rem .3rem',transition: 'transform 2s ease'}} 
                     />
                   </div>
-                  <p style={{ color: 'black' }}>{textVariables[3]}</p>
+                  <p className='projet-p' style={{ color: 'black' }}>{textVariables[3]}</p>
                 </div>
               </div>
             ))}
@@ -276,53 +255,61 @@ const Projets = () => {
 
 
           <div className='center'>
-            <button 
-              className='btn-transp-dark' 
-              style={{ marginLeft: '1rem' }} 
-              onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}
-            >
-                      <div>
-                        <svg
-                          className="icon-transp"
-                          viewBox="0 0 16 19"
-                          xmlns="http://www.w3.org/2000/svg"
-                          aria-label='Arrow Icon'
-                        >
-                          <path
-                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                            className="fill-white group-hover:fill-gray-400"
-                          ></path>
-                        </svg>
-                        <p className='btn-transp-p' style={{ color: 'white' }}>
-                        {textVariables[4]}
-                        </p>
-                      </div>
-            </button>
-            <div
-                className="btn-transp-rs"
-                onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
-            >
-              <div>
-                <FontAwesomeIcon className='icon-transp-big' icon={faLinkedinIn} />
+            <div className='flex-wrap-center'>
+              <button 
+                className='btn-transp-dark' 
+                onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}
+              >
+                        <div>
+                          <svg
+                            className="icon-transp"
+                            viewBox="0 0 16 19"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-label='Arrow Icon'
+                          >
+                            <path
+                              d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                              className="fill-white group-hover:fill-gray-400"
+                            ></path>
+                          </svg>
+                          <p className='btn-transp-p' style={{ color: 'white' }}>
+                          {textVariables[4]}
+                          </p>
+                        </div>
+              </button>
+            
+            <div className='flex-wrap-center'>
+              <div
+                    className="btn-transp-rs"
+                    onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+                >
+                  <div>
+                    <FontAwesomeIcon className='icon-transp-big' icon={faLinkedinIn} />
+                  </div>
+              </div>
+              <div
+                  className="btn-transp-rs"
+                  onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+              >
+                <div>
+                  <FontAwesomeIcon className='icon-transp-big' icon={faGithub} />
+                </div>
+              </div>
+              <div
+                  className="btn-transp-rs"
+                  onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+              >
+                <div>
+                  <FontAwesomeIcon className='icon-transp-big' icon={faInstagram} />
+                </div>
               </div>
             </div>
-            <div
-                className="btn-transp-rs"
-                onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
-            >
-              <div>
-                <FontAwesomeIcon className='icon-transp-big' icon={faGithub} />
-              </div>
+              
             </div>
-            <div
-                className="btn-transp-rs"
-                onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
-            >
-              <div>
-                <FontAwesomeIcon className='icon-transp-big' icon={faInstagram} />
-              </div>
-            </div>
+           
+
           </div>
+
       </div>
     </div>
     </>

@@ -18,14 +18,21 @@ function Projet() {
     const router = useRouter();
     const { indepArray } = useData();
     const { id } = useParams(); // id dans lurl (dynamiquement)
+
+    useEffect(()=>{
+      if (!indepArray && !id){
+        router.push('/');
+      }
+    }, [indepArray, router, id])
+
     const descriptionprojectsArr = [
       // onsight
       {
         id: 1,
         client: 'Maria Lou Diaz',
         discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
-        videoDesktop: '/projets/os/video-onsight-hover.mp4',
-        videoMobile: '/projets/os/video-onsight-hover.mp4', //'/projets/os/video-onsight.mp4'
+        videoDesktop: '/projets/os/video-onsight.mp4',
+        videoMobile: '/projets/os/video-onsight.mp4', //'/projets/os/video-onsight.mp4'
         image: '/projets/os/os-img.png',
         title: 'Onsight',
         baseline: [
@@ -290,11 +297,6 @@ function Projet() {
       height:'auto',
       transition: 'transform 2s ease', // Adjust the duration and easing as needed
     } 
-    useEffect(()=>{
-      if (!indepArray){
-        router.push('/');
-      }
-    }, [])
 
   // Déterminer les indices en fonction de la langue
     const Lang = indepArray[0].Lang;
@@ -319,8 +321,8 @@ function Projet() {
       <div className='scrollable-container'>
 
         {/* VIDEO OPENING -- full width > moitié au scroll */}
-        <div className='film'>
-          <div className='background-video' id='bg-video-projet'>
+        <div className='film' style={{zIndex:'1001'}}>
+          <div className='background-video-hp' id='bg-video-projet' >
               <video className='desktop' autoPlay loop muted playsInline>
                 <source src={descriptionprojectsArr[Number(id)-1].videoDesktop} type="video/mp4" />
               </video>
@@ -340,8 +342,10 @@ function Projet() {
           </div>
         </div>  
   
-        <div  className='section' id='projet' style={{marginBottom: '5rem', marginTop: '15rem'}}>
-         {/* DIV INFOS*/}
+        <div  className='section' id='projet' style={{marginBottom: '5rem'}}>
+         
+         <div className='flex-wrap'>
+          {/* DIV INFOS*/}
          <div className='projet-infos'>
             <div>
               <p>Client</p>
@@ -386,6 +390,9 @@ function Projet() {
               {Lang === 'FR' ? <h2>Besoins</h2> : <h2>Needs</h2>}
                 <p>{descriptionprojectsArr[Number(id)-1].besoins[langIndex][0]}</p>
          </div>
+
+         </div>
+         
   
   
          {/* DIV SECTIONS */}
@@ -426,7 +433,7 @@ function Projet() {
               (descriptionprojectsArr[Number(id)-1].sectionsImg && 
               (descriptionprojectsArr[Number(id)-1].sectionsImg[0]?.length > 1 || descriptionprojectsArr[Number(id)-1].sectionsImg[1]?.length > 1)) 
               ? 'grid-col2' 
-              : 'grid-col2-flex'
+              : 'flex-wrap'
               }>
               {descriptionprojectsArr[Number(id)-1].sectionsImg && descriptionprojectsArr[Number(id)-1].sectionsImg.length > 0 && (
                 (Lang === 'FR' ? descriptionprojectsArr[Number(id)-1].sectionsImg[1] : descriptionprojectsArr[Number(id)-1].sectionsImg[0]).map((sectionImg, index) => (

@@ -55,7 +55,7 @@ const carousel: React.FC<CarouselProps> = ({dataArray}) => {
               width={100}
               height={100}
             />
-            <p style={{fontWeight:'bold'}}>{item.titre}</p>
+            <h4>{item.titre}</h4>
             <p>{item.text}</p>
           </div>
         ))}

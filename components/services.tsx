@@ -7,6 +7,7 @@ import ReactLenis from "@studio-freight/react-lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { start } from 'repl';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,29 +19,26 @@ function Services() {
   const cardRefs = useRef([]);
  const imgArr =[
   {
-   link:'/cards/web.jpg',
-   alt:'Front page of Pascale Laffon website',
-   title:['Design web','Web Design'],
-   text: [
-     "Sites web, Applications mobile, E-commerce, Newsletters, Gestion des réseaux sociaux + Création contenu",
-     "Websites, Mobile applications, E-commerce, Newsletters, Social media management + content creation"]
+  //  link:'/cards/web.jpg',
+   alt:['Front page of Pascale Laffon website',"All services included in the category Web design"],
+   title:['/cards/carte-site-front-1.jpg','/cards/carte-site-front-1EN.jpg'],
+   text: ['/cards/carte-site-back1.jpg','/cards/carte-site-back1EN.jpg']
   },
   {
-   link:'/cards/print.png',
-   alt:"Papeterie de l'Hôtel Regina in Puy-en-Velay, France",
-   title:['Design imprimé','Print Design'],
+  //  link:'/cards/print.png',
+   alt:["Papeterie de l'Hôtel Regina in Puy-en-Velay, France","All services included in the category Print design"],
+   title:[ '/cards/carte-site-front-2.jpg', '/cards/carte-site-front-2EN.jpg'],
    text: [
-     "Papeterie, Livres, Catalogues/Brochures, Covering, Affichages",
-     "Stationery, Books, Catalogs/Brochures, Wrapping, Displays"]
+     '/cards/carte-site-back2.jpg','/cards/carte-site-back2EN.jpg']
  
   },
   {
-   link:'/cards/illu.png',
-   alt:"Cover of Naissance d'une amitié by Emile Trubert",
-   title:['Illustration','Illustration'],
+  //  link:'/cards/illu.png',
+   alt:["Cover of Naissance d'une amitié by Emile Trubert","All services included in the category illustration"],
+   title:['/cards/carte-site-front-3.jpg','/cards/carte-site-front-3.jpg'],
    text: [
-     "Couverture de livre, Affiche, Carterie, Textile",
-     "Book covers, Posters, Stationery, Textiles"]
+     '/cards/carte-site-back-3.jpg',
+     '/cards/carte-site-back-3EN.jpg']
   }]
 const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
 
@@ -64,6 +62,7 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
       }
     });
 
+    // spread
     cards.forEach((card, index) => {
       tl.to(card, {
         left: `${position[index]}%`,
@@ -72,6 +71,7 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
       });
     });
 
+    // Droit
     cards.forEach((card, index) => {
       tl.to(card, {
         top: `${positionTop[index]}px`,
@@ -82,34 +82,71 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
         delay: 6
       });
     });
+
+    //Retourne
+    cards.forEach((card, index)=>{
+      const frontEl = card.querySelector(".flip-card-front");
+      const backEl = card.querySelector(".flip-card-back");
+
+      const staggerOffset = index * 0.05;
+      const startOffset = 1/3 + staggerOffset;
+      const endOffset = 2/3 + staggerOffset;
+
+      ScrollTrigger.create({
+        trigger: containerCardz.current.querySelector(".cards"),
+        start: "top top",
+        end: ()=> `end end`,
+        scrub: 1,
+        id: `rotate-flip-${index}`,
+        onUpdate: (self)=>{
+          const progress = self.progress;
+          if (progress >= startOffset && progress <= endOffset){
+            const animationProgress = (progress - startOffset) / (1/3);
+            const frontRotation = -180 * animationProgress;
+            const backRotation = 180 - 180 * animationProgress;
+            const cardRotation = rotation[index]*(1-animationProgress);
+
+            gsap.to(frontEl, {rotateY: frontRotation, ease: "power1.out"});
+            gsap.to(backEl, {rotateY: backRotation, ease: "power1.out"});
+            gsap.to(card, {
+              xPercent: -50,
+              yPercent: -50,
+              rotate: cardRotation,
+              ease: "power1.out",
+            });
+          }
+        }
+      });
+    });
   }, { scope: containerCardz });
 
-  const cardUp = (index, Lang) => {
-    const updatedTexts = Array(imgArr.length).fill(null);
-    if (Lang === 'FR') {
-      updatedTexts[index] = imgArr[index].text[1];
-    } else {
-      updatedTexts[index] = imgArr[index].text[0];
-    }
-    setfooterTexts(updatedTexts);
-  };
+  // const cardUp = (index, Lang) => {
+  //   const updatedTexts = Array(imgArr.length).fill(null);
+  //   if (Lang === 'FR') {
+  //     updatedTexts[index] = imgArr[index].text[1];
+  //   } else {
+  //     updatedTexts[index] = imgArr[index].text[0];
+  //   }
+  //   setfooterTexts(updatedTexts);
+  // };
 
   return (
     <>
       <ReactLenis root>
-        <h2 style={{ color: "white", marginTop: '2rem' }}>{accordion[0]}</h2>
+        <h3 style={{ color: "white", marginTop: '2rem' }}>{accordion[0]}</h3>
         <div id='Services' className='containerCard' ref={containerCardz}>
+         
           <section className='cards'>
             {imgArr.map((item, index) => (
-              <div className="card" key={index}>
+              <div className="card" >
                 <CustomCard
+                  key={index}
                   ref={(el) => (cardRefs.current[index] = el)}
                   item={item}
                   index={index}
-                  onCardUp={cardUp}
-                  onCardDown={() => setfooterTexts(Array(imgArr.length).fill(null))}
-                  Lang={Lang}
-                  footerTexts={footerTexts}
+                  frontSrc={Lang==='EN' ? item.title[1] : item.title[0] }
+                  backText={Lang==='EN' ? item.text[1] : item.text[0] }
+                  id={`card-${index+1}`}
                 />
               </div>
             ))}

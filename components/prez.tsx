@@ -60,8 +60,8 @@ const Prez: React.FC = () => {
         </h3>
       </Marquee>
 
-{/*       
-      <Services /> */}
+  
+      <Services />
 
       <div className='flex-wrap' style={{margin:'2rem 0rem', padding:'0rem 1rem'}}>
         <h3 style={{color:"white"}}>{accordion[1]}</h3>

@@ -89,7 +89,7 @@ function Services() {
       const endOffset = 2/3 + staggerOffset;
 
       tl.to(frontEl, {
-        rotation: -180,
+        rotationY: -180,
         ease: "power1.out",
         duration: 1,
         delay: 6
@@ -99,15 +99,19 @@ function Services() {
         rotationY: 0,
         ease: "power1.out",
         duration: 1,
-        delay: 6
+        delay: 6,
+        zIndex:1000
+
       });
 
-      tl.to(card, {
-        xPercent: -50,
-        yPercent: -50,
-        rotate: rotation[index]*(1- staggerOffset),
-        ease: "power1.out",
-      });
+      // tl.to(card, {
+      //   xPercent: -50,
+      //   yPercent: -50,
+      //   rotate: rotation[index]*(1- staggerOffset),
+      //   ease: "power1.out",
+      //   zIndex:1000
+
+      // });
     });
       
 }, { scope: containerCardz });

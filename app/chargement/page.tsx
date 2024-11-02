@@ -50,7 +50,7 @@ const Chargement = () => {
       videoTel: 'videoReveal2',
       discover: "découvrir le showréel",
       location: ['actuellement à','Montpellier, Fr.'], // location
-      cta : ['une idée, un projet ? parlons-en','je réserve une consultation','oui mais combien ça coûte une identité visuelle ?','Pas d’offres prédéfinies, car chaque projet est unique.','programmer une visio','je préfère vous écrire'],
+      cta : ['une idée, un projet ? parlons-en','je réserve une consultation','je découvre les projets','programmer une visio','je préfère vous écrire'],
       presentation: ["Directeur artistique spécialisé dans le branding","Du développement web au design imprimé, j'aide les travailleurs indépendants à construire leur identité visuelle et à lancer leur projet."],
       expertise: [' • Design imprimé • Packaging • Signalétique • Développement web • Motion • Vidéo • Photo • Illustration '],
       services: ['Mes services','Une multitude de compétences pour un projet unique.','Nous élaborons, ensemble, une offre sur-mesure selon vos besoins.','Site vitrine','Site multipages','Vidéos & photos','Réseaux sociaux','Articles de blog','Identité visuelle', 'Logotype','Signalétique','Packaging','Illustration'],
@@ -101,8 +101,7 @@ const Chargement = () => {
       cta: [
         "an idea, a project? let's talk about it",
         "I book a consultation",
-        "ok, but how much does a visual identity cost?",
-        "No predefined offers, because each project is unique.",
+        "I discover the projects",
         "schedule a video call",
         "I'd rather call you"
       ],

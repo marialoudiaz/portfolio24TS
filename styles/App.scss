@@ -1099,12 +1099,14 @@ pointer-events: auto;
     width: 100%;
     height: auto;
     object-fit: cover;
+    border-radius: 30px;
   }
 }
 .card{
   position: absolute;
   top: 70%;
   left: 50%;
+  border-radius: 30px;
   transform: translate(-55%,-55%);
   width: 240px!important;
   height: 500px!important;  
@@ -1115,11 +1117,13 @@ pointer-events: auto;
 & div:nth-child(1){
     width: 100%;
     height: 100%;
+    border-radius: 30px;
     margin: 0;
   }
   & div:nth-child(2){ // card p
     position: absolute;
     top: 50%;
+    border-radius: 30px;
     left: 50%;
     transform: translate(-50%, -50%);
     // width: 100%;
@@ -1130,6 +1134,7 @@ pointer-events: auto;
   position: absolute;
   top: 50%;
   left: 50%;
+  border-radius: 30px;
   transform: translate(-55%, -55%);
   width: 100%;
   height: 100%;
@@ -1153,6 +1158,7 @@ pointer-events: auto;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d ;
+  border-radius: 30px;
 }
 .flip-card-front .flip-card-back{
   position: absolute;
@@ -1161,11 +1167,15 @@ pointer-events: auto;
   backface-visibility: hidden;
   border-radius: 0.8em;
   overflow: hidden;
+  border-radius: 30px;
 }
 .flip-card-back{
+  overflow: auto;
   width: 100%;
   height: 100%;
   transform: rotateY(180deg);
+  transform-style: preserve-3d ;
+  border-radius: 30px;
 }
 @keyframes floating{
   0%{

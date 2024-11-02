@@ -14,10 +14,10 @@ gsap.registerPlugin(ScrollTrigger);
 function Services() {
   const { indepArray } = useData(); 
   const { accordion } = indepArray[0];
-  const Lang = indepArray[0].Lang;
+  const Lang = indepArray[0].Lang;  
   const containerCardz = useRef(null);
   const cardRefs = useRef([]);
- const imgArr =[
+  const imgArr =[
   {
   //  link:'/cards/web.jpg',
    alt:['Front page of Pascale Laffon website',"All services included in the category Web design"],
@@ -40,16 +40,13 @@ function Services() {
      '/cards/carte-site-back-3.jpg',
      '/cards/carte-site-back-3EN.jpg']
   }]
-const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
-
-
 
   useGSAP(() => {
     const cards = cardRefs.current;
     const position = [15, 32, 50];
     const isMobile = window.innerWidth <= 768;
     const positionz = isMobile ? [0, 0, 0] : [-120, 1, 120];
-    const positionTop = isMobile ? [0, 250, 500] : [0, 0, 0];
+    const positionTop = isMobile ? [0, 250, 500] : [400, 400, 400];
     const rotation = [-15, -7.5, 15];
 
     const tl = gsap.timeline({
@@ -62,7 +59,7 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
       }
     });
 
-    // spread
+    // spread + inclinaison
     cards.forEach((card, index) => {
       tl.to(card, {
         left: `${position[index]}%`,
@@ -87,38 +84,59 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
     cards.forEach((card, index)=>{
       const frontEl = card.querySelector(".flip-card-front");
       const backEl = card.querySelector(".flip-card-back");
-
       const staggerOffset = index * 0.05;
       const startOffset = 1/3 + staggerOffset;
       const endOffset = 2/3 + staggerOffset;
 
-      ScrollTrigger.create({
-        trigger: containerCardz.current.querySelector(".cards"),
-        start: "top top",
-        end: ()=> `end end`,
-        scrub: 1,
-        id: `rotate-flip-${index}`,
-        onUpdate: (self)=>{
-          const progress = self.progress;
-          if (progress >= startOffset && progress <= endOffset){
-            const animationProgress = (progress - startOffset) / (1/3);
-            const frontRotation = -180 * animationProgress;
-            const backRotation = 180 - 180 * animationProgress;
-            const cardRotation = rotation[index]*(1-animationProgress);
+      tl.to(frontEl, {
+        rotation: -180,
+        ease: "power1.out",
+        duration: 1,
+        delay: 6
+      });
 
-            gsap.to(frontEl, {rotateY: frontRotation, ease: "power1.out"});
-            gsap.to(backEl, {rotateY: backRotation, ease: "power1.out"});
-            gsap.to(card, {
-              xPercent: -50,
-              yPercent: -50,
-              rotate: cardRotation,
-              ease: "power1.out",
-            });
-          }
-        }
+      tl.to(backEl, {
+        rotationY: 0,
+        ease: "power1.out",
+        duration: 1,
+        delay: 6
+      });
+
+      tl.to(card, {
+        xPercent: -50,
+        yPercent: -50,
+        rotate: rotation[index]*(1- staggerOffset),
+        ease: "power1.out",
       });
     });
-  }, { scope: containerCardz });
+      
+}, { scope: containerCardz });
+
+      // ScrollTrigger.create({
+      //   trigger: containerCardz.current.querySelector(".cards"),
+      //   start: "top top",
+      //   end: ()=> `end end`,
+      //   scrub: 1,
+      //   id: `rotate-flip-${index}`,
+      //   onUpdate: (self)=>{
+      //     const progress = self.progress;
+      //     if (progress >= startOffset && progress <= endOffset){
+      //       const animationProgress = (progress - startOffset) / (1/3);
+      //       const frontRotation = -180 * animationProgress;
+      //       const backRotation = 180 - 180 * animationProgress;
+      //       const cardRotation = rotation[index]*(1-animationProgress);
+            // tl.to(frontEl, {rotateY: frontRotation, ease: "power1.out"});
+            // tl.to(backEl, {rotateY: backRotation, ease: "power1.out"});
+            // tl.to(card, {
+            //   xPercent: -50,
+            //   yPercent: -50,
+            //   rotate: cardRotation,
+            //   ease: "power1.out",
+            // });
+    //       }
+    //     }
+    //   });
+    // });
 
   // const cardUp = (index, Lang) => {
   //   const updatedTexts = Array(imgArr.length).fill(null);
@@ -129,7 +147,6 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
   //   }
   //   setfooterTexts(updatedTexts);
   // };
-
   return (
     <>
       <ReactLenis root>
@@ -138,9 +155,8 @@ const [footerTexts, setfooterTexts]= useState(Array(imgArr.length).fill(null));
          
           <section className='cards'>
             {imgArr.map((item, index) => (
-              <div className="card" >
+              <div className="card" key={index}>
                 <CustomCard
-                  key={index}
                   ref={(el) => (cardRefs.current[index] = el)}
                   item={item}
                   index={index}

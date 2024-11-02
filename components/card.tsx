@@ -12,10 +12,9 @@ const CustomCard = forwardRef(({ item, id, frontSrc, backText }, ref) => {
           {/* Face avec photos */}
           <Image 
             priority
-            src={frontSrc}
+            src={backText}
             alt={item.alt[0]}
-            className="object-cover"
-            width={500}
+            width={1000}
             height={0}
             
           />
@@ -25,12 +24,10 @@ const CustomCard = forwardRef(({ item, id, frontSrc, backText }, ref) => {
         <div className='flip-card-back'>
         <Image 
             priority
-            src={backText}
+            src={frontSrc}
             alt={item.alt[1]}
-            className="object-cover"
-            width={500}
+            width={1000}
             height={0}
-            
           />
         </div>
       </div>

@@ -43,16 +43,16 @@ function Services() {
 
   useGSAP(() => {
     const cards = cardRefs.current;
-    const position = [15, 32, 50];
+    const position = [50, 60, 80];
     const isMobile = window.innerWidth <= 768;
     const positionz = isMobile ? [0, 0, 0] : [-120, 1, 120];
-    const positionTop = isMobile ? [0, 250, 500] : [400, 400, 400];
+    const positionTop = isMobile ? [0, 250, 500] : [300, 300, 300];
     const rotation = [-15, -7.5, 15];
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerCardz.current.querySelector(".cards"),
-        start: "top center",
+        start: "top top",
         end: "end end",
         scrub: 0.5,
         id: 'spreading-timeline'
@@ -70,52 +70,63 @@ function Services() {
 
     // Droit
     cards.forEach((card, index) => {
+      
       tl.to(card, {
         top: `${positionTop[index]}px`,
         left: `${positionz[index]}%`,
         rotation: 0,
         ease: "power2.out",
         duration: 1,
-        delay: 6
+        // delay: 6
       });
     });
 
-    //Retourne
-    cards.forEach((card, index)=>{
-      const frontEl = card.querySelector(".flip-card-front");
+    // Nouvelle timeline pour l'effet de rotation avant/arrière
+    const tlRotation = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerCardz.current.querySelector(".cards"),
+        start: "top center", // Début au milieu de l'écran
+        end: "bottom bottom",
+        scrub: 0.5,
+        id: 'rotation-timeline'
+      }
+    });
+
+    cards.forEach((card, index) => {
       const backEl = card.querySelector(".flip-card-back");
-      const staggerOffset = index * 0.05;
-      const startOffset = 1/3 + staggerOffset;
-      const endOffset = 2/3 + staggerOffset;
+      const frontEl = card.querySelector(".flip-card-front");
 
-      tl.to(frontEl, {
+
+      tlRotation.fromTo(frontEl, {
+      rotationY: 0,
+      zIndex:1000,
+      }, {
+      rotationY: -180,
+        ease: "none",
+        duration: 1,
+        zIndex:0,
+
+      }, "-=1.5");
+      
+
+      tlRotation.fromTo(backEl, {
         rotationY: -180,
-        ease: "power1.out",
-        duration: 1,
-        delay: 6
-      });
-
-      tl.to(backEl, {
+        zIndex: 0,
+        opacity:1,
+      }, {
         rotationY: 0,
-        ease: "power1.out",
-        duration: 1,
-        delay: 6,
-        zIndex:1000
-
-      });
+        zIndex: 1000,
+        ease: "none",
+        duration: 1
+      }, "-=1.5");
+    });
+  }, { scope: containerCardz });
 
       // tl.to(card, {
       //   xPercent: -50,
       //   yPercent: -50,
       //   rotate: rotation[index]*(1- staggerOffset),
-      //   ease: "power1.out",
-      //   zIndex:1000
-
-      // });
-    });
-      
-}, { scope: containerCardz });
-
+      //   ease: "power1.out"
       // ScrollTrigger.create({
       //   trigger: containerCardz.current.querySelector(".cards"),
       //   start: "top top",

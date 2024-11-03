@@ -4,33 +4,31 @@ import Image from 'next/image';
 const CustomCard = forwardRef(({ item, id, frontSrc, backText }, ref) => {
   
   return (
-    <div className='card' id={id} ref={ref}>
-    <div className='card-wrapper'>
+    <div className='card-wrapper' id={id} ref={ref}>
 
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
-          {/* Face avec photos */}
+          {/* Face photo */}
           <Image 
             priority
-            src={backText}
+            src={frontSrc}
             alt={item.alt[0]}
             width={1000}
             height={0}
-            
+            // z-index='5'
           />
         </div>
 
-        {/* Face avec texte */}
+        {/* Face txt */}
         <div className='flip-card-back'>
         <Image 
             priority
-            src={frontSrc}
+            src={backText}
             alt={item.alt[1]}
             width={1000}
             height={0}
           />
         </div>
-      </div>
     </div>
 
   </div>

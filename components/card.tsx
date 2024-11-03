@@ -1,10 +1,12 @@
 import React, { forwardRef } from 'react';
 import Image from 'next/image';
 
-const CustomCard = forwardRef(({ item, id, frontSrc, backText }, ref) => {
+const CustomCard = forwardRef(({ item, id, frontSrc, backText, onMouseEnter }, ref) => {
   
   return (
-    <div className='card-wrapper' id={id} ref={ref}>
+    <div className='card' id={id} ref={ref}  onMouseEnter={onMouseEnter}
+>
+    <div className='card-wrapper'>
 
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
@@ -29,6 +31,7 @@ const CustomCard = forwardRef(({ item, id, frontSrc, backText }, ref) => {
             height={0}
           />
         </div>
+      </div>
     </div>
 
   </div>

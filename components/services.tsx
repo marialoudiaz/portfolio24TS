@@ -17,6 +17,8 @@ function Services() {
   const Lang = indepArray[0].Lang;  
   const containerCardz = useRef(null);
   const cardRefs = useRef([]);
+  // État pour suivre quelle carte est retournée
+
   const imgArr =[
   {
   //  link:'/cards/web.jpg',
@@ -40,13 +42,15 @@ function Services() {
      '/cards/carte-site-back-3.jpg',
      '/cards/carte-site-back-3EN.jpg']
   }]
+  const [isFlipped, setIsFlipped] = useState(Array(imgArr.length).fill(true));
+
 
   useGSAP(() => {
     const cards = cardRefs.current;
     const position = [50, 60, 80];
     const isMobile = window.innerWidth <= 768;
     const positionz = isMobile ? [0, 0, 0] : [-120, 1, 120];
-    const positionTop = isMobile ? [0, 250, 500] : [300, 300, 300];
+    const positionTop = isMobile ? [0, 300, 500] : [300, 300, 300];
     const rotation = [-15, -7.5, 15];
 
     const tl = gsap.timeline({
@@ -81,77 +85,82 @@ function Services() {
       });
     });
 
-    // Nouvelle timeline pour l'effet de rotation avant/arrière
-    const tlRotation = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerCardz.current.querySelector(".cards"),
-        start: "top center", // Début au milieu de l'écran
-        end: "bottom bottom",
-        scrub: 0.5,
-        id: 'rotation-timeline'
-      }
-    });
+    // Nouvelle timeline pour l'effet de rotation avant/arrière - Rotation avec scrolltrigger
+    // const tlRotation = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: containerCardz.current.querySelector(".card"),
+    //     start: "top center", // Début au milieu de l'écran
+    //     end: "bottom bottom",
+    //     scrub: 0.5,
+    //     id: 'rotation-timeline'
+    //   }
+    // });
+    // cards.forEach((card, index) => {
+    //   const backEl = card.querySelector(".flip-card-back");
+    //   const frontEl = card.querySelector(".flip-card-front");
 
-    cards.forEach((card, index) => {
-      const backEl = card.querySelector(".flip-card-back");
-      const frontEl = card.querySelector(".flip-card-front");
+    //   tlRotation.fromTo(frontEl, {
+    //   rotationY: 0,
+    //   zIndex:1000,
+    //   }, {
+    //   rotationY: -180,
+    //     ease: "none",
+    //     duration: 1,
+    //     zIndex:0,
 
-
-      tlRotation.fromTo(frontEl, {
-      rotationY: 0,
-      zIndex:1000,
-      }, {
-      rotationY: -180,
-        ease: "none",
-        duration: 1,
-        zIndex:0,
-
-      }, "-=1.5");
+    //   }, "-=1.5");
       
 
-      tlRotation.fromTo(backEl, {
-        rotationY: -180,
-        zIndex: 0,
-        opacity:1,
-      }, {
-        rotationY: 0,
-        zIndex: 1000,
-        ease: "none",
-        duration: 1
-      }, "-=1.5");
-    });
+    //   tlRotation.fromTo(backEl, {
+    //     rotationY: -180,
+    //     zIndex: 0,
+    //     opacity:1,
+    //   }, {
+    //     rotationY: 0,
+    //     zIndex: 1000,
+    //     ease: "none",
+    //     duration: 1
+    //   }, "-=1.5");
+    // });
   }, { scope: containerCardz });
 
-      // tl.to(card, {
-      //   xPercent: -50,
-      //   yPercent: -50,
-      //   rotate: rotation[index]*(1- staggerOffset),
-      //   ease: "power1.out"
-      // ScrollTrigger.create({
-      //   trigger: containerCardz.current.querySelector(".cards"),
-      //   start: "top top",
-      //   end: ()=> `end end`,
-      //   scrub: 1,
-      //   id: `rotate-flip-${index}`,
-      //   onUpdate: (self)=>{
-      //     const progress = self.progress;
-      //     if (progress >= startOffset && progress <= endOffset){
-      //       const animationProgress = (progress - startOffset) / (1/3);
-      //       const frontRotation = -180 * animationProgress;
-      //       const backRotation = 180 - 180 * animationProgress;
-      //       const cardRotation = rotation[index]*(1-animationProgress);
-            // tl.to(frontEl, {rotateY: frontRotation, ease: "power1.out"});
-            // tl.to(backEl, {rotateY: backRotation, ease: "power1.out"});
-            // tl.to(card, {
-            //   xPercent: -50,
-            //   yPercent: -50,
-            //   rotate: cardRotation,
-            //   ease: "power1.out",
-            // });
-    //       }
-    //     }
-    //   });
-    // });
+  // Rotation au hover
+  // Animation de la face avant
+  useGSAP(() => {
+    cardRefs.current.forEach((card, index) => {
+      const frontEl = card.querySelector(".flip-card-front");
+      
+      gsap.to(frontEl, {
+        rotationY: isFlipped[index] ? 0 : -180,
+        zIndex: isFlipped[index] ? 1 : -1,
+        duration: 1,
+        ease: "power1.out",
+      });
+    });
+  }, [isFlipped]);  // Relance l'animation lorsque `isFlipped` change
+
+  // Animation de la face arrière
+  useGSAP(() => {
+    cardRefs.current.forEach((card, index) => {
+      const backEl = card.querySelector(".flip-card-back");
+      
+      gsap.to(backEl, {
+        rotationY: isFlipped[index] ? -180 : 0,
+        zIndex: isFlipped[index] ? -1 : 1,
+        duration: 1,
+        ease: "power1.out",
+      });
+    });
+  }, [isFlipped]);  // Relance l'animation lorsque `isFlipped` change
+
+  // Fonction de gestion de survol
+  const handleMouseOver = (index) => {
+    setIsFlipped((prevState) => {
+      const newState = [...prevState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
 
   // const cardUp = (index, Lang) => {
   //   const updatedTexts = Array(imgArr.length).fill(null);
@@ -178,6 +187,9 @@ function Services() {
                   frontSrc={Lang==='EN' ? item.title[1] : item.title[0] }
                   backText={Lang==='EN' ? item.text[1] : item.text[0] }
                   id={`card-${index+1}`}
+                  key={index}
+                  onMouseEnter={() => handleMouseOver(index)}
+                    // Gère le survol
                 />
               </div>
             ))}

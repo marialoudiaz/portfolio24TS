@@ -14,7 +14,7 @@ interface CarouselProps {
   }[];
 }
 
-const carousel: React.FC<CarouselProps> = ({dataArray}) => {
+const Carousel: React.FC<CarouselProps> = ({dataArray}) => {
    //L'index de l'image active  
    const [activeIndex, setActiveIndex] = useState(0);
    const [isMobile, setIsMobile] = useState(false);
@@ -77,4 +77,4 @@ const carousel: React.FC<CarouselProps> = ({dataArray}) => {
   )
 }
 
-export default carousel
+export default Carousel

@@ -81,7 +81,13 @@ const Approche: React.FC = () => {
     <>
       <div>
         <div className='grid-col2'>
-          <img className='grid-col2-img' src={portrait} alt='autoportrait souriant en noir et blanc'/>
+          <Image 
+            className='grid-col2-img' 
+            src={portrait} 
+            width={1000}
+            height={0}
+            alt='autoportrait souriant en noir et blanc'
+          />
           <div className='flex-col' style={{justifyContent:'center'}}>
             <div className='flex-wrap'>
               <Image

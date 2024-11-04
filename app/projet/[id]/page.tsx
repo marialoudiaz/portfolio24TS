@@ -398,7 +398,7 @@ function Projet() {
          {/* DIV SECTIONS */}
            {/* SECTION 2 - EXPLICATION PROJET */}
             {descriptionprojectsArr[Number(id)-1].sections && descriptionprojectsArr[Number(id)-1].sections.length > 0 && (
-              descriptionprojectsArr[Number(id)-1].sections.map((section, index) => (
+              descriptionprojectsArr[Number(id)-1].sections.map((section) => (
             <>
             {/* TITRE DE LA PREMIÈRE SECTION */}
               <div className='projet-infos-titre'>

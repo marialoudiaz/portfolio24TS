@@ -39,7 +39,7 @@ const CustomCard = forwardRef(({ item, id, frontSrc, backText, onMouseEnter }, r
   )
   
 });
-
+CustomCard.displayName = 'CustomCard';
 export default CustomCard;
 
 

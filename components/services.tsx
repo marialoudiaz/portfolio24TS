@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useData } from '@/app/context/DataContext';
 import CustomCard from './card';
 import '../styles/App.scss';
@@ -7,7 +7,6 @@ import ReactLenis from "@studio-freight/react-lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { start } from 'repl';
 
 gsap.registerPlugin(ScrollTrigger);
 

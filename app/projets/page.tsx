@@ -13,6 +13,11 @@ import '../../styles/App.scss';
 
 const Projets = () => {
 
+   // ref
+   const gridContainerRef = useRef(null);
+   const imgContainerRef = useRef([]); // Array of refs for project images
+   const descriptionRef = useRef(null);
+   // routage
     const { indepArray } = useData();
     const router = useRouter();
     // Redir si pas datas
@@ -34,9 +39,6 @@ const Projets = () => {
       const prev = '/icons/interface/icon-eye-1.png';
       const next= '/icons/interface/icon-eye-2.png';
     //Variables
-      const gridContainerRef = useRef<HTMLDivElement>(null);
-      const descriptionRef = useRef<HTMLDivElement>(null);
-      const imgContainerRef = useRef<(HTMLDivElement | null)[]>([]);
       const [imageSource, setImageSource] = useState(prev);
       const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 1024);
       const [showFullText, setShowFullText] = useState<boolean>(false);

@@ -158,7 +158,7 @@ const Chargement = () => {
     
   },
   ]; 
-  const selectMenu = (lang:string) => { // Ajouter le type 'number' au paramètre index
+  const selectMenu = (lang:Number) => { // Ajouter le type 'number' au paramètre index
     let arrayRecue;
     // Déterminer le tableau à envoyer selon la langue et l'index sélectionné
     if (lang === 'en') {

@@ -8,11 +8,14 @@ import { useData } from '@/app/context/DataContext'; // Import du contexte
 
 const VideoReveal: React.FC = ({ scrollYProgress }) => {
   
+  //refs
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  //routage
   const { indepArray } = useData();
   if (!indepArray || !indepArray[0].videoOrdi || !indepArray[0].videoTel || !indepArray[0].discover) {
     return <div>Loading...</div>;
   }
-
   // Accès aux infos via le contexte
   const videoOrdi = indepArray[0].videoOrdi;
   const videoTel = indepArray[0].videoTel;
@@ -22,8 +25,8 @@ const VideoReveal: React.FC = ({ scrollYProgress }) => {
   };
   const ordi = videoMap[videoOrdi] || videoMap['videoReveal1']; // Valeur par défaut
   const tel = videoMap[videoTel] || videoMap['videoReveal2']; // Valeur par défaut
-  const desktopVideoRef = useRef<HTMLVideoElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
+  //Fonctions
   //Player video
   const handlePlayVideo = (videoRef: React.RefObject<HTMLVideoElement>) => {
     const videoElement = videoRef.current;

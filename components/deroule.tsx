@@ -19,7 +19,7 @@ const Deroule: React.FC = () => {
 
   useEffect(() => {
     const elements = [el1.current, el2.current, el3.current];
-    elements.forEach((el, index) => {
+    elements.forEach((el) => {
       gsap.fromTo(el,
         { opacity: 0, y: 50 }, // bas vers haut
         {

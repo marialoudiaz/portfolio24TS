@@ -27,9 +27,8 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 	const [acceptTerms, setAcceptTerms] = useState(false); // Ajoutez l'état pour la case à cocher
 
 // Extraire l'identifiant de l'URL
-const id = location.pathname.split('/').pop();
 const form = useRef();
-const sendEmail = async (e:any) => {
+const sendEmail = async (e: React.FormEvent) => {
   e.preventDefault();
   try {
     const response = await fetch('/api/sendEmail', {
@@ -48,11 +47,11 @@ const sendEmail = async (e:any) => {
     setMessage(isEnglish === 'EN' ? [nomessage[0], nomessage[1]] : [nomessage[2], nomessage[3]]);
   }
 };
-const handleInputChange = (e:any) => {
+const handleInputChange = (e: React.FormEvent) => {
 	setEmailData({ ...emailData, [e.target.id]: e.target.value });
 };
 // question c - handlechange
-const handleChange = (e:any) => {
+const handleChange = (e:string) => {
   let valueC = '';
   valueC = e;
   setQuestion(valueC);

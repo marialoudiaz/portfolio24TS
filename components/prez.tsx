@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import Marquee from "react-fast-marquee";
-import Image from 'next/image';
 import '../styles/App.scss';
 import '../globals.css';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
@@ -12,12 +11,12 @@ import {Accordion, AccordionItem} from "@nextui-org/react";
 
 const Prez: React.FC = () => {
 
+  const router = useRouter();
   const { indepArray } = useData(); 
   if (!indepArray || !indepArray[0].presentation || !indepArray[0].expertise || !indepArray[0].cta) {
     return <div>Loading...</div>;
   }
   const { expertise, presentation = [], cta, accordion } = indepArray[0];
-  const router = useRouter();
 
   return (
     <>

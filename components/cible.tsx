@@ -1,14 +1,18 @@
 // components/Cible.tsx
 'use client'
 import React, { useState } from 'react';
-import { motion, useTransform } from 'framer-motion';
+import { motion, useTransform, MotionValue } from 'framer-motion';
 import TextDisperse from './TextDisperse/index';
 import { useData } from '@/app/context/DataContext'; // Importer le contexte
 import { useRouter} from 'next/navigation';
 import '../styles/App.scss';
 import '../globals.css';
 
-const Cible: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress }) => {
+interface CibleProps {
+  scrollYProgress: MotionValue<number>;
+}
+
+const Cible: React.FC<CibleProps> = ({ scrollYProgress }) => {
   
   // Récupérer les données du contexte
   const { indepArray } = useData(); 

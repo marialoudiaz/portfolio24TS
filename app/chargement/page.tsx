@@ -166,7 +166,7 @@ const Chargement = () => {
 },]; 
 
   const selectMenu = (props: string) => {
-    let arrayRecue = props === 'en' ? indepArrayEN : indepArray;
+    const arrayRecue = props === 'en' ? indepArrayEN : indepArray;
     updateData(arrayRecue);
     router.push(`/homepage`);
   };

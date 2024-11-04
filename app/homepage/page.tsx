@@ -66,13 +66,13 @@ const Homepage = () => {
 
   return (
     <div className='scrollable-container'>
-          <Header infos={indepArray}/>
-          <Main infos={indepArray} />
-          <Prez infos={indepArray} />
-          <Approche infos={indepArray} />
-          <Deroule infos={indepArray} />
-          <Formulaire infos={indepArray} />
-          <Footer infos={indepArray}/>
+          <Header/>
+          <Main/>
+          <Prez/>
+          <Approche />
+          <Deroule/>
+          <Formulaire/>
+          <Footer />
     </div>    
   );
 };

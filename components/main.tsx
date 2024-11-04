@@ -31,8 +31,8 @@ const Main = () => {
 
   return (
     <div ref={container}>
-      <Cible infos={indepArray} scrollYProgress={scrollYProgress} />
-      <VideoReveal scrollYProgress={scrollYProgress} infos={indepArray} />
+      <Cible scrollYProgress={scrollYProgress} />
+      <VideoReveal scrollYProgress={scrollYProgress} />
     </div>
   );
 };

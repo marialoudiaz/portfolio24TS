@@ -4,8 +4,14 @@ import { disperse } from './animation';
 import '../../styles/App.scss';
 import '../../globals.css';
 
-export default function TextDisperse({element, props}) {
-  
+interface TextDisperseProps {
+  element: any;
+  props: any;
+  children?: React.ReactNode;
+}
+
+const TextDisperse: React.FC<TextDisperseProps> = ({ element, props }) => {
+
     const [isAnimated, setIsAnimated] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     // const [textClasses, setTextClasses] = useState('text-nothovered');
@@ -46,3 +52,5 @@ export default function TextDisperse({element, props}) {
       </div>
     )
   }
+
+  export default TextDisperse

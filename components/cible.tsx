@@ -38,8 +38,8 @@ const Cible: React.FC<CibleProps> = ({ scrollYProgress }) => {
     >
       <h1>{indepArray[0].hp[0]}</h1>
       
-      <TextDisperse id='text-disperse' element={indepArray[0].hp[1]} props={isHovered ? 'true' : 'false'}>
-        <h2>{indepArray[0].hp[1]}</h2>
+      <TextDisperse element={indepArray[0].hp[1]} props={isHovered ? 'true' : 'false'}>
+        <h2 id='text-disperse'>{indepArray[0].hp[1]}</h2>
       </TextDisperse>
 
       <h2 style={{ color: 'white' }}>{indepArray[0].hp[2]}</h2>

@@ -1,10 +1,14 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
 import '../styles/App.scss';
-import { motion, useTransform } from 'framer-motion';
+import { motion, useTransform, MotionValue } from 'framer-motion';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
 
-const VideoReveal: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
+interface VideoProps {
+  scrollYProgress: MotionValue<number>;
+}
+const VideoReveal: React.FC<VideoProps> = ({ scrollYProgress }) => {
+
   // refs
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);

@@ -38,20 +38,20 @@ const sendEmail = async (e: React.FormEvent) => {
     });
     if (response.ok) {
       console.log('Email envoyé avec succès');
-      setMessage(isEnglish === 'EN' ? [yesmessage[0], yesmessage[1]] : [yesmessage[2], yesmessage[3]]);
-    } else {
+      setMessage(isEnglish === 'EN' ? `${yesmessage[0], yesmessage[1]}` : `${yesmessage[2], yesmessage[3]}`);
+  }else {
       throw new Error('Erreur lors de l\'envoi de l\'email');
     }
   } catch (error) {
     console.error('Échec de l\'envoi :', error);
-    setMessage(isEnglish === 'EN' ? [nomessage[0], nomessage[1]] : [nomessage[2], nomessage[3]]);
+    setMessage(isEnglish === 'EN' ? `${nomessage[0], nomessage[1]}` : `${nomessage[2], nomessage[3]}`);
   }
 };
-const handleInputChange = (e: React.FormEvent) => {
+const handleInputChange = (e) => {
 	setEmailData({ ...emailData, [e.target.id]: e.target.value });
 };
 // question c - handlechange
-const handleChange = (e:string) => {
+const handleChange = (e) => {
   let valueC = '';
   valueC = e;
   setQuestion(valueC);
@@ -60,7 +60,7 @@ const handleChange = (e:string) => {
   handleSubmitQuestion(valueC);
 };
 // question c - validation form
-const handleSubmitQuestion = (props: React.FormEvent | string) => {
+const handleSubmitQuestion = (props) => {
   if ( typeof props == 'string' && props!=='' && acceptTerms) {
   console.log('See you in hell,bitch');
   window.location.href = 'https://www.bible.com/fr/bible/63/MAT.13.24-48.BFC';
@@ -97,7 +97,6 @@ return (
 	<div className='flex-wrap' style={{gap:'2.5rem'}}>
 			<label htmlFor="message">{infos.form[5]}</label>
 			<textarea
-				type="message"
 				id="message"
 				name='message'
 				value={emailData.message}
@@ -107,8 +106,9 @@ return (
 	</div>
   <div className='c'>
     <label htmlFor="question">Do you like chocolate ?</label>
-    <input type="text" id="question" name="question" value={question} onChange={(e)=>handleChange(e)}/>
-  </div>   
+  </div>       
+	<input type="text" id="question" name="question" value={question} onChange={(e)=>handleChange(e)}/>
+
 
 	<div className='flexForm'>
 	<Popover placement="top" showArrow={true}>

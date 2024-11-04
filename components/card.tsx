@@ -1,7 +1,18 @@
 import React, { forwardRef } from 'react';
 import Image from 'next/image';
 
-const CustomCard = forwardRef(({ item, id, frontSrc, backText, onMouseEnter }, ref) => {
+// Déclarez une interface pour les propriétés attendues
+interface CustomCardProps {
+  item: {
+    alt: string[];  // Utilisation d'un tableau de chaînes si `alt` contient plusieurs éléments
+  };
+  id: string;
+  frontSrc: string;
+  backText: string;
+  onMouseEnter?: () => void;  // `onMouseEnter` est facultatif si non toujours nécessaire
+}
+
+const CustomCard = forwardRef<HTMLDivElement, CustomCardProps>(({ item, id, frontSrc, backText, onMouseEnter }, ref) => {
   
   return (
     <div className='card' id={id} ref={ref}  onMouseEnter={onMouseEnter}

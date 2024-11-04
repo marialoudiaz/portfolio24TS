@@ -8,7 +8,7 @@ import { useRouter} from 'next/navigation';
 import '../styles/App.scss';
 import '../globals.css';
 
-const Cible: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
+const Cible: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress }) => {
   
   // Récupérer les données du contexte
   const { indepArray } = useData(); 

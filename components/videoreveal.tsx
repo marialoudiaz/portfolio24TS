@@ -4,7 +4,7 @@ import '../styles/App.scss';
 import { motion, useTransform } from 'framer-motion';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
 
-const VideoReveal: React.FC<{ scrollYProgress: Number }> = ({ scrollYProgress }) => {
+const VideoReveal: React.FC<{ scrollYProgress: number }> = ({ scrollYProgress }) => {
   // refs
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);

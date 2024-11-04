@@ -674,6 +674,7 @@ background-color: #272221;
   align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-top: 1rem;
 }
 .navbar-left{
 pointer-events: auto;
@@ -1212,7 +1213,7 @@ pointer-events: auto;
   top: 50%;
   left: 50%;
   border-radius: 30px;
-  transform: translate(-55%,-55%);
+  transform: translate(-50%,-50%);
   width: 240px!important;
   height: 500px!important;  
   perspective: 1000px;
@@ -1295,19 +1296,16 @@ pointer-events: auto;
   }
 }
 @media screen and (max-width: 768px) {
-  .card, .card-wrapper, .flip-card-back, .flip-card-back{
-    width: auto!important;
-    height: 80%!important;
-    border-radius: 30px!important;
-    top: 5%;
-    object-fit: contain!important;
-    // & img{
-    //   height: fit-content;
-    // }
-  }
   .containerCard{
-    height: 100vh;
-  } 
+    height: 140vh;
+  }
+  .card{
+    width: 120px!important;
+    height: 250px!important;    
+    border-radius: 15px!important;
+    top: 30%;
+    object-fit: contain!important;
+  }
 
 }
 

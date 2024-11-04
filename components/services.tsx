@@ -49,9 +49,10 @@ function Services() {
     const cards = cardRefs.current;
     const position = [50, 60, 80];
     const isMobile = window.innerWidth <= 768;
-    const positionz = isMobile ? [0, 0, 0] : [-120, 1, 120];
-    const positionTop = isMobile ? [0, 300, 500] : [300, 300, 300];
+    const positionz = isMobile ? [45, 45, 45] : [-85, 45, 175];
+    const positionTop = isMobile ? [30, 300, 580] : [300, 300, 300];
     const rotation = [-15, -7.5, 15];
+    console.log('isMobile',isMobile);
 
     const tl = gsap.timeline({
       scrollTrigger: {

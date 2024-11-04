@@ -2,7 +2,6 @@ import React from 'react';
 import { DataProvider } from './context/DataContext';
 // import { Providers } from "./providers";
 import '../globals.css';
-import main from './template'
 
 
 export const metadata = {

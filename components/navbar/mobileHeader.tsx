@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useData } from '../../app/context/DataContext';
-import Link from "next/link";
 import Image from 'next/image';
 import logo from '../../public/logo/logo-nav.png';
 import { MenuIcon, X } from 'lucide-react';

@@ -5,7 +5,6 @@ import { useData } from '../../app/context/DataContext';
 import '../../styles/App.scss';
 import Image from 'next/image';
 import logo from '../../public/logo/logo-nav.png';
-import Link from "next/link";
 import MobileNavbar from '../navbar/mobileHeader';
 //Avec LS
 // interface HeaderProps {

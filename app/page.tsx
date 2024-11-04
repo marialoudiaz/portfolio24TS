@@ -1,10 +1,9 @@
 // app/page.tsx
 import dynamic from 'next/dynamic';
 import '../styles/App.scss';
-import {motion, AnimatePresence} from "framer-motion";
 
 const Logo = dynamic(() => import('./logo/page'), {
-  loading: () => <p>Loading Logo...</p>,
+  loading: () => <div>Loading Logo...</div>,
 });
 
 export default function HomePage() {

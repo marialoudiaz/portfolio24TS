@@ -5,11 +5,9 @@ import ContactForm from './contactForm'; // Remplacez par le chemin correct pour
 import '../../styles/App.scss';
 import '../../globals.css';
 import { useData } from '@/app/context/DataContext'; // Importer le contexte
-import { useRouter} from 'next/navigation';
 
 const Form: React.FC = () => {
   const { indepArray } = useData();
-  const router = useRouter();
 
   const form = indepArray[0].form;
   const display = Array.isArray(indepArray[0].form) ? indepArray[0].form[0] : indepArray[0].form;

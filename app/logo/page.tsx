@@ -1,6 +1,6 @@
 "use client"; // Marquer ce composant comme Client Component
 import React, {useEffect, useState} from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; // Importer useRouter depuis next/navigation
+import { useRouter } from 'next/navigation'; // Importer useRouter depuis next/navigation
 import '../../styles/App.scss';
 import Image
  from 'next/image';
@@ -11,6 +11,7 @@ const Logo = () => {
 // Aller à page chargement après Animation du logo
 //Faire au chargement du site
 useEffect(() => {
+  console.log(opacity);
   setTimeout(() => {
     setOpacity(0);
   }, 1000);

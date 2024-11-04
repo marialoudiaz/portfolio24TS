@@ -8,7 +8,7 @@ export default function TextDisperse({element, props}) {
   
     const [isAnimated, setIsAnimated] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const [textClasses, setTextClasses] = useState('text-nothovered');
+    // const [textClasses, setTextClasses] = useState('text-nothovered');
 
   //Lancer l'animation
     useEffect(() => {
@@ -16,6 +16,7 @@ export default function TextDisperse({element, props}) {
     }, [props]);
   //passer le children ('sur-mesure') en props
     const getChars = (word) => {
+      console.log(isHovered);
       return word.split("").map((char, i) => (
         <motion.h2
           custom={i}

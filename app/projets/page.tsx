@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react';
 import { useData } from '../context/DataContext'; // Importer le contexte
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -153,13 +153,13 @@ const Projets = () => {
           descriptionElement.scrollIntoView({ behavior: 'smooth' });
         }
       };
-      const handlePrev = (index: number) => {
-        const descriptionElements = document.querySelectorAll('.projectImgContainer');
-        const descriptionElement = descriptionElements[index] as HTMLElement;
-        if (descriptionElement) {
-          descriptionElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      };
+      // const handlePrev = (index: number) => {
+      //   const descriptionElements = document.querySelectorAll('.projectImgContainer');
+      //   const descriptionElement = descriptionElements[index] as HTMLElement;
+      //   if (descriptionElement) {
+      //     descriptionElement.scrollIntoView({ behavior: 'smooth' });
+      //   }
+      // };
     // Afficher plus ou moins de texte / Version mobile
       const handleResize = () => {
         setIsMobile(window.innerWidth <= 768);

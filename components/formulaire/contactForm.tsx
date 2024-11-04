@@ -56,6 +56,7 @@ const handleChange = (e:any) => {
   let valueC = '';
   valueC = e;
   setQuestion(valueC);
+	setAcceptTerms(false);
   // Appeler la fonction pour gérer le changement de la question
   handleSubmitQuestion(valueC);
 };

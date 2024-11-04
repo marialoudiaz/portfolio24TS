@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useData } from '@/app/context/DataContext'; // Import du contexte
 import Image from 'next/image';
-import Link from 'next/link';
 import '../styles/App.scss';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -13,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const Deroule: React.FC = () => {
   const { indepArray} = useData(); // Récupérer les données du contexte
 
-  const { citation, cta, deroule } = indepArray[0];
+  const { deroule } = indepArray[0];
   const el1 = useRef(null);
   const el2 = useRef(null);
   const el3 = useRef(null);

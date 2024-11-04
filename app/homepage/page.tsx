@@ -4,31 +4,29 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { useData } from '../context/DataContext';
 import '../../styles/App.scss';
-import transition from '../transition';
 import '../../styles/App.scss';
-
 
 // Importations dynamiques pour le lazy loading
 const Header = dynamic(() => import('../../components/navbar/header'), {
-  loading: () => <p>Loading Header...</p>,
+  loading: () => <div>Loading Header...</div>,
 });
 const Main = dynamic(() => import('../../components/main'), {
-  loading: () => <p>Loading Main...</p>,
+  loading: () => <div>Loading Main...</div>,
 });
 const Prez = dynamic(() => import('../../components/prez'), {
-  loading: () => <p>Loading Prez...</p>,
+  loading: () => <div>Loading Prez...</div>,
 });
 const Approche = dynamic(() => import('../../components/approche'), {
-  loading: () => <p>Loading Approche...</p>,
+  loading: () => <div>Loading Approche...</div>,
 });
 const Deroule = dynamic(() => import('../../components/deroule'), {
-  loading: () => <p>Loading Deroule...</p>,
+  loading: () => <div>Loading Deroule...</div>,
 });
 const Formulaire = dynamic(() => import('../../components/formulaire/formulaire'), {
-  loading: () => <p>Loading Formulaire...</p>,
+  loading: () => <div>Loading Formulaire...</div>,
 });
 const Footer = dynamic(() => import('../../components/footer'), {
-  loading: () => <p>Loading Footer...</p>
+  loading: () => <div>Loading Footer...</div>
 });
 
 const Homepage = () => {

@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useData } from '../context/DataContext'; // Importer le contexte
 import { useRouter} from 'next/navigation';
-import Image from 'next/image';
 import '../../styles/App.scss';
 import '../../globals.css';
 import Header from '../../components/navbar/header';

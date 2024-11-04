@@ -11,13 +11,11 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
+  const containerCardz = useRef(null);
+  const cardRefs = useRef([]);
   const { indepArray } = useData(); 
   const { accordion } = indepArray[0];
   const Lang = indepArray[0].Lang;  
-  const containerCardz = useRef(null);
-  const cardRefs = useRef([]);
-  // État pour suivre quelle carte est retournée
-
   const imgArr =[
   {
   //  link:'/cards/web.jpg',
@@ -181,9 +179,9 @@ function Services() {
             {imgArr.map((item, index) => (
               <div className="card" key={index}>
                 <CustomCard
-                  ref={(el) => (cardRefs.current[index] = el)}
+                  ref={(el) => {cardRefs.current[index]= el}}
                   item={item}
-                  index={index}
+                  // index={index}
                   frontSrc={Lang==='EN' ? item.title[1] : item.title[0] }
                   backText={Lang==='EN' ? item.text[1] : item.text[0] }
                   id={`card-${index+1}`}

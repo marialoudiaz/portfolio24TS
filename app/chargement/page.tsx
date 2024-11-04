@@ -44,7 +44,8 @@ const Chargement = () => {
     {
       ids: 0,
       Lang: 'FR',
-      header:['mes services','mes réalisations'],
+      header:['Mes Services','Mes Réalisations'],
+      footer:"révélons votre unicité",
       hp:["La création d'identités visuelles",'sur-mesure','pour les indépendants'],
       videoOrdi: 'videoReveal1',
       videoTel: 'videoReveal2',
@@ -85,14 +86,29 @@ const Chargement = () => {
       deroule:['flex', 'Votre projet', "C'est une collaboration sur-mesure pour lui donner vie. Chaque projet est unique tout comme vous. Ainsi, je vous accompagne à chaque étape afin de créer une solution sur-mesure la mieux adaptée à vos besoins.", "Juste une mise au point", "Nous parlons de votre projet et établissons ensemble une stratégie. Nous définissons alors les services qu'il vous faut. Chaque devis est réalisé sur-mesure pour être au plus-prêt de vos besoins.", "L’aventure commence", "Je vous retourne un devis comprenant tous les services ainsi que le temps nécessaire à leurs réalisations. La date du livrable est établie.", "Tada!", "C’est le jour où vous recevez votre premier livrable. À partir de là, vous avez la possibilité de demander deux modifications (offertes)."],
       citation: 'Pour un design qui vous ressemble.',
       form: ['Racontons','votre','histoire','Prénom','Email','Votre message','Envoyer',"Collaborons, pour emmener votre business à l’étape supérieure & le faire décoller 🚀. Des idées, des questions, une terrible envie de me contacter ? Je vous écoute."],
-      words: ['auto-entrepreneur.se','petite entreprise','start-up','porteur.se de projet','idéaliste','rêveur.se']
-  },
+      words: ['auto-entrepreneur.se','petite entreprise','start-up','porteur.se de projet','idéaliste','rêveur.se'],
+      ml:[
+        "Mentions Légales",
+        "À propos Maria Lou Diaz",
+        "Éditeurs du site",
+        "Le site www.marialoudiaz.fr est édité par Maria Lou Diaz, micro-entreprise immatriculée au Registre du Commerce et des Sociétés de Nîmes sous le numéro 892878067, dont le siège social est situé au 2 rue de la Chicanette, 30250 Combas, France. Contact : contact@marialoudiaz.fr. Hébergeur : Vercel, Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis. Conception et développement : Maria Lou Diaz",
+        "Propriété intellectuelle",
+        "La présentation et le contenu de ce site, protégés par la législation en vigueur, appartiennent à Maria Lou Diaz. Aucune reproduction, représentation, adaptation, traduction et /ou modification, partielle ou intégrale, ou transfert vers un autre site, ne pourra en être faite sans l’accord préalable et écrit de Maria Lou Diaz. Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.",
+        "Politique de confidentialité",
+        "Aucune donnée utilisateur n’est stockée de façon permanente. Les adresses e-mail collectées via le formulaire de contact ne sont ni stockées dans un fichier client ni partagées avec des tiers.",
+        "Liens hypertextes",
+        "Les liens externes présents sur ce site sont fournis à titre d'information. Maria Lou Diaz décline toute responsabilité concernant leur contenu et leur conformité aux normes d’ordre public et bonnes mœurs, d’une part, ni de leur politique de protection des données personnelles ou d’utilisation qui en seraient faites, d’autre part. En accédant à un autre site, par l’intermédiaire d’un lien hypertexte, vous acceptez que cet accès s’effectue à vos risques et périls. En conséquence, tout préjudice direct ou indirect résultant de votre accès à un autre site relié par un lien hypertexte ne peut engager la responsabilité de Maria Lou Diaz.",
+        "Accès au site",
+        "Maria Lou Diaz s'efforce de garantir l'accès continu au site www.marialoudiaz.fr. Des interruptions peuvent toutefois se produire pour maintenance ou raisons techniques, sans responsabilité de l'éditrice pour les conséquences éventuelles."
+      ]
+    },
   ];
     const indepArrayEN = [
     {
       ids: 2,
-      Lang: 'EN', //aide pour afficher projets en FR ou EN
-      header:['my services','my projects'],
+      Lang: 'EN',
+      header:['My Services','My Projects'],
+      footer:"let's design your uniqueness",
       hp:['The creation of','custom','visual identities for solopreneurs'],
       videoOrdi: 'videoReveal5',
       videoTel: 'videoReveal6',
@@ -125,6 +141,21 @@ const Chargement = () => {
       citation: 'For a design that suits you.',
       form: ["Let's tell",'your','story','Surname','Email','Your message','Send',"Let's collaborate to take your business to the next level and make it soar 🚀. Ideas, questions, a strong desire to get in touch? I'm listening."],
       words: ['self-employed', 'small business', 'start-up', 'project leader', 'idealist', 'dreamer'],
+      ml: [
+        "Legal Notice",
+        "About Maria Lou Diaz",
+        "Site Publisher",
+        "The website www.marialoudiaz.fr is published by Maria Lou Diaz, a sole proprietorship registered with the Nîmes Trade and Companies Register under number 892878067, with headquarters located at 2 Rue de la Chicanette, 30250 Combas, France. Contact: contact@marialoudiaz.fr. Hosting provider: Vercel, Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. Design and development: Maria Lou Diaz",
+        "Intellectual Property",
+        "The presentation and content of this site are protected by applicable laws and are the property of Maria Lou Diaz. No reproduction, representation, adaptation, translation, and/or modification, whether in part or in full, or transfer to another site, may occur without the prior written consent of Maria Lou Diaz. Any unauthorized use of the site or any of its elements will be considered infringement and may be subject to legal action under articles L.335-2 and following of the Intellectual Property Code.",
+        "Privacy Policy",
+        "No user data is stored permanently. Email addresses collected through the contact form are not stored in a client file or shared with third parties.",
+        "Hypertext Links",
+        "External links on this site are provided for informational purposes only. Maria Lou Diaz disclaims any responsibility for their content and compliance with public order and decency standards, as well as their personal data protection policies. By accessing another site via a hyperlink, you agree to do so at your own risk. Consequently, any direct or indirect damage resulting from your access to another linked site cannot engage the responsibility of Maria Lou Diaz.",
+        "Site Access",
+        "Maria Lou Diaz strives to ensure continuous access to the website www.marialoudiaz.fr. However, interruptions may occur for maintenance or technical reasons, without liability for the publisher for any resulting consequences."
+    ]
+    
   },
   ]; 
   const selectMenu = (lang:string) => { // Ajouter le type 'number' au paramètre index

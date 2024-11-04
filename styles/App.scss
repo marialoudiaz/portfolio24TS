@@ -247,6 +247,27 @@ label{
   flex-wrap: wrap;
   justify-content: center;
 }
+.section-ml{
+  background-image: url('/img/fond-homepage.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  // height: 100vh;
+  padding: 6rem;
+  padding-bottom: 0rem;
+  margin-bottom: 0rem;
+
+  & #ml{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: auto;
+  }
+  & h1, h2, p{
+    color: white;
+  }
+}
 //marche pas
 .flex-wrap-center:has(> .btn-transp-dark ){
   margin-left: 2rem!important;
@@ -261,6 +282,9 @@ label{
   .flex-wrap-center:has(> .btn-transp-dark ){
     margin: 0!important;
   }
+  #ml{
+    text-align: center;
+    }
 }
 
 
@@ -750,18 +774,99 @@ pointer-events: auto;
 }
 /*FOOTER*/
 .footer{
-  background-color: #fffffff1;
-  z-index: 1200;
-  position: fixed;
-  top: 93vh;
   width: 100vw;  
   padding: 1rem 0 1rem 0;
+  background-image: url("../public/img/fond-homepage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(auto-fit, minmax(0, 1fr)) !important;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
   & div{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
 }
+.footer-logo{
+  gap: 10px!important;
+  & p{
+    color: white;
+  }
+  & p:first-of-type{
+    font-family: var(--Titles)!important;
+    font-weight: 600!important;
+    font-size: calc(var(--body)*1.2);
+    color: white;
+  }
+  & img{
+    filter: invert(1);
+    width: 15rem!important;
+    height: auto;
+  }
+}
+.footer-nav{
+  display: grid!important;
+  grid-template-columns: repeat(2, 1fr)!important;
+  gap: 2px!important;
+  & p{
+    color: white;
+    text-transform: uppercase;
+  }
+  & p:hover{
+  font-family: var(--Titles);
+  font-weight: 700;
+  color: var(--gold);
+  }
+}
+
+.footer-icon{
+  & svg{
+    width: 10rem!important;
+  }
+  & svg:hover{
+    width: 20rem!important;
+    color: var(--gold);
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 50vw, 40vw, 10vw!important;
+    gap:2rem!important;
+    justify-content: center;
+  }
+  .footer-nav{
+    display: flex!important;
+    flex-wrap: wrap!important;
+    gap: 10px!important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .footer{
+   display: flex!important;
+   flex-direction: column!important;
+   gap: 1rem!important;
+   justify-content: center!important;
+   align-items: center!important;
+   text-align: center!important;
+   & .flex-wrap-center{
+    display: flex!important;
+    flex-direction: row!important;
+    gap: 10px!important;
+   }
+  }
+}
+
+
 /*ANIMATION NAVBAR*/
 @keyframes fadeInUp {
   from {

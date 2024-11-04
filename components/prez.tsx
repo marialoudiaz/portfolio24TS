@@ -5,6 +5,7 @@ import Image from 'next/image';
 import '../styles/App.scss';
 import '../globals.css';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
+import { useRouter} from 'next/navigation';
 import Services from '../components/services';
 import {Accordion, AccordionItem} from "@nextui-org/react";
 
@@ -16,24 +17,20 @@ const Prez: React.FC = () => {
     return <div>Loading...</div>;
   }
   const { expertise, presentation = [], cta, accordion } = indepArray[0];
+  const router = useRouter();
+
   return (
     <>
       <div className='text-homepage'>
         <div className='name'>
         <h1 style={{ color: '#00000000'}}> Maria Lou Diaz | Art Director • Specialized in branding</h1>
-          {/* <Image
-            src='/logo/marialoudiaz.png'
-            alt="Maria Lou Diaz"
-            width={1000}
-            height={300}
-          /> */}
         </div>
 
         <div className='prez'>
             <h4 id='p-hp'> {presentation[0]}</h4>
             <p id='prez-txt'> {presentation[1]}</p>
 
-            <button className='btn-transp' style={{ margin: '2rem auto' }}>
+            <button className='btn-transp' style={{ margin: '2rem auto' }}  onClick={() => router.push('/homepage/#Contact')}>
               <div>
                 <svg
                     className="icon-transp"
@@ -110,7 +107,7 @@ const Prez: React.FC = () => {
             <p>{accordion[6]}</p>
           </AccordionItem>
         </Accordion>
-        <button className='btn-transp' style={{ margin: '2rem auto' }}>
+        <button className='btn-transp' style={{ margin: '2rem auto' }} onClick={() => router.push('/projets')}>
               <div>
                 <svg
                     className="icon-transp"

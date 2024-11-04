@@ -5,8 +5,8 @@ import '../../styles/App.scss';
 import '../../globals.css';
 
 interface TextDisperseProps {
-  element: any;
-  props: any;
+  element: string;
+  props: string;
   children?: React.ReactNode;
 }
 

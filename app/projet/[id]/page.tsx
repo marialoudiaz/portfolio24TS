@@ -311,8 +311,16 @@ function Projet() {
       // Ouvrir le lien
       const handleDiscoverClick = () => {
         const url = descriptionprojectsArr[Number(id)].onClick;
-        window.open(url, '_blank'); // '_blank' ouvre le lien dans une nouvelle fenêtre ou onglet
-      };
+        
+        // Vérifiez si `url` est un tableau et sélectionnez le premier élément si nécessaire
+        const finalUrl = Array.isArray(url) ? url[0] : url;
+        // Assurez-vous que `finalUrl` est une chaîne avant d'appeler `window.open`
+        if (typeof finalUrl === 'string') {
+            window.open(finalUrl, '_blank'); // Ouvre dans un nouvel onglet
+        } else {
+            console.error('URL non valide');
+        }
+    };
 
 
   return (

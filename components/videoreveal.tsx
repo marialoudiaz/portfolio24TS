@@ -4,30 +4,27 @@ import '../styles/App.scss';
 import { motion, useTransform } from 'framer-motion';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
 
-
-
-const VideoReveal: React.FC = ({ scrollYProgress }) => {
-  
-  //refs
+const VideoReveal: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress }) => {
+  // refs
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
-  //routage
+
+  // Routage
   const { indepArray } = useData();
-  if (!indepArray || !indepArray[0].videoOrdi || !indepArray[0].videoTel || !indepArray[0].discover) {
-    return <div>Loading...</div>;
-  }
-  // Accès aux infos via le contexte
-  const videoOrdi = indepArray[0].videoOrdi;
-  const videoTel = indepArray[0].videoTel;
+  
+  // Default values if indepArray data is missing
+  const videoOrdi = indepArray?.[0]?.videoOrdi || 'videoReveal1';
+  const videoTel = indepArray?.[0]?.videoTel || 'videoReveal2';
+
+  // Video map for fallback values
   const videoMap: { [key: string]: string } = {
     'videoReveal1': '/video/videos-introductives/D-INDEP-FR.mp4',
     'videoReveal2': '/video/videos-introductives/M-INDEP-FR.mp4',
   };
-  const ordi = videoMap[videoOrdi] || videoMap['videoReveal1']; // Valeur par défaut
-  const tel = videoMap[videoTel] || videoMap['videoReveal2']; // Valeur par défaut
+  const ordi = videoMap[videoOrdi];
+  const tel = videoMap[videoTel];
 
-  //Fonctions
-  //Player video
+  // Functions
   const handlePlayVideo = (videoRef: React.RefObject<HTMLVideoElement>) => {
     const videoElement = videoRef.current;
     if (videoElement) {
@@ -35,16 +32,15 @@ const VideoReveal: React.FC = ({ scrollYProgress }) => {
       videoElement.play();
     }
   };
-  //Sortir FS
+
+  // Fullscreen exit
   const resetVideoOnFullscreenExit = (videoRef: React.RefObject<HTMLVideoElement>) => {
     const videoElement = videoRef.current;
     const handleFullscreenChange = () => {
-      if (!document.fullscreenElement) {
-        if (videoElement) {
-          videoElement.pause();
-          videoElement.currentTime = 0;
-          videoElement.load();
-        }
+      if (!document.fullscreenElement && videoElement) {
+        videoElement.pause();
+        videoElement.currentTime = 0;
+        videoElement.load();
       }
     };
     document.addEventListener('fullscreenchange', handleFullscreenChange);
@@ -52,13 +48,20 @@ const VideoReveal: React.FC = ({ scrollYProgress }) => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
   };
-  // Effet transition scroll
+
+  // Unconditionally call useTransform and useEffect hooks
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+
   useEffect(() => {
     resetVideoOnFullscreenExit(desktopVideoRef);
     resetVideoOnFullscreenExit(mobileVideoRef);
   }, []);
+
+  // Return fallback content if data is missing
+  if (!indepArray || !indepArray[0].discover) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <motion.div style={{ scale, rotate }}>

@@ -27,17 +27,17 @@ import aftereffect from '../../public/icons/softs/aftereffect.png';
 const Chargement = () => {
   const router = useRouter();
   const {updateData} = useData();
-  const [hoveredLink, setHoveredLink] = useState(null);
+  const [hoveredLink, setHoveredLink] = useState('');
   const navLinks = [
     { label: 'Français', id: 'fr'},
     { label: 'English', id: 'en'},
   ];
   //Hover boutons nav
-  const onHover = (lien:any) => {
+  const onHover = (lien:string) => {
     setHoveredLink(lien);
   };
   const onLeave = () => {
-    setHoveredLink(null);
+    setHoveredLink('');
   };
   // Données des projets
   const indepArray = [
@@ -158,10 +158,11 @@ const Chargement = () => {
     
   },
   ]; 
-  const selectMenu = (lang:Number) => { // Ajouter le type 'number' au paramètre index
+  const selectMenu = (Lang:'fr'|'en') => { 
+    // Ajouter le type 'number' au paramètre index
     let arrayRecue;
     // Déterminer le tableau à envoyer selon la langue et l'index sélectionné
-    if (lang === 'en') {
+    if (Lang === 'en') {
       arrayRecue = indepArrayEN;
     } else {
       arrayRecue = indepArray;

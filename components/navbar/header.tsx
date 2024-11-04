@@ -20,7 +20,7 @@ const Header = () => {
   const router = useRouter();
   const { indepArray } = useData();
   const mobile = indepArray[0].header;
-  const [hoveredLink, setHoveredLink] = useState(null);
+  const [hoveredLink, setHoveredLink] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const Lang = indepArray && indepArray[0] && indepArray[0].Lang ? JSON.stringify(indepArray[0].Lang) : '';
   const navLinks = [
@@ -30,11 +30,11 @@ const Header = () => {
   ];
 
 // Fonctions Hover
-  const onHover = (lien:any) => {
+  const onHover = (lien:string) => {
     setHoveredLink(lien);
   };
   const onLeave = () => {
-    setHoveredLink(null);
+    setHoveredLink('');
   };
 // Fonction menu mobile
   const toggleMenu = () => {

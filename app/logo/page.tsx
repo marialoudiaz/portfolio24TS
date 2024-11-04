@@ -18,6 +18,7 @@ useEffect(() => {
   setTimeout(() => {
     router.push(`/chargement`);
   }, 2000); 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [router]);
 
   return (

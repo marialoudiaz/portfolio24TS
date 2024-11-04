@@ -60,8 +60,8 @@ const handleChange = (e:string) => {
   handleSubmitQuestion(valueC);
 };
 // question c - validation form
-const handleSubmitQuestion = (props:any) => {
-  if (props !== '' && acceptTerms) {
+const handleSubmitQuestion = (props: React.FormEvent | string) => {
+  if ( typeof props == 'string' && props!=='' && acceptTerms) {
   console.log('See you in hell,bitch');
   window.location.href = 'https://www.bible.com/fr/bible/63/MAT.13.24-48.BFC';
   } else {

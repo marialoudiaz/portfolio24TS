@@ -159,8 +159,8 @@ const Chargement = () => {
   },
   ]; 
   const selectMenu = (props: string) => { 
-    let arrayRecue= props;
-    if (Lang === 'en') {
+    let arrayRecue = props;
+    if (props === 'en') {
       arrayRecue = indepArrayEN;
     } else {
       arrayRecue = indepArray;

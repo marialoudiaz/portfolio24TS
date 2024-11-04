@@ -1,10 +1,10 @@
 "use client";
-import React, {useState} from 'react';
-import { useRouter} from 'next/navigation';
-import {useData} from '@/app/context/DataContext';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useData } from '@/app/context/DataContext';
 import '../../styles/App.scss';
 import '../../globals.css';
-/*MEDIAS*/
+/* MEDIAS */
 import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
 import html from '../../public/icons/softs/html.png';
 import css from '../../public/icons/softs/css.png';
@@ -26,16 +26,24 @@ import aftereffect from '../../public/icons/softs/aftereffect.png';
 
 const Chargement = () => {
   const router = useRouter();
-  const {updateData} = useData();
+  const { updateData } = useData();
   const [hoveredLink, setHoveredLink] = useState('');
+  const [isClient, setIsClient] = useState(false);  // Nouvel état pour vérifier si on est côté client
+
   const navLinks = [
-    { label: 'Français', id: 'fr'},
-    { label: 'English', id: 'en'},
+    { label: 'Français', id: 'fr' },
+    { label: 'English', id: 'en' },
   ];
-  //Hover boutons nav
-  const onHover = (lien:string) => {
+
+  // Vérifie si le composant est rendu côté client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const onHover = (lien: string) => {
     setHoveredLink(lien);
   };
+
   const onLeave = () => {
     setHoveredLink('');
   };
@@ -103,9 +111,11 @@ const Chargement = () => {
       ]
     },
   ];
-    const indepArrayEN = [
+    
+
+  const indepArrayEN = [
     {
-      ids: 2,
+      ids: 1,
       Lang: 'EN',
       header:['My Services','My Projects'],
       footer:"let's design your uniqueness",
@@ -135,8 +145,7 @@ const Chargement = () => {
         "What sets me apart is my approach, which is based on attentive and thorough listening to your needs. Rather than offering pre-packaged solutions, I make sure to fully understand your expectations to provide truly tailored services. My versatility in both web and print design allows me to offer a comprehensive service, combining expertise in both digital and print mediums. With my experience as a graphic designer and developer, I grasp the nuances of these two worlds, delivering results that meet your ambitions.",
         "Shall we take the time to discuss it?"
       ],
-      approche: ['My approach', 'To create is to make the invisible visible.','Authenticity','Creating a form of preciousness beyond paper.','Detail','The poetry of detail: symbolism, framing, choice of words.','Harmony',
-'The pursuit of beauty: shape, curves of a font, the symbiosis of colors.',"Nature","Inspired by the harmony, symmetry, and symbolism of plants and flowers.","Minimalism","Seeking the essence of an idea to communicate with memorability.","Color","Express an emotion & animate your universe with the power of color.",branding_specialist],
+      approche: ['My approach', 'To create is to make the invisible visible.','Authenticity','Creating a form of preciousness beyond paper.','Detail','The poetry of detail: symbolism, framing, choice of words.','Harmony','The pursuit of beauty: shape, curves of a font, the symbiosis of colors.',"Nature","Inspired by the harmony, symmetry, and symbolism of plants and flowers.","Minimalism","Seeking the essence of an idea to communicate with memorability.","Color","Express an emotion & animate your universe with the power of color.",branding_specialist],
       deroule:['flex','Your project',"It's a tailor-made collaboration to bring it to life. Each project is unique, just like you. That's why I support you at every step, to create a custom solution that best fits your needs.","Just a clarification","We discuss your project and together establish a strategy. Depending on your project, we define the services required. Each quote is custom-made to closely match your needs.","The adventure begins","I will send you a quote including all services as well as the time needed for their completion. The delivery date is set.","Tada!","This is the day you receive your first deliverable. From then on, you have the option to request two modifications (free of charge)."],
       citation: 'For a design that suits you.',
       form: ["Let's tell",'your','story','Surname','Email','Your message','Send',"Let's collaborate to take your business to the next level and make it soar 🚀. Ideas, questions, a strong desire to get in touch? I'm listening."],
@@ -153,65 +162,60 @@ const Chargement = () => {
         "Hypertext Links",
         "External links on this site are provided for informational purposes only. Maria Lou Diaz disclaims any responsibility for their content and compliance with public order and decency standards, as well as their personal data protection policies. By accessing another site via a hyperlink, you agree to do so at your own risk. Consequently, any direct or indirect damage resulting from your access to another linked site cannot engage the responsibility of Maria Lou Diaz.",
         "Site Access",
-        "Maria Lou Diaz strives to ensure continuous access to the website www.marialoudiaz.fr. However, interruptions may occur for maintenance or technical reasons, without liability for the publisher for any resulting consequences."
-    ]
-    
-  },
-  ]; 
-  const selectMenu = (props: string) => { 
-    let arrayRecue = [];
-    if (props === 'en') {
-      arrayRecue = indepArrayEN;
-    } else {
-      arrayRecue = indepArray;
-    }
+        "Maria Lou Diaz strives to ensure continuous access to the website www.marialoudiaz.fr. However, interruptions may occur for maintenance or technical reasons, without liability for the publisher for any resulting consequences."]
+},]; 
+
+  const selectMenu = (props: string) => {
+    let arrayRecue = props === 'en' ? indepArrayEN : indepArray;
     updateData(arrayRecue);
-    router.push(`/homepage`)
+    router.push(`/homepage`);
   };
-//choix langue based on navigator
-  const selectLang =()=>{
+const selectLang = () => {
+  if (isClient) {
     if (/^fr\b/.test(navigator.language)) {
-      return(
+      return (
         <>
-        <h1>Bienvenue</h1>
-        <h3>Choisissez votre langue</h3>
+          <h1>Bienvenue</h1>
+          <h3>Choisissez votre langue</h3>
         </>
-      )
-    } else{
-      return(
+      );
+    } else {
+      return (
         <>
           <h1>Welcome</h1>
           <h3>Choose your language</h3>
         </>
-    )
+      );
     }
   }
-  
-  return (
-    <>
-      <div className='relative'>
-
-        <div className='gridVideo'>
-          {selectLang()}
-
-          {navLinks.map(link => (
-          <div key={link.id} className='inline-flex button-navbar'>     
-            <p  className={hoveredLink === link.id ? 'hovered-link' : ''} 
-                onMouseEnter={() => onHover(link.id)}
-                onMouseLeave={onLeave}
-                onClick={() => selectMenu(link.id)}>
-             {link.label}
-            </p>
-          </div>
-          ))}
-        </div>
-
-        <video className='background-video2' autoPlay muted playsInline>
-           <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
-        </video>
-      </div>
-    </>
-  );
+  return null;
 };
 
+return (
+  <>
+    <div className='relative'>
+      <div className='gridVideo'>
+        {selectLang()}
+
+        {navLinks.map(link => (
+          <div key={link.id} className='inline-flex button-navbar'>
+            <p
+              className={hoveredLink === link.id ? 'hovered-link' : ''}
+              onMouseEnter={() => onHover(link.id)}
+              onMouseLeave={onLeave}
+              onClick={() => selectMenu(link.id)}
+            >
+              {link.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <video className='background-video2' autoPlay muted playsInline>
+        <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
+      </video>
+    </div>
+  </>
+);
+};
 export default Chargement;

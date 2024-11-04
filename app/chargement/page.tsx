@@ -158,18 +158,13 @@ const Chargement = () => {
     
   },
   ]; 
-  const selectMenu = (Lang:'fr'|'en') => { 
-    // Ajouter le type 'number' au paramètre index
-    let arrayRecue;
-    // Déterminer le tableau à envoyer selon la langue et l'index sélectionné
+  const selectMenu = (props: string) => { 
+    let arrayRecue= props;
     if (Lang === 'en') {
       arrayRecue = indepArrayEN;
     } else {
       arrayRecue = indepArray;
     }
-    //Si j'utilise LS
-    // const dataToSend = {arrayRecue};
-    // localStorage.setItem('data', JSON.stringify(dataToSend));
     updateData(arrayRecue);
     router.push(`/homepage`)
   };

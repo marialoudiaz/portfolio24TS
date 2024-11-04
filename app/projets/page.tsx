@@ -167,7 +167,10 @@ const Projets = () => {
           <div className='grid-container-projets' ref={gridContainerRef}>
             {projectsArr.map((project, index) => (
               <div className='project-wrapper' key={index} style={{ marginBottom: '2rem' }}>
-                <div className='projectImgContainer' ref={(el) => (imgContainerRef.current[index] = el)} onClick={() => handleDiscover(project.id)}>
+                <div className='projectImgContainer' 
+                    ref={(el) => {imgContainerRef.current[index] = el}} 
+                    onClick={() => handleDiscover(project.id)}
+                >
                   <video className='projectHoverVideo' autoPlay loop muted playsInline>
                     <source src={project.video} type='video/mp4' />
                   </video>

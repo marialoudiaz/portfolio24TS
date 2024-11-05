@@ -114,7 +114,7 @@ return (
 	<div className='flexForm'>
 	<Popover placement="top" showArrow={true}>
       <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem'}}>
-        <Button className='bg-white b-0' style={{position:'inherit', padding:'3rem', alignItems:'flex-start'}}>
+        <Button className='bg-white b-0' style={{position:'inherit', padding:'3rem', alignItems:'center', height:'fit-content'}}>
 					<div
 						className='btn-transp-dark'
 						onClick={sendEmail} // Handle click to trigger form submission

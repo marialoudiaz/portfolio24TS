@@ -270,7 +270,7 @@ const Projets = () => {
               </div>
               <div
                   className="btn-transp-rs"
-                  onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+                  onClick={() => window.open('https://github.com/marialoudiaz/', '_blank', 'noreferrer')}
               >
                 <div>
                   <FontAwesomeIcon className='icon-transp-big' icon={faGithub} />
@@ -278,7 +278,7 @@ const Projets = () => {
               </div>
               <div
                   className="btn-transp-rs"
-                  onClick={() => window.open('https://www.linkedin.com/in/maria-lou-diaz-1b7ba8143/', '_blank', 'noreferrer')}
+                  onClick={() => window.open('https://www.instagram.com/marialoudiaz/', '_blank', 'noreferrer')}
               >
                 <div>
                   <FontAwesomeIcon className='icon-transp-big' icon={faInstagram} />

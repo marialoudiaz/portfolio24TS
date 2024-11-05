@@ -1801,7 +1801,21 @@ textarea{
 .c{
   display: none;
 }
-
+#popover{
+  position:absolute;
+  width:fit-content; 
+  height:fit-content; 
+  top:50%; 
+  margin:0; 
+  left:50%;
+  & div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+}
 /*MEDIA QUERIES*/
 @media screen and (max-width: 768px) {
   .grid-col2 {

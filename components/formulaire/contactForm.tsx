@@ -139,10 +139,10 @@ return (
 				</Button>
       </PopoverTrigger>
 
-      <PopoverContent style={{position:'absolute',width:'fit-content', height:'fit-content', top:'50%', margin:0, left:'50%'}}>
-        <div className="px-1 py-2">
+      <PopoverContent id='popover'>
+        <div>
 					<Image src='/icons/projets/devis.png' alt='icon enveloppe avec un coeur' width={50} height={50}/>
-          <div className="text-tiny"><p>{message}</p></div>
+          <p>{message}</p>
         </div>
       </PopoverContent>
     </Popover>

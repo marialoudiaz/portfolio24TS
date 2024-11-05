@@ -106,14 +106,15 @@ return (
 	</div>
   <div className='c'>
     <label htmlFor="question">Do you like chocolate ?</label>
+		<input type="text" id="question" name="question" value={question} onChange={(e)=>handleChange(e)}/>
   </div>       
-	<input type="text" id="question" name="question" value={question} onChange={(e)=>handleChange(e)}/>
+	
 
 
 	<div className='flexForm'>
 	<Popover placement="top" showArrow={true}>
       <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem'}}>
-        <Button className='bg-white b-0'>
+        <Button className='bg-white b-0' style={{position:'inherit', padding:'3rem'}}>
 					<div
 						className='btn-transp-dark'
 						onClick={sendEmail} // Handle click to trigger form submission

@@ -1,6 +1,6 @@
 // components/Cible.tsx
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useTransform, MotionValue } from 'framer-motion';
 import TextDisperse from './TextDisperse/index';
 import { useData } from '@/app/context/DataContext'; // Importer le contexte
@@ -20,6 +20,7 @@ const Cible: React.FC<CibleProps> = ({ scrollYProgress }) => {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   const [isHovered, setisHovered] = useState<boolean>(false);
   const router = useRouter();
+  const isMobile = window.innerWidth <= 768;
 
   const sendChildren = () => {
     setisHovered(true);
@@ -27,6 +28,11 @@ const Cible: React.FC<CibleProps> = ({ scrollYProgress }) => {
   const handleMouseLeave = () => {
     setisHovered(false);
   };
+
+  // Lancer le text disperse au montage du composant directement en mode mobile
+  useEffect(() => {
+    isMobile ? setisHovered(true) : setisHovered(false);
+  }, []); 
 
   return (
     <motion.div 

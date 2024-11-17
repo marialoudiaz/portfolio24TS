@@ -172,7 +172,7 @@ function Services() {
   return (
     <>
       <ReactLenis root>
-        <h3 style={{ color: "white", marginTop: '2rem' }}>{accordion[0]}</h3>
+        <h3 style={{marginTop: '2rem' }}>{accordion[0]}</h3>
         <div id='Services' className='containerCard' ref={containerCardz}>
          
           <section className='cards'>

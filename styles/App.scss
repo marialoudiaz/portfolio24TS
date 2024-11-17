@@ -1319,31 +1319,33 @@ display: flex;
 flex-direction: wrap;
 }   
 .bg-divider{
-  color: white!important;
+  color: var(--gold)!important;
 }
 .accordion-title h2 button div span{
-  font-family: var(--Titles)!important;
-  // font-weight: 600!important;
-  color: white!important;
-  font-size: var(--h4);
   line-height: 1.5;
-}
-.accordion-title p{
-  color: white!important;
+  font-family: var(--Body)!important;
+  font-weight: 600!important;
+  font-size: var(--h4)!important;
+  color: var(--primary);
 }
 .accordion-title h2 button span svg{
   width: 2rem;
-  color: white!important;
 }
 .accordion-title{
   border-radius: 70px;
   padding: 1rem;
   text-align: left;
- 
+}
+.accordion-title p {
+color: var(--primary)!important;
+}
+.accordion-title h2 svg{
+  color: var(--gold)
 }
 @media screen and (max-width: 768px) {
   .accordion-title h2 button div span{
-    font-size: var(--h4M);
+    font-size: var(--h4M)!important;
+    font-weight: 500;
     text-align: center;
   }
   .accordion-title p{

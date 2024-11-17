@@ -54,11 +54,11 @@ const Chargement = () => {
       Lang: 'FR',
       header:['Mes Services','Mes Réalisations'],
       footer:"révélons votre unicité",
-      hp:["La création d'identités visuelles",'sur-mesure','pour les indépendants'],
+      hp:["La création d'identités visuelles",'sur-mesure','pour tous•tes'],
       videoOrdi: 'videoReveal1',
       videoTel: 'videoReveal2',
       discover: "découvrir le showréel",
-      location: ['actuellement à','Montpellier, Fr.'], // location
+      location: ['actuellement à','Melbourne, AUS.'], // location
       cta : ['une idée, un projet ? parlons-en','je réserve une consultation','je découvre les projets','programmer une visio','je préfère vous écrire'],
       presentation: ["Directeur artistique spécialisé dans le branding","Du développement web au design imprimé, j'aide les travailleurs indépendants à construire leur identité visuelle et à lancer leur projet."],
       expertise: [' • Design imprimé • Packaging • Signalétique • Développement web • Motion • Vidéo • Photo • Illustration '],
@@ -119,11 +119,11 @@ const Chargement = () => {
       Lang: 'EN',
       header:['My Services','My Projects'],
       footer:"let's design your uniqueness",
-      hp:['The creation of','custom','visual identities for solopreneurs'],
+      hp:['The creation of','custom','visual identities for everyone'],
       videoOrdi: 'videoReveal5',
       videoTel: 'videoReveal6',
       discover: 'discover the showreel',
-      location: ['currently in','Montpellier, Fr.'], // location
+      location: ['currently in','Melbourne, AUS.'], // location
       cta: [
         "an idea, a project? let's talk about it",
         "I book a consultation",

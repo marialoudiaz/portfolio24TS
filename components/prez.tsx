@@ -48,19 +48,18 @@ const Prez: React.FC = () => {
               </div>
             </button>
         </div>
-      
 
-      <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
-        <h3 className='syne-bold' style={{ textTransform: 'uppercase'}}>
-          {expertise + ' '}
-        </h3>
-      </Marquee>
+        <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
+          <h3 className='syne-bold' style={{ textTransform: 'uppercase'}}>
+            {expertise + ' '}
+          </h3>
+        </Marquee>
+      </div>
 
-  
+    <div className='flex-wrap'>
       <Services />
-
       <div className='flex-wrap' style={{margin:'2rem 0rem', padding:'0rem 1rem'}}>
-        <h3 style={{color:"white"}}>{accordion[1]}</h3>
+        <h3>{accordion[1]}</h3>
         <Accordion
             motionProps={{
               variants: {
@@ -106,7 +105,7 @@ const Prez: React.FC = () => {
             <p>{accordion[6]}</p>
           </AccordionItem>
         </Accordion>
-        <button className='btn-transp' style={{ margin: '2rem auto' }} onClick={() => router.push('/projets')}>
+        <button className='btn-transp-dark' style={{ margin: '2rem auto' }} onClick={() => router.push('/projets')}>
               <div>
                 <svg
                     className="icon-transp"
@@ -119,14 +118,12 @@ const Prez: React.FC = () => {
                       className="fill-white group-hover:fill-gray-400"
                     ></path>
                 </svg>
-                <p className='btn-transp-p' style={{ color: 'white' }}>
-                  {cta[2]}
-                </p>
+                <p className='btn-transp-p' style={{color:'white'}}>{cta[2]}</p>
               </div>
-            </button>
+        </button>
       </div>
-      
     </div>
+
     </>
   );
 }

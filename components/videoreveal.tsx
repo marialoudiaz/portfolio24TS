@@ -8,14 +8,12 @@ interface VideoProps {
   scrollYProgress: MotionValue<number>;
 }
 const VideoReveal: React.FC<VideoProps> = ({ scrollYProgress }) => {
-
+  
   // refs
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
-
   // Routage
   const { indepArray } = useData();
-  
   // Default values if indepArray data is missing
   const videoOrdi = indepArray?.[0]?.videoOrdi || 'videoReveal1';
   const videoTel = indepArray?.[0]?.videoTel || 'videoReveal2';
@@ -107,7 +105,8 @@ const VideoReveal: React.FC<VideoProps> = ({ scrollYProgress }) => {
           </div>
         </div>
 
-        <div className="mobile" style={{ position: 'relative' }}>
+        <div className="mobile">
+        {/* style={{ position: 'relative' }} */}
           <video
             ref={mobileVideoRef}
             muted
@@ -115,8 +114,6 @@ const VideoReveal: React.FC<VideoProps> = ({ scrollYProgress }) => {
             poster="/projets/marialoudiaz_showreel.png"
             onClick={() => handlePlayVideo(mobileVideoRef)}
             controls={true}
-            width={320}
-            height={240}
           >
             <source src={tel} type="video/mp4" />
           </video>

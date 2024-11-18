@@ -31,8 +31,11 @@ const Cible: React.FC<CibleProps> = ({ scrollYProgress }) => {
 
   // Lancer le text disperse au montage du composant directement en mode mobile
   useEffect(() => {
-    isMobile ? setisHovered(true) : setisHovered(false);
-  }, []); 
+    if (isMobile) {
+      setisHovered(true);
+  } else {
+      setisHovered(false);
+  }  },[]); 
 
   return (
     <motion.div 

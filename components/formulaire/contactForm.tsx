@@ -112,9 +112,6 @@ return (
 
 
 	<div className='flexForm'>
-	<Popover placement="top" showArrow={true}>
-      <PopoverTrigger style={{border:'none', backgroundColor:'none', padding:'3rem'}}>
-        <Button className='bg-white b-0' style={{position:'inherit', padding:'3rem', alignItems:'center', height:'fit-content'}}>
 					<div
 						className='btn-transp-dark'
 						onClick={sendEmail} // Handle click to trigger form submission
@@ -136,17 +133,9 @@ return (
 									{infos.form[6]}
 						</div>  
 					</div>
-				</Button>
-      </PopoverTrigger>
+					<p>{message}</p>
 
-      <PopoverContent id='popover'>
-        <div>
-					<Image src='/icons/projets/devis.png' alt='icon enveloppe avec un coeur' width={50} height={50}/>
-          <p>{message}</p>
-        </div>
-      </PopoverContent>
-    </Popover>
-			
+
 	</div>
         
 	</form>

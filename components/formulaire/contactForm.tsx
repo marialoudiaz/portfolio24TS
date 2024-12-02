@@ -1,8 +1,6 @@
 import React, { useState,useRef} from 'react';
 import '../../styles/App.scss';
 import '../../globals.css';
-import Image from 'next/image';
-import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 
 interface contactFormProps {
   infos: {

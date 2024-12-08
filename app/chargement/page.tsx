@@ -72,7 +72,7 @@ const Chargement = () => {
         'Imaginez que vous lanciez votre entreprise. Le designer de marque, c’est celui qui traduit votre histoire en images. Il crée votre logo, choisit les couleurs et les typographies qui reflètent votre personnalité. Grâce à lui, votre marque devient reconnaissable et mémorable dès le premier regard, parlant de vous sans un mot. Plus simplement ? Je crée l’identité visuelle et émotionnelle de votre marque. Le logo, les couleurs, la typographie jusqu’aux supports visuels imprimés et web. Pour que votre marque soit instantanément reconnaissable par votre audience.',
         'Qu’est-ce qui vous rend différent des autres?',
         "Ce qui me distingue, c'est mon approche basée sur une écoute attentive et approfondie de vos besoins. Plutôt que de proposer des solutions prédéfinies, je m'assure de comprendre pleinement vos attentes pour vous offrir des services réellement adaptés. Ma polyvalence, aussi bien en design web qu'en print, me permet de vous proposer une offre complète, alliant maîtrise des enjeux du digital et de l'imprimé. Grâce à mon expérience en tant que designer graphique et développeur, je saisis les subtilités de ces deux mondes, pour un résultat à la hauteur de vos ambitions.",
-        "Et si on prenait le temps d'en parlez ?"
+        "Et si on prenait le temps d'en parler ?"
       ],
       approche: [
         'Mon approche',
@@ -91,7 +91,7 @@ const Chargement = () => {
         'Exprimer une émotion & animer votre univers par la puissance de la couleur.',
         branding_specialist
       ],
-      deroule:['flex', 'Votre projet', "Chaque projet est unique tout comme vous. Ainsi, je vous accompagne à chaque étape afin de créer une solution sur-mesure la mieux adaptée à vos besoins.", "Juste une mise au point", "Nous parlons de votre projet et établissons ensemble une stratégie. Nous définissons alors les services qu'il vous faut. Chaque devis est réalisé sur-mesure pour être au plus-près de vos besoins.", "L’aventure commence", "Je vous retourne un devis comprenant tous les services ainsi que le temps nécessaire à leurs réalisations. La date du livrable est établie.", "Tada!", "C’est le jour où vous recevez votre premier livrable. À partir de là, vous avez la possibilité de demander deux modifications (offertes)."],
+      deroule:['flex', 'Votre projet', "Chaque projet est unique tout comme vous. Ainsi, je vous accompagne à chaque étape afin de créer une solution sur-mesure la mieux adaptée à vos besoins.", "Juste une mise au point", "Nous parlons de votre projet et établissons ensemble une stratégie. Nous définissons alors les services qu'il vous faut. Chaque devis est réalisé sur-mesure pour être au plus près de vos besoins.", "L’aventure commence", "Je vous retourne un devis comprenant tous les services ainsi que le temps nécessaire à leurs réalisations. La date du livrable est établie.", "Tada!", "C’est le jour où vous recevez votre premier livrable. À partir de là, vous avez la possibilité de demander deux modifications (offertes)."],
       citation: 'Pour un design qui vous ressemble.',
       form: ['Racontons','votre','histoire','Prénom','Email','Votre message','Envoyer',"Collaborons, pour emmener votre business à l’étape supérieure & le faire décoller 🚀. Des idées, des questions, une terrible envie de me contacter ? Je vous écoute."],
       words: ['auto-entrepreneur.se','petite entreprise','start-up','porteur.se de projet','idéaliste','rêveur.se'],

@@ -12,7 +12,7 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 
   // EN OU FR pour messages erreurs
 	const isEnglish = lang
-	const yesmessage = [ 'Thank you for your message !', 'I come back to you really soon','Reçu 5/5 !', 'Je reviens vers vous très prochainement'];
+	const yesmessage = [ 'Thank you for your message !', "I'll come back to you really soon",'Reçu 5/5 !', 'Je reviens vers vous très prochainement'];
 	const nomessage = ["Oh no.., it looks like it didn't work",'Please, try again soon :)',"Oops.. Ça n'a pas fonctionné",'Merci de réessayer dans un moment :)'];
 	const [emailData, setEmailData] = useState({
 		prenom: '',

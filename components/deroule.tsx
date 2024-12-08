@@ -38,7 +38,7 @@ const Deroule: React.FC = () => {
   }, []);
   // useEffect(() => {
   //   return () => {
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   //   }
   // }, []);
 

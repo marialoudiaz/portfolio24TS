@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import '../styles/App.scss';
-import { useData } from '@/app/context/DataContext'; // Importer le contexte
-import { useRouter} from 'next/navigation';
+import { useData } from '@/app/context/DataContext';
+import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';

@@ -149,7 +149,7 @@ const Chargement = () => {
       deroule:['flex','Your project',"Each project is unique, just like you. That's why I support you at every step, to create a custom solution that best fits your needs.","Just a clarification","We discuss your project and together establish a strategy. Depending on your project, we define the services required. Each quote is custom-made to closely match your needs.","The adventure begins","I will send you a quote including all services as well as the time needed for their completion. The delivery date is set.","Tada!","This is the day you receive your first deliverable. From then on, you have the option to request two modifications (free of charge)."],
       citation: 'For a design that suits you.',
       form: ["Let's tell",'your','story','Surname','Email','Your message','Send',"Let's collaborate to take your business to the next level and make it soar 🚀. Ideas, questions, a strong desire to get in touch? I'm listening."],
-      words: ['self-employed', 'small business', 'start-up', 'project leader', 'idealist', 'dreamer'],
+      words: ["sole trader", "small business", 'start-up', 'project leader', 'idealist', 'dreamer'],
       ml: [
         "Legal Notice",
         "About Maria Lou Diaz",

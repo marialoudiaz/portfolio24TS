@@ -69,7 +69,7 @@ const Projets = () => {
         ],      
         text2:[
           "Immerse yourself in a retro universe inspired by the 80s, where each interaction takes you into cinematic history. With OnSight, you can easily manage your movies and series to watch all while enjoying a captivating vintage design. Available on iOS.",
-          "Plongez dans un univers graphique rétro inspiré des années 80, où chaque interaction vous fait voyager. Avec OnSight, vous pouvez facilement gérer vos films et séries à regarder tout en savourant un design vintage captivant. Découvrez l'application sur iOS."
+          "Plongez dans un univers graphique rétro inspiré des années 80, où chaque interaction vous fait voyager. Avec OnSight, vous pouvez facilement gérer vos films et séries à regarder tout en profitant d'un design vintage captivant. Découvrez l'application sur iOS."
         ],
         link: ['Discover the project',"Découvrir le projet"],
         onClick: ['https://apps.apple.com/fr/app/movies-on-sight/id6450311314', '_blank']
@@ -82,7 +82,7 @@ const Projets = () => {
         title: ["Pascale Laffon","Pascale Laffon"],
         baseline: ['Micropracy','La micropraxie'],
         text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
-        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience intuitive."],
+        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
         link: ['Discover the project',"Découvrir le projet"],
         onClick: ['https://pascale-laffon.fr', '_blank']
       },
@@ -96,7 +96,7 @@ const Projets = () => {
                   "Promoting an inclusive humanism focused on cuisine",
                   "Promouvoir un humanisme inclusif axé sur la cuisine"
                   ],
-        text:["Pile-Poële is a gender-inclusive typeface focused on cooking created as part of a master's research project at the University of Toulouse Jean Jaurès in 2021. It promotes gender parity and allows for the replacement of words referring to tools, utensils and food with pictograms.",
+        text:["Pile-Poële is a gender-inclusive typeface focused on cooking created as part of a master's research project at the University of Toulouse Jean Jaurès in 2021. It promotes gender parity and allows for the replacement of words referring to tools, ustensils and food with pictograms.",
               "Pile-Poële est une fonte de caractères inclusive basée sur la cuisine, créée dans le cadre d'une recherche de master à l'Université Toulouse Jean Jaurès en 2021. Elle favorise la parité des genres et permet de remplacer les mots désignant des outils, ustensiles et aliments par des pictogrammes."],      
         text2:[
               "The project aims to facilitate universal and intercultural culinary communication. While gender inclusivity is integrated it is not the main focus but rather an inherent aspect of the communication.",

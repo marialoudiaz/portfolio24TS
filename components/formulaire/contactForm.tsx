@@ -81,7 +81,7 @@ const handleSubmitQuestion = (props) => {
   sendEmail(props);
   }
   };
-	useEffect((e) => {
+	useEffect(() => {
     setEmailData({ ...emailData, services: selectedServices });
   }, [selectedServices]);
 

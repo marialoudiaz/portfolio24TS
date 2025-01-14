@@ -88,7 +88,7 @@ const Approche: React.FC = () => {
             height={0}
             alt='autoportrait souriant en noir et blanc'
           />
-          <div className='flex-col' style={{justifyContent:'center'}}>
+          <div className='flex-col' style={{justifyContent:'center', marginTop:'1rem'}}>
             <div className='flex-wrap'>
               <Image
                 src="/logo/medaillon.png"

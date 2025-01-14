@@ -1760,6 +1760,7 @@ form{
 }
 .flexForm{
   display:flex;
+  justify-content: center;
   flex-wrap: nowrap;
   gap:.8rem;
   margin-top: .5rem;
@@ -1782,23 +1783,26 @@ input,textarea{
 input{
   margin-bottom: 15px;
 }
+input[type="checkbox"] {
+  margin-right: 1rem;
+}
 textarea{
   border: 1px solid var(--primary)!important;
   height: 15rem;
   font-family: var(--Body)!important;
   font-size: var(--body)!important;
 }
-#muguet{
-  display: grid;
-  grid-area: 1 / 1 / 2 / 2;
-}
+// #muguet{
+//   display: grid;
+//   grid-area: 1 / 1 / 2 / 2;
+// }
 #muguetvideo{
   position: absolute;
   width: 30vw;
-  top: 22%;
-  left: -100px;
-  // z-index: -100;
-  transform: rotate(-20deg);
+  top: 40%;
+  left: -200px;
+  z-index: -100;
+  transform: scaleX(-1) rotate(-25deg);
 }
 .c{
   display: none;
@@ -1858,6 +1862,7 @@ textarea{
   }
   form{
     display: flex;
+    justify-content: center;
     width: 90vw;
     & .flex-wrap{
       gap: 10px

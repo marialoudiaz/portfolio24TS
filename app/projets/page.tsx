@@ -56,9 +56,45 @@ const Projets = () => {
 
     // Menu des projets
     const projectsArr = [
-      //os
+      //bec
       {
         id: 1,
+        img: '/projets/bec/bec-img.jpg',
+        video: '/projets/pl/nda-video-hover.mp4',
+        title: ["Le Domaine de la Pinède","Le Domaine de la Pinède"],
+        baseline: ['Right in the heart of the Camargue','au coeur de la Camargue exactement'],
+        text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
+        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
+        link: ['Discover the project',"Découvrir le projet"],
+        onClick: ['https://manade-bec.fr', '_blank']
+      },
+      //pl
+      {
+        id: 2,
+        img: '/projets/pl/pl-img.jpg',
+        video: '/projets/pl/pl-video-hover.mp4',
+        title: ["Pascale Laffon","Pascale Laffon"],
+        baseline: ['Micropracy','La micropraxie'],
+        text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
+        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
+        link: ['Discover the project',"Découvrir le projet"],
+        onClick: ['https://pascale-laffon.fr', '_blank']
+      },
+      //nda
+      {
+        id: 3,
+        img: '/projets/nda/nda-img.jpg',
+        video: '/projets/nda/nda-video-hover.mp4',
+        title: ["Birth of a friendship","Naissance d'une amitié"],
+        baseline: ["Friendship is a soul in two bodies","L'amitié est une âme en deux corps"],
+        text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
+        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
+        link: ['Discover the project',"Découvrir le projet"],
+        onClick: ['https://marialoudiaz.fr', '_blank']
+      },
+      //os
+      {
+        id: 4,
         img: '/projets/os/os-img.png',
         video: '/projets/os/video-onsight-hover.mp4',
         title: ["OnSight","OnSight"],
@@ -74,21 +110,9 @@ const Projets = () => {
         link: ['Discover the project',"Découvrir le projet"],
         onClick: ['https://apps.apple.com/fr/app/movies-on-sight/id6450311314', '_blank']
       },
-      //pl
-      {
-        id: 2,
-        img: '/projets/pl/pl-img.jpg',
-        video: '/projets/pl/pl-video-hover.mp4',
-        title: ["Pascale Laffon","Pascale Laffon"],
-        baseline: ['Micropracy','La micropraxie'],
-        text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
-        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
-        link: ['Discover the project',"Découvrir le projet"],
-        onClick: ['https://pascale-laffon.fr', '_blank']
-      },
       //pilepoele
       {
-        id: 3,
+        id: 5,
         img: '/projets/pp/pp-img.png',
         video: '/projets/pp/video_type.mp4',
         title: ["Pile-Poële (On thyme)","Pile-Poële"],
@@ -107,7 +131,7 @@ const Projets = () => {
       },
       //vb
       {
-        id: 4,
+        id: 6,
         img: '/projets/vb/vb-img.jpg',
         video: '/projets/vb/vb-video-hover.mp4',
         title: ["VB Avocats","VB Avocats"],
@@ -125,7 +149,7 @@ const Projets = () => {
       },
       //dessin
       {
-        id: 5,
+        id: 7,
         img: '/projets/topos/topos-img.png',
         video: '/projets/topos/topos-video-hover.mp4',
         title: ["Topographies",'Topographies'],

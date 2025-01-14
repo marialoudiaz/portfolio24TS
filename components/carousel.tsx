@@ -46,7 +46,7 @@ const Carousel: React.FC<CarouselProps> = ({dataArray}) => {
 
   return (
    <>
-      <div className="grid-col4">
+      <div className="grid-col4" style={{marginBottom:'1rem'}}>
         {activeItems.map((item, index) => (
           <div key={index} className="flex-wrap" id="carousel-item">
             <Image 

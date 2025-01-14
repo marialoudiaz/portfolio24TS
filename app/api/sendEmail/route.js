@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   try {
-    const { prenom, email, message } = await request.json();
+    const { prenom, email, company, industry, services, message } = await request.json();
 
     // Configuration du transporteur SMTP
     const transporter = nodemailer.createTransport({
@@ -20,7 +20,7 @@ export async function POST(request) {
       from: email,
       to: process.env.SMTP_USER,
       subject: `Prise de contact via le formulaire de ${prenom}`,
-      text: `Prénom: ${prenom}\nEmail: ${email}\nMessage: ${message}`,
+      text: `Nom/Prénom: ${prenom}\nEmail: ${email}\nCompany: ${company}\nIndustry: ${industry}\nServices: ${services}\nMessage: ${message}`,
     };
 
     // Envoi de l'email

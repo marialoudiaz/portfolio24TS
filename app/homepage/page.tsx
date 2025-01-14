@@ -68,8 +68,8 @@ const Homepage = () => {
     <div className='scrollable-container'>
           <Header/>
           <Main/>
-          <Prez/>
           <Approche />
+          <Prez/>
           <Deroule/>
           <Formulaire/>
           <Footer />

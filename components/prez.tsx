@@ -21,6 +21,11 @@ const Prez: React.FC = () => {
   return (
     <>
       <div className='text-homepage'>
+      <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
+          <h3 className='syne-bold' style={{ textTransform: 'uppercase'}}>
+            {expertise + ' '}
+          </h3>
+        </Marquee>
         <div className='name'>
         <h1 style={{ color: '#00000000'}}> Maria Lou Diaz | Art Director • Specialized in branding</h1>
         </div>
@@ -49,11 +54,6 @@ const Prez: React.FC = () => {
             </button>
         </div>
 
-        <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
-          <h3 className='syne-bold' style={{ textTransform: 'uppercase'}}>
-            {expertise + ' '}
-          </h3>
-        </Marquee>
       </div>
 
     <div className='flex-wrap'>

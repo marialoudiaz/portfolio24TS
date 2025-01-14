@@ -26,7 +26,7 @@ function Projet() {
     }, [indepArray, router, id])
 
     const descriptionprojectsArr = [
-      // onsight
+      // bec
       {
         id: 1,
         client: 'Maria Lou Diaz',
@@ -153,9 +153,136 @@ function Projet() {
               },
         ],
       },
-      // pile-poele
+      // nda
       {
         id: 3,
+        client: 'Pascale Laffon',
+        discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
+        videoDesktop: '/projets/pl/pl_video.mp4',
+        videoMobile: '/projets/pl/pl_video.mp4',
+        image: '/projets/pl/pl-img.jpg',
+        title: 'Pascale Laffon',
+        baseline:["Invincible est la douceur","Invincible is gentleness"],
+        infos: [['2024', 'Site vitrine', 'Médecine holistique'],['2024', 'Showcase website', 'Holistic medicine']],
+        categories: 
+        [
+          ['UI/UX', 'Intégration', 'Charte graphique', 'SEO', 'Hébergement', 'Maintenance', 'Motion', 'Captations vidéos & photos'],
+          ['UI/UX', 'Coding', 'Graphic charter', 'SEO', 'Hosting', 'Maintenance', 'Motion, Video & photo']
+        ],
+        onClick: ['https:/www.pascalelaffon.fr', '_blank'],
+        besoins:[
+          ["Pascale Laffon, micropracteur de longue date, se lance désormais en tant qu'auto-entrepreneur. Pour valoriser au mieux ses services et refléter fidèlement son univers, la création d'un site vitrine s'impose comme une nécessité. Dans cette optique, j'ai entrepris de repenser sa charte graphique (incluant le logotype et l'iconographie) et de développer un site vitrine à même de transmettre l'essence de son activité."],
+          ["Pascale Laffon, a long-time micropractor is now launching as a sole trador. To showcase her services effectively and accurately reflect her universe, creating a showcase website is essential. With this goal in mind, I have undertaken to redesign her visual identity (including logo and iconography) and develop a showcase website that will perfectly convey the essence of her business."]],
+        technologies: [
+          ['Ink', 'Illustrator', 'Photoshop', 'Premiere Pro', 'After Effects', 'Figma', 'React'],
+          ['Encre', 'Illustrator', 'Photoshop', 'Premiere Pro', 'After Effects', 'Figma', 'React']
+        ],
+        sections: 
+        [
+          {title:'Pascale Laffon',
+          categories: [
+          ['Typographie', 'Iconographie', 'Charte graphique'],
+          ['Typography', 'Iconography', 'Graphic charter'],
+          ],
+          subtitle: ['Une police d’écriture signature', 'A signature font'],
+          text: [
+            "L’encre de chine comme symbole d’élégance et de finesse. Raconter graphiquement la pratique de la micropraxie, c’était parvenir à parler d’un univers doux, calme mais puissant. Ainsi l’encre de chine s’est révélée comme étant le médium le plus à même de nous transporter dans l’univers de Pascale Laffon. Un titre, une signature pour faire du nom de son entreprise un concept.",
+            "Chinese ink as a symbol of elegance and refinement. Graphically depicting the practice of micropraxis meant conveying a gentle, calm yet powerful universe. Thus, Chinese ink emerged as the medium best suited to transport us into Pascale Laffon's world. A title, a signature, to transform the name of her business into a concept."
+          ],
+          imageEN: '/projets/pl/pl-section1en.png',
+          image: '/projets/pl/pl-section1.png'
+          },
+
+          {title:'Pascale Laffon',
+          categories: [
+              ['Illustration','Charte graphique'],
+              ['Illustration','Graphic charter']
+              ],
+          subtitle: ['L’illustration comme première impression', 'Portrait as a first impression'],
+          text: [
+            "Tirer le portrait de Pascale et de son cabinet permettent d’aller à la rencontre du patient avant même qu’il prenne rendez-vous. Cette approche rend l'expérience vivante et chaleureuse, invitant ainsi les patients à entrer dans l'univers de Pascale et à établir une connexion personnelle dès le début.",
+            "Capturing portraits of Pascale and her practice allows potential patients to get acquainted even before scheduling an appointment. This approach brings a lively and welcoming feel, inviting patients into Pascale's world and creating a warm, personal connection from the start.",
+          ],
+          image: '/projets/pl/pl-section2.png',
+          },
+
+          {title:'Pascale Laffon',
+            categories: [
+              ['Illustration', 'Iconographie', 'Charte graphique', 'Motion'],
+              ['Illustration', 'Iconography', 'Graphic charter', 'Motion']
+            ],
+            subtitle: [' Penser une iconographie unique', 'Creating a unique iconography'],
+            text: [
+              "Pour immerger encore davantage les utilisateurs dans l'univers unique de Pascale, il est apparu évident de créer une iconographie exclusive. En concevant des pictogrammes spécialement imaginés pour illustrer la pratique de la micropraxie, nous avons pu raconter son histoire de manière authentique et engageante.",
+              "To further immerse users in Pascale's unique world, it became clear that creating an exclusive iconography was essential. By designing custom pictograms that vividly narrate the practice of micropraxis, we were able to tell her story in an authentic and engaging way.",
+            ],
+            image: '/projets/pl/pl-section3.png',
+            },
+
+            {title:'Pascale Laffon',
+              categories: [
+                ['Illustration', 'Iconographie', 'Charte graphique', 'Motion'],
+                ['Illustration', 'Iconography', 'Graphic charter', 'Motion']
+              ],
+              subtitle: ['Less is more', 'Less is more'],
+              text: [
+                "Afin de cristalliser, cette refonte, en dernier lieu, il est apparu essentiel de simplifier le logotype déjà existant de Pascale Laffon et de l’animer.",
+                "To finalize this redesign, it became essential to simplify Pascale Laffon's existing logotype and animate it.",
+              ],
+              video: '/projets/pl/pl-section4.mp4',
+              },
+        ],
+      },
+      // onsight
+      {
+        id: 4,
+        client: 'Maria Lou Diaz',
+        discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
+        videoDesktop: '/projets/os/video-onsight.mp4',
+        videoMobile: '/projets/os/video-onsight.mp4', //'/projets/os/video-onsight.mp4'
+        image: '/projets/os/os-img.png',
+        title: 'Onsight',
+        baseline: [
+          "L'appli qui vous donne envie de prendre votre dose quotidienne de cinéma",
+          'The app that helps you remember to take your daily dose of cinema.',
+        ],
+        infos: [['2023','Application mobile', 'IOS','Cinéma/série'],['2023','App', 'IOS','Cinema/serie']],
+        categories: 
+        [
+          ['Conception graphique','Expérience utilisateur','Application mobile','Maintenance'],
+          ['Graphic design', 'User experience', 'Mobile application', 'Maintenance']
+        ],
+        onClick: ['https://apps.apple.com/fr/app/movies-on-sight/id6450311314', '_blank'],
+        besoins:[["Découvrez OnSight, l'application mobile de prise de notes ultime pour les cinéphiles et amateurs de séries. Plongez dans un univers graphique aux allures rétro où chaque interaction vous transporte dans le passé. Avec OnSight, vous pouvez facilement ajouter et supprimer des films et séries de votre liste, tout en profitant d'un design vintage captivant."],["Discover OnSight, the ultimate note-taking mobile app for movie and series enthusiasts. Immerse yourself in a retro graphical universe reminiscent of the 80s, where every interaction takes you back in time. With OnSight, you can easily add and remove movies and series from your watchlist, all while enjoying a captivating vintage design."]],
+        technologies: ['React native', 'After effects', 'Illustrator'],
+        sections: 
+        [
+          {
+          subtitle: ['Repenser la prise de notes avec style', 'Rethinking Note-Taking with Style'],
+          text: [
+            "'OnSight' c'est l'idée de créer une application mobile pour garder en mémoire ses films et séries préférés en ajoutant une composante nostalgique. OnSight plonge les utilisateurs dans une ambiance vintage tout en leur offrant une plateforme élégante et intuitive pour créer et gérer leur liste de films et séries préférés. Inspirée par l'esthétique des années 80 et 90, l'interface se distingue par des tons bleus calmes mais profonds & des police d'écritures rétro. Les utilisateurs peuvent ajouter autant de titres qu'ils le souhaitent. Les films & séries s'ajoutent et s'empilent sous la forme de pilules comme pour rappeler à l'utilisateur de prendre sa dose quotidienne de cinéma - rendant ainsi la gestion de sa vidéothèque plus ludique.",
+            "OnSight is about creating a simple mobile app to keep track of your favorite movies and series. The idea was to rethink the aesthetics to add a nostalgic component. OnSight immerses users in a vintage atmosphere while offering an elegant and intuitive platform to create and manage their list of favorite movies and series. Inspired by the aesthetics of the 80s and 90s, the interface features calm yet deep blue tones and retro fonts. Users can add as many titles as they wish. Movies and series are added and stacked in the form of pills, reminding users to take their daily dose of cinema, making the management of their video library more playful."
+          ],
+          image: '/projets/os/os-section1.jpg',
+          },
+          {
+          subtitle: ['Donner vie à l’identité graphique', 'Giving birth to the graphic identity'],
+          text: [
+            "Créer une identité forte pour OnSight, c'était aussi imaginer un logotype distinctif et son animation. Le logotype devait capturer l'essence de l'esthétique vintage de l'application tout en restant moderne et reconnaissable. L'animation a été conçue pour donner vie au logo, ajoutant un élément dynamique qui améliore l'expérience utilisateur. Ensemble, le logotype et son animation créent une identité de marque cohérente et mémorable, reflétant le caractère unique d'OnSight.",
+            "Creating a strong identity for OnSight also meant envisioning a distinctive logotype and its animation. The logotype needed to capture the essence of the app's vintage aesthetic while remaining modern and recognizable. The animation was designed to bring the logo to life, adding a dynamic element that enhances the user experience. Together, the logotype and its animation create a cohesive and memorable brand identity that reflects the unique character of OnSight.",
+          ],
+          video: '/projets/os/os-section2.mp4',
+          },
+        ],
+        sectionsImg: 
+        [
+          ['/projets/os/os-sectionimg1.jpg'],
+          ['/projets/os/os-sectionimg2.jpg']
+        ]
+      },
+      // pile-poele
+      {
+        id: 5,
         client: 'Maria Lou Diaz',
         discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
         videoDesktop: '/projets/pp/video_type_hp.mp4', //video dintro
@@ -220,7 +347,7 @@ function Projet() {
       },
       //vb
       {
-        id: 4,
+        id: 6,
         client: 'Valette & Berthelsen Avocats',
         discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
         videoDesktop: '/projets/vb/vb-video.mp4', //video dintro
@@ -255,7 +382,7 @@ function Projet() {
       },
       //topographies
       {
-        id: 5,
+        id: 7,
         client: 'Maria Lou Diaz',
         discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
         videoDesktop: '/projets/topos/topos-video.mp4', //https://www.facebook.com/watch/?v=829436065704861  

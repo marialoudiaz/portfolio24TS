@@ -1,4 +1,4 @@
-import React, { useState,useRef} from 'react';
+import React, { useState,useRef,useEffect} from 'react';
 import '../../styles/App.scss';
 import '../../globals.css';
 
@@ -14,13 +14,19 @@ const ContactForm: React.FC<contactFormProps> = ({infos, lang}) => {
 	const isEnglish = lang
 	const yesmessage = [ 'Thank you for your message !', "I'll come back to you really soon",'Reçu 5/5 !', 'Je reviens vers vous très prochainement'];
 	const nomessage = ["Oh no.., it looks like it didn't work",'Please, try again soon :)',"Oops.. Ça n'a pas fonctionné",'Merci de réessayer dans un moment :)'];
+	
+	//case a cocher
+	const [selectedServices, setSelectedServices] = useState([]);
+
 	const [emailData, setEmailData] = useState({
 		prenom: '',
 		email: '',
+		company:'',
+		industry:'',
 		message: '',
+		services:selectedServices,
 	});
 	const [message, setMessage] = useState('');
-	// const [submitting, setSubmitting] = useState(false);
 	const [question, setQuestion] = useState('');
 	const [acceptTerms, setAcceptTerms] = useState(false); // Ajoutez l'état pour la case à cocher
 
@@ -48,6 +54,15 @@ const sendEmail = async (e: React.FormEvent) => {
 const handleInputChange = (e) => {
 	setEmailData({ ...emailData, [e.target.id]: e.target.value });
 };
+// checkboxes
+const handleCheckboxChange = (event) => {
+	const { value, checked } = event.target;
+	if (checked) {
+		setSelectedServices((prev) => [...prev, value]);
+	} else {
+		setSelectedServices((prev) => prev.filter((service) => service !== value));
+	}
+};
 // question c - handlechange
 const handleChange = (e) => {
   let valueC = '';
@@ -66,6 +81,9 @@ const handleSubmitQuestion = (props) => {
   sendEmail(props);
   }
   };
+	useEffect((e) => {
+    setEmailData({ ...emailData, services: selectedServices });
+  }, [selectedServices]);
 
 return (
 <>
@@ -92,8 +110,73 @@ return (
 			required
 		/>
 	</div>
+	<div className='flex-wrap'>
+			<label htmlFor="company">{infos.form[5]}</label>
+			<input
+				id="company"
+				name='company'
+				value={emailData.company}
+				onChange={handleInputChange}
+				required
+			/>
+	</div>
+	<div className='flex-wrap'>
+			<label htmlFor="industry">{infos.form[6]}</label>
+			<input
+				id="industry"
+				name='industry'
+				value={emailData.industry}
+				onChange={handleInputChange}
+				required
+			/>
+	</div>
+	{/* TYPES DE PROJETS  */}
+	<div className='checkbox-group flex-wrap'>
+		<label>{infos.form[7]}</label>
+		<div style={{display:'flex', gap:'2rem', justifyContent:'center'}}>
+			<label>
+			<input
+				type="checkbox"
+				name="services"
+				value="logo"
+				onChange={handleCheckboxChange} // Fonction pour capturer les changements
+			/>
+			Logo
+		</label>
+		<label>
+			<input
+				type="checkbox"
+				name="services"
+				value="site internet"
+				onChange={handleCheckboxChange}
+			/>
+			{infos.form[8]}
+		</label>
+		<label>
+			<input
+				type="checkbox"
+				name="services"
+				value="identité visuelle"
+				onChange={handleCheckboxChange}
+			/>
+			{infos.form[9]}
+		</label>
+		<label>
+			<input
+				type="checkbox"
+				name="services"
+				value="autre"
+				onChange={handleCheckboxChange}
+			/>
+			{infos.form[10]}
+		</label>
+
+		</div>
+
+	</div>
+
 	<div className='flex-wrap' style={{gap:'2.5rem'}}>
-			<label htmlFor="message">{infos.form[5]}</label>
+			<label htmlFor="message">{infos.form[11]}</label>
 			<textarea
 				id="message"
 				name='message'
@@ -128,7 +211,7 @@ return (
 							className="fill-white group-hover:fill-white"
 						></path>
 						</svg>
-									{infos.form[6]}
+									{infos.form[13]}
 						</div>  
 					</div>
 					<p>{message}</p>

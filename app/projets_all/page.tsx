@@ -10,7 +10,6 @@ import Header from '../../components/navbar/header';
 const Projets = () => {
   const gridContainerRef = useRef(null);
   const imgContainerRef = useRef([]);
-  const descriptionRef = useRef(null);
   const { indepArray } = useData();
   const router = useRouter();
 

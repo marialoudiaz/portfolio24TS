@@ -13,17 +13,11 @@ const Chargement = () => {
   const router = useRouter();
   const { updateData } = useData();
   const [hoveredLink, setHoveredLink] = useState('');
-  const [isClient, setIsClient] = useState(false);// Nouvel état pour vérifier si on est côté client
 
   const navLinks = [
     { label: 'Français', id: 'fr' },
     { label: 'English', id: 'en' },
   ];
-
-  // Vérifie si le composant est rendu côté client
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const onHover = (lien: string) => {
     setHoveredLink(lien);

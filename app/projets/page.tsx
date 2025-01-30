@@ -62,7 +62,7 @@ const Projets = () => {
         img: '/projets/bec/bec-hp-1.jpg',
         video: '/projets/bec/bec-hover.mp4',
         title: ["Domaine de la Pinède", "Domaine de la Pinède"],
-        baseline: ['Right in the heart of the Camargue','au coeur de la Camargue exactement'],
+        baseline: ['Right in the heart of the Camargue','Au coeur de la Camargue exactement'],
         text:[
           "Domaine de la Pinède/La Manade BEC invites visitors to a unique immersion into the heart of Camargue tradition, through a website designed as a true storytelling experience.", 
           "Domaine de la Pinède/La Manade BEC invite à une immersion unique au cœur de la tradition camarguaise, à travers un site web pensé comme un véritable conte."],

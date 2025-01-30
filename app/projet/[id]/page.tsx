@@ -35,7 +35,7 @@ function Projet() {
         image: '/projets/os/os-img.png',
         title: 'Domaine de la Pinède',
         baseline: [
-          'au coeur de la Camargue exactement',
+          'Au coeur de la Camargue exactement',
           'Right in the heart of the Camargue',],
 
         infos: [['2024','Application web','Tourisme & Hôtellerie', 'Réalisé chez Cible Publicité'],['2024','Web App', 'Tourism & Hospitality', 'Done at Cible Publicité']],

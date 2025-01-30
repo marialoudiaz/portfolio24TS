@@ -11,7 +11,6 @@ import { FiArrowDownRight } from "react-icons/fi";
 import '../../../styles/App.scss';
 
 
-
 function Projet() {
 
   // Recup lang via context glob
@@ -622,10 +621,8 @@ function Projet() {
               {Lang === 'FR' ? <h2>Besoins</h2> : <h2>Needs</h2>}
                 <p>{descriptionprojectsArr[Number(id)-1].besoins[langIndex][0]}</p>
          </div>
-
-         </div>
+      </div>
          
-  
   
          {/* DIV SECTIONS */}
            {/* SECTION 2 - EXPLICATION PROJET */}

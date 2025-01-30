@@ -5,11 +5,7 @@ import '../styles/App.scss';
 import '../globals.css';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
 import { useRouter} from 'next/navigation';
-<<<<<<< HEAD
-import Services from '../components/services';
-=======
 import Services from '../components/services-parallax';
->>>>>>> new git repo
 import {Accordion, AccordionItem} from "@nextui-org/react";
 
 
@@ -59,15 +55,9 @@ const Prez: React.FC = () => {
         </div>
 
       </div>
-
-<<<<<<< HEAD
-    <div className='flex-wrap'>
-      <Services />
-=======
     <Services />
 
     <div className='flex-wrap'>      
->>>>>>> new git repo
       <div className='flex-wrap' style={{margin:'2rem 0rem', padding:'0rem 1rem'}}>
         <h3>{accordion[1]}</h3>
         <Accordion

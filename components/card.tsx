@@ -15,13 +15,8 @@ interface CustomCardProps {
 const CustomCard = forwardRef<HTMLDivElement, CustomCardProps>(({ item, id, frontSrc, backText, onMouseEnter }, ref) => {
   
   return (
-<<<<<<< HEAD
-    <div className='card' id={id} ref={ref}  onMouseEnter={onMouseEnter}
->
-=======
     <div className='card' id={id} ref={ref}  onMouseEnter={onMouseEnter}>
       
->>>>>>> new git repo
     <div className='card-wrapper'>
 
       <div className='flip-card-inner'>

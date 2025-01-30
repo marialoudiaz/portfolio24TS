@@ -285,6 +285,12 @@ label{
   #ml{
     text-align: center;
     }
+<<<<<<< HEAD
+=======
+  .inline-flex{
+    margin: 0;
+  }
+>>>>>>> new git repo
 }
 
 
@@ -1311,6 +1317,21 @@ pointer-events: auto;
   }
 
 }
+<<<<<<< HEAD
+=======
+/*SERVICES PARALLAX*/
+.scroll-container {
+  -webkit-overflow-scrolling: touch; /* Pour un scroll fluide sur iOS */
+}
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Cacher la scrollbar sur Webkit */
+}
+
+.serv-tit{
+  font-size: 6rem!important;
+  color: white;
+}
+>>>>>>> new git repo
 
 
 /*CIBLE*/
@@ -1343,6 +1364,12 @@ color: var(--primary)!important;
   color: var(--gold)
 }
 @media screen and (max-width: 768px) {
+<<<<<<< HEAD
+=======
+  .serv-tit{
+    font-size: 2rem!important;
+  }
+>>>>>>> new git repo
   .accordion-title h2 button div span{
     font-size: var(--h4M)!important;
     font-weight: 500;
@@ -1448,7 +1475,11 @@ object-fit: cover ;
 opacity: 0 ;
 position: absolute ;
 }
+<<<<<<< HEAD
 .projectHoverVideo:hover{
+=======
+.projectHoverVideo:hover, .projectHoverVideoAll:hover{
+>>>>>>> new git repo
   opacity: 1 ;
 }
 .projectImgContainer{
@@ -1480,7 +1511,11 @@ border: 1px solid rgba(39, 34, 33, 0.384) ;
 .project-txt{
   font-family: var(--Body) ;
 }
+<<<<<<< HEAD
 .carousel-btn{
+=======
+.carousel-btn, .carousel-btn-all{
+>>>>>>> new git repo
   display: flex ;
   flex-wrap: nowrap ;
   align-items: center ;
@@ -1501,10 +1536,54 @@ border: 1px solid rgba(39, 34, 33, 0.384) ;
     height: fit-content ;
   }    
 }
+<<<<<<< HEAD
 .projet-p{
   font-weight: 600!important;
   font-family: var(--Titles)!important;
 }
+=======
+.projet-p, .projet-p-all{
+  font-weight: 600!important;
+  font-family: var(--Titles)!important;
+}
+// ALL
+.grid-container-projets-all{
+  display: grid;
+  grid-template-columns: repeat(2,50vw);
+  gap: .5rem;
+}
+.project-wrapper-all{
+  display: grid;
+  grid-template-columns: 45vw;
+  border-radius: 2rem;
+  margin: 2rem;
+  position: relative;
+}
+.projectImgAll{
+  width: 100% ;
+  height: 40vh ;
+  margin: .5rem ;
+  border-radius: 2rem ;
+  border : 1px solid #27222112 ;
+  object-fit: cover ;
+  }
+  .projectImgContainerAll{
+    position: relative ;
+    width: 100%;
+    height: 100% ;
+  }
+  .projectHoverVideoAll{
+    width: 45vw ;
+    height: 40vh ;
+    margin: .5rem ;
+    border-radius: 2rem ;
+    border : 1.7px solid #272221 ;
+    object-fit: cover ;
+    opacity: 0 ;
+    position: absolute ;
+    }
+// END OF ALL
+>>>>>>> new git repo
 @media screen and (max-width: 1024px) {
   .short-text {
     display: block;
@@ -1519,13 +1598,19 @@ border: 1px solid rgba(39, 34, 33, 0.384) ;
     display: inline-block;
   }
 
+<<<<<<< HEAD
 .grid-container-projets{
+=======
+.grid-container-projets, .grid-container-projets-all{
+  display: flex;
+>>>>>>> new git repo
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
   overflow: hidden;
 }
+<<<<<<< HEAD
 .project-wrapper {
       display: flex;
       flex-direction: column;
@@ -1535,12 +1620,44 @@ border: 1px solid rgba(39, 34, 33, 0.384) ;
       height: auto;
 }
 .projectImg, .projectHoverVideo {
+=======
+.project-wrapper, .project-wrapper-all {
+      display: flex;
+      flex-direction: column;
+}
+.project-wrapper-all {
+  width: 90vw;
+}
+.projectImgContainer, .projectImgContainerAll{
+      width: 100%;
+      height: auto;
+}
+.projectImg, .projectImgAll, .projectHoverVideo {
+>>>>>>> new git repo
       width: 100%;
       height: 30vh;
       border-radius: 20px;
       margin: 0;
       object-fit: cover;
 }
+<<<<<<< HEAD
+=======
+
+  // .projectHoverVideoAll{
+  //   width: 45vw ;
+  //   height: 40vh ;
+  //   margin: .5rem ;
+  //   border-radius: 2rem ;
+  //   border : 1.7px solid #272221 ;
+  //   object-fit: cover ;
+  //   opacity: 0 ;
+  //   position: absolute ;
+  //   }
+
+
+
+
+>>>>>>> new git repo
 .project-description {
       width: 99%;
       height: auto;

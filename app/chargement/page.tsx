@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useData } from '@/app/context/DataContext';
 import '../../styles/App.scss';
 import '../../globals.css';
+<<<<<<< HEAD
 /* MEDIAS */
 import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
 // import html from '../../public/icons/softs/html.png';
@@ -23,6 +24,12 @@ import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
 // import indesign from '../../public/icons/softs/indesign.png';
 // import premiere from '../../public/icons/softs/premiere.png';
 // import aftereffect from '../../public/icons/softs/aftereffect.png';
+=======
+import Image from 'next/image';
+/* MEDIAS */
+import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
+
+>>>>>>> new git repo
 
 const Chargement = () => {
   const router = useRouter();
@@ -112,7 +119,10 @@ const Chargement = () => {
     },
   ];
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> new git repo
   const indepArrayEN = [
     {
       ids: 1,
@@ -170,6 +180,7 @@ const Chargement = () => {
     updateData(arrayRecue);
     router.push(`/homepage`);
   };
+<<<<<<< HEAD
 const selectLang = () => {
   if (isClient) {
     if (/^fr\b/.test(navigator.language)) {
@@ -190,13 +201,43 @@ const selectLang = () => {
   }
   return null;
 };
+=======
+// const selectLang = () => {
+//   if (isClient) {
+//     if (/^fr\b/.test(navigator.language)) {
+//       return (
+//         <>
+//           <h1 style={{color:'white'}}>Bienvenue</h1>
+//           <h3 style={{color:'white'}}>Choisissez votre langue</h3>
+//         </>
+//       );
+//     } else {
+//       return (
+//         <>
+//           <h1 style={{color:'white'}}>Welcome</h1>
+//           <h3 style={{color:'white'}}>Choose your language</h3>
+//         </>
+//       );
+//     }
+//   }
+//   return null;
+// };
+>>>>>>> new git repo
 
 return (
   <>
     <div className='relative'>
       <div className='gridVideo'>
+<<<<<<< HEAD
         {selectLang()}
 
+=======
+        <h1 style={{opacity:'0'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
+        <h2 style={{color:'white'}}>Welcome</h2>
+        <h3 style={{color:'white'}}>Choose your language</h3>
+        {/* 
+        {selectLang()}
+>>>>>>> new git repo
         {navLinks.map(link => (
           <div key={link.id} className='inline-flex button-navbar'>
             <p
@@ -204,16 +245,31 @@ return (
               onMouseEnter={() => onHover(link.id)}
               onMouseLeave={onLeave}
               onClick={() => selectMenu(link.id)}
+<<<<<<< HEAD
+=======
+              style={{color:'white'}}
+              
+>>>>>>> new git repo
             >
               {link.label}
             </p>
           </div>
+<<<<<<< HEAD
         ))}
       </div>
 
       <video className='background-video2' autoPlay muted playsInline>
         <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
       </video>
+=======
+        ))} */}
+      </div>
+       <Image 
+        src='/img/fond-homepage.png' 
+        alt='logo en blanc sur fond de couleur'
+        style={{width:'100vw', height:'100vh', objectFit:'cover'}}
+        width={8000} height={1000}/>
+>>>>>>> new git repo
     </div>
   </>
 );

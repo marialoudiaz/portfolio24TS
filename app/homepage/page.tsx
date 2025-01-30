@@ -13,12 +13,21 @@ const Header = dynamic(() => import('../../components/navbar/header'), {
 const Main = dynamic(() => import('../../components/main'), {
   loading: () => <div>Loading Main...</div>,
 });
+<<<<<<< HEAD
 const Prez = dynamic(() => import('../../components/prez'), {
   loading: () => <div>Loading Prez...</div>,
 });
 const Approche = dynamic(() => import('../../components/approche'), {
   loading: () => <div>Loading Approche...</div>,
 });
+=======
+const Approche = dynamic(() => import('../../components/approche'), {
+  loading: () => <div>Loading Approche...</div>,
+});
+const Prez = dynamic(() => import('../../components/prez'), {
+  loading: () => <div>Loading Prez...</div>,
+});
+>>>>>>> new git repo
 const Deroule = dynamic(() => import('../../components/deroule'), {
   loading: () => <div>Loading Deroule...</div>,
 });

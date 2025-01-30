@@ -28,12 +28,12 @@ function Projet() {
       // bec
       {
         id: 1,
-        client: 'Le Domaine de la Pinède/Manade BEC',
+        client: 'Domaine de la Pinède/Manade BEC',
         discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
         videoDesktop: '/projets/bec/bec-hover-black.mp4',
         videoMobile: '/projets/bec/bec-hover-black.mp4',
         image: '/projets/os/os-img.png',
-        title: 'Le Domaine de la Pinède',
+        title: 'Domaine de la Pinède',
         baseline: [
           'au coeur de la Camargue exactement',
           'Right in the heart of the Camargue',],

@@ -12,28 +12,26 @@ const Chargement = () => {
   const router = useRouter();
   const { updateData } = useData();
   const [hoveredLink, setHoveredLink] = useState('');
-  const [isClient, setIsClient] = useState(false);// Nouvel état pour vérifier si on est côté client
-
+  // const [isClient, setIsClient] = useState(false);// Nouvel état pour vérifier si on est côté client
   const navLinks = [
     { label: 'Français', id: 'fr' },
     { label: 'English', id: 'en' },
   ];
-
+  
   // Vérifie si le composant est rendu côté client
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
   const onHover = (lien: string) => {
     setHoveredLink(lien);
   };
-
   const onLeave = () => {
     setHoveredLink('');
   };
   // Données des projets
   const indepArray = [
-    {
+  {
       ids: 0,
       Lang: 'FR',
       header:['Mes Services','Mes Réalisations'],
@@ -175,7 +173,7 @@ const Chargement = () => {
 //   }
 //   return null;
 // };
-// const selectLang = () => {
+  // const selectLang = () => {
 //   if (isClient) {
 //     if (/^fr\b/.test(navigator.language)) {
 //       return (
@@ -199,7 +197,7 @@ const Chargement = () => {
 return (
   <>
     <div className='relative'>
-      
+
       <div className='gridVideo'>
         <h1 style={{opacity:'0'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
         <h2 style={{color:'white'}}>Welcome</h2>

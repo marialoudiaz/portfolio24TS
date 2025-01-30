@@ -83,7 +83,9 @@ function Services() {
       {services.map((item, index) => (
         <motion.div
           key={item.id}
-          ref={(el) => (serviceRefs.current[index] = el)} // Références pour chaque div
+          ref={(el) => {
+            if (el) serviceRefs.current[index] = el;
+          }}
           className="scroll-item"
           style={{
             position: "relative",
@@ -98,7 +100,9 @@ function Services() {
         >
           <h1 
             className="serv-tit"
-            ref={(el) => (titleRef.current[index] = el)}
+            ref={(el) => {
+              if (el) titleRef.current[index] = el;
+            }}
           >
             {item.title[0]}
           </h1>

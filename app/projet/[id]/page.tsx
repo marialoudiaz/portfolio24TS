@@ -66,18 +66,12 @@ function Projet() {
             "The website's graphic design pays meticulous attention to detail, offering visitors an immersive journey into the heart of the Camargue. From the opening presentation video, the tone is set, drawing users into the unique atmosphere of the domain. They are then guided through the pages as if leafing through the chapters of a book. This creative approach reimagines web design by drawing inspiration from the timeless aesthetics of printed books. For instance, on the page dedicated to the manade, visitors can explore carefully selected quotes that capture the authentic spirit and unique ambiance of the Domaine de la Pinède. The same thoughtful design is reflected on the homepage, enhancing the sense of being transported into an enchanting world.",
           ],
           video: '/projets/bec/bec-site-deroule.mp4',
->>>>>>> new git repo
           },
         ],
         sectionsImg: 
         [
-<<<<<<< HEAD
-          ['/projets/os/os-sectionimg1.jpg'],
-          ['/projets/os/os-sectionimg2.jpg']
-=======
           ['/projets/bec/bec-menu.jpg','/projets/bec/bec-2.jpg'],
           []
->>>>>>> new git repo
         ]
       },
       // pascale

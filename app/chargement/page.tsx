@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import { useRouter } from 'next/navigation';
 import { useData } from '@/app/context/DataContext';
 import '../../styles/App.scss';
@@ -18,11 +18,9 @@ const Chargement = () => {
     { label: 'Français', id: 'fr' },
     { label: 'English', id: 'en' },
   ];
-
   const onHover = (lien: string) => {
     setHoveredLink(lien);
   };
-
   const onLeave = () => {
     setHoveredLink('');
   };
@@ -178,6 +176,7 @@ return (
         <h3 style={{color:'white'}}>Choose your language</h3>
         {/* 
         {selectLang()}
+        */}
         {navLinks.map(link => (
           <div key={link.id} className='inline-flex button-navbar'>
             <p
@@ -186,12 +185,11 @@ return (
               onMouseLeave={onLeave}
               onClick={() => selectMenu(link.id)}
               style={{color:'white'}}
-              
             >
               {link.label}
             </p>
           </div>
-        ))} */}
+        ))}
       </div>
        <Image 
         src='/img/fond-homepage.png' 

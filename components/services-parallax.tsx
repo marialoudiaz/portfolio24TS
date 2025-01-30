@@ -9,7 +9,6 @@ function Services() {
   const scrollContainerRef = useRef(null); // Conteneur principal
   const serviceRefs = useRef([]); // Références pour chaque section
   const titleRef = useRef([]); // Références pour chaque section
-
   const services = [
     {
       id: 1,

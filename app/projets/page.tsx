@@ -45,13 +45,8 @@ const Projets = () => {
   // Determine language settings
   const isEnglish = indepArray[0].Lang === 'EN';
   const variableENorFr = [
-<<<<<<< HEAD
-    ['My projects', 'Discover', 'Previous', 'scroll right to learn more', 'Discover my other projects'],
-    ['Mes projets', 'Découvrir', 'Précédent', 'scroller à droite pour en apprendre +', 'Découvrir mes autres projets']
-=======
     ['My latest projects', 'Discover', 'Previous', 'scroll right to learn more', 'Discover my other projects'],
     ['Mes derniers projets', 'Découvrir', 'Précédent', 'scroller à droite pour en apprendre +', 'Découvrir mes autres projets']
->>>>>>> new git repo
   ];
   const textVariables = isEnglish ? variableENorFr[0] : variableENorFr[1];
   const prev = '/icons/interface/icon-eye-1.png';
@@ -64,14 +59,6 @@ const Projets = () => {
       //bec
       {
         id: 1,
-<<<<<<< HEAD
-        img: '/projets/bec/bec-img.jpg',
-        video: '/projets/pl/nda-video-hover.mp4',
-        title: ["Le Domaine de la Pinède","Le Domaine de la Pinède"],
-        baseline: ['Right in the heart of the Camargue','au coeur de la Camargue exactement'],
-        text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
-        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
-=======
         img: '/projets/bec/bec-hp-1.jpg',
         video: '/projets/bec/bec-hover.mp4',
         title: ["Le Domaine de la Pinède","Le Domaine de la Pinède"],
@@ -82,7 +69,6 @@ const Projets = () => {
         text2:[
           "Each detail is carefully crafted to provide an authentic experience: immersive videos, a page dedicated to the warm ambiance of the place, and web design that reimagines navigation.",
           "Chaque détail est soigneusement travaillé pour offrir une expérience authentique : des vidéos immersives, une page dédiée à l’ambiance chaleureuse du lieu, et un webdesign qui réenchante la navigation"],
->>>>>>> new git repo
         link: ['Discover the project',"Découvrir le projet"],
         onClick: ['https://manade-bec.fr', '_blank']
       },
@@ -98,64 +84,9 @@ const Projets = () => {
         link: ['Discover the project',"Découvrir le projet"],
         onClick: ['https://pascale-laffon.fr', '_blank']
       },
-<<<<<<< HEAD
-      //nda
-      {
-        id: 3,
-        img: '/projets/nda/nda-img.jpg',
-        video: '/projets/nda/nda-video-hover.mp4',
-        title: ["Birth of a friendship","Naissance d'une amitié"],
-        baseline: ["Friendship is a soul in two bodies","L'amitié est une âme en deux corps"],
-        text:["Pascale Laffon is a showcase website dedicated to her work as a micropractitioner. Explore her gentle and unique universe", "Pascale Laffon est un site vitrine dédié à son activité de micropraticienne. Explorez son univers doux et unique"],
-        text2:["as well as her practice of holistic medicine through refined graphic design and intuitive experience.","ainsi que sa pratique de la médecine holistique à travers un design graphique raffiné et une expérience utilisateur unique et intuitive."],
-        link: ['Discover the project',"Découvrir le projet"],
-        onClick: ['https://marialoudiaz.fr', '_blank']
-      },
-      //os
-      {
-        id: 4,
-        img: '/projets/os/os-img.png',
-        video: '/projets/os/video-onsight-hover.mp4',
-        title: ["OnSight","OnSight"],
-        baseline: ['An app to keep an eye on your films','Une application mobile pour garder un oeil sur tes films'],
-        text:[
-          "OnSight is an application that allows you to search for any movie or TV series and add it to a list that you can regularly update based on new releases or your preferences.",
-          "OnSight est une application qui vous permet de rechercher n'importe quel film ou série et de l'ajouter à une liste que vous pouvez régulièrement mettre à jour en fonction des nouvelles sorties ou de vos préférences. ",
-        ],      
-        text2:[
-          "Immerse yourself in a retro universe inspired by the 80s, where each interaction takes you into cinematic history. With OnSight, you can easily manage your movies and series to watch all while enjoying a captivating vintage design. Available on iOS.",
-          "Plongez dans un univers graphique rétro inspiré des années 80, où chaque interaction vous fait voyager. Avec OnSight, vous pouvez facilement gérer vos films et séries à regarder tout en profitant d'un design vintage captivant. Découvrez l'application sur iOS."
-        ],
-        link: ['Discover the project',"Découvrir le projet"],
-        onClick: ['https://apps.apple.com/fr/app/movies-on-sight/id6450311314', '_blank']
-      },
-      //pilepoele
-      {
-        id: 5,
-        img: '/projets/pp/pp-img.png',
-        video: '/projets/pp/video_type.mp4',
-        title: ["Pile-Poële (On thyme)","Pile-Poële"],
-        baseline: [
-                  "Promoting an inclusive humanism focused on cuisine",
-                  "Promouvoir un humanisme inclusif axé sur la cuisine"
-                  ],
-        text:["Pile-Poële is a gender-inclusive typeface focused on cooking created as part of a master's research project at the University of Toulouse Jean Jaurès in 2021. It promotes gender parity and allows for the replacement of words referring to tools, ustensils and food with pictograms.",
-              "Pile-Poële est une fonte de caractères inclusive basée sur la cuisine, créée dans le cadre d'une recherche de master à l'Université Toulouse Jean Jaurès en 2021. Elle favorise la parité des genres et permet de remplacer les mots désignant des outils, ustensiles et aliments par des pictogrammes."],      
-        text2:[
-              "The project aims to facilitate universal and intercultural culinary communication. While gender inclusivity is integrated it is not the main focus but rather an inherent aspect of the communication.",
-              "Le projet vise à faciliter une communication culinaire universelle et interculturelle. Bien que l'inclusivité des genres soit intégrée, ce n'est pas l'objectif principal du projet mais un aspect évident & crucial de la communication."
-              ],
-        link: ['Discover the project',"Découvrir le projet"],
-        onClick: ['', '_blank']      
-      },
-      //vb
-      {
-        id: 6,
-=======
       //vb
       {
         id: 3,
->>>>>>> new git repo
         img: '/projets/vb/vb-img.jpg',
         video: '/projets/vb/vb-video-hover.mp4',
         title: ["VB Avocats","VB Avocats"],
@@ -171,32 +102,6 @@ const Projets = () => {
               link: ['Discover the project',"Découvrir le projet"],
               onClick: ['https://www.vb-avocats.fr', '_blank']      
       },
-<<<<<<< HEAD
-      //dessin
-      {
-        id: 7,
-        img: '/projets/topos/topos-img.png',
-        video: '/projets/topos/topos-video-hover.mp4',
-        title: ["Topographies",'Topographies'],
-        baseline: 
-        [
-          "Designing the city through its ornaments",
-          "Dessiner la ville par ses ornementations"
-        ],
-        text:
-        [
-          "Topographies is an artistic exploration of the city of Nîmes through its architectural ornaments.",
-          "Topographies est une exploration artistique de la ville de Nîmes à travers ses ornements architecturaux."
-        ],
-        text2:
-        [
-          "This project aims to visually map the city through detailed drawings and unique urban patterns identifiable on various facades and door fronts.",
-          "Ce projet vise à cartographier visuellement la ville à travers des dessins détaillés et des motifs urbains uniques identifiables sur les différentes façades et devantures de portes."
-        ],
-        link: ['Discover the project',"Découvrir le projet"],
-        onClick: ['', '_blank']
-      },
-=======
       //nda
       {
         id: 4,
@@ -274,7 +179,6 @@ const Projets = () => {
       //   link: ['Discover the project',"Découvrir le projet"],
       //   onClick: ['', '_blank']
       // },
->>>>>>> new git repo
     ]; 
 
   // Functions to handle hover effects and toggling text
@@ -284,11 +188,8 @@ const Projets = () => {
 
   // Function to navigate to project details
   const handleDiscover = (projectId) => router.push(`/projet/${projectId}`);
-<<<<<<< HEAD
-=======
   // Function to navigate to all projects
   const handleDiscoverProj = () => router.push(`/projets_all`);
->>>>>>> new git repo
 
   return (
     <>
@@ -372,12 +273,8 @@ const Projets = () => {
             <div className='flex-wrap-center'>
               <button 
                 className='btn-transp-dark' 
-<<<<<<< HEAD
-                onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}
-=======
                 // onClick={() => window.open('https://www.behance.net/mariadiaz116', '_blank', 'noreferrer')}
                 onClick={() =>handleDiscoverProj()}
->>>>>>> new git repo
               >
                         <div>
                           <svg

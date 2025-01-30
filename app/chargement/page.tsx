@@ -8,30 +8,33 @@ import Image from 'next/image';
 /* MEDIAS */
 import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
 
+
 const Chargement = () => {
   const router = useRouter();
   const { updateData } = useData();
   const [hoveredLink, setHoveredLink] = useState('');
-  // const [isClient, setIsClient] = useState(false);// Nouvel état pour vérifier si on est côté client
+  const [isClient, setIsClient] = useState(false);// Nouvel état pour vérifier si on est côté client
+
   const navLinks = [
     { label: 'Français', id: 'fr' },
     { label: 'English', id: 'en' },
   ];
-  
+
   // Vérifie si le composant est rendu côté client
-  // useEffect(() => {
-  //   setIsClient(true);
-  // }, []);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const onHover = (lien: string) => {
     setHoveredLink(lien);
   };
+
   const onLeave = () => {
     setHoveredLink('');
   };
   // Données des projets
   const indepArray = [
-  {
+    {
       ids: 0,
       Lang: 'FR',
       header:['Mes Services','Mes Réalisations'],
@@ -93,9 +96,9 @@ const Chargement = () => {
       ]
     },
   ];
-
+    
   const indepArrayEN = [
-  {
+    {
       ids: 1,
       Lang: 'EN',
       header:['My Services','My Projects'],
@@ -144,36 +147,14 @@ const Chargement = () => {
         "External links on this site are provided for informational purposes only. Maria Lou Diaz disclaims any responsibility for their content and compliance with public order and decency standards, as well as their personal data protection policies. By accessing another site via a hyperlink, you agree to do so at your own risk. Consequently, any direct or indirect damage resulting from your access to another linked site cannot engage the responsibility of Maria Lou Diaz.",
         "Site Access",
         "Maria Lou Diaz strives to ensure continuous access to the website www.marialoudiaz.fr. However, interruptions may occur for maintenance or technical reasons, without liability for the publisher for any resulting consequences."]
-  }
-]; 
+},]; 
 
   const selectMenu = (props: string) => {
     const arrayRecue = props === 'en' ? indepArrayEN : indepArray;
     updateData(arrayRecue);
     router.push(`/homepage`);
   };
-
 // const selectLang = () => {
-//   if (isClient) {
-//     if (/^fr\b/.test(navigator.language)) {
-//       return (
-//         <>
-//           <h1>Bienvenue</h1>
-//           <h3>Choisissez votre langue</h3>
-//         </>
-//       );
-//     } else {
-//       return (
-//         <>
-//           <h1>Welcome</h1>
-//           <h3>Choose your language</h3>
-//         </>
-//       );
-//     }
-//   }
-//   return null;
-// };
-  // const selectLang = () => {
 //   if (isClient) {
 //     if (/^fr\b/.test(navigator.language)) {
 //       return (
@@ -197,11 +178,12 @@ const Chargement = () => {
 return (
   <>
     <div className='relative'>
-
       <div className='gridVideo'>
         <h1 style={{opacity:'0'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
         <h2 style={{color:'white'}}>Welcome</h2>
         <h3 style={{color:'white'}}>Choose your language</h3>
+        {/* 
+        {selectLang()}
         {navLinks.map(link => (
           <div key={link.id} className='inline-flex button-navbar'>
             <p
@@ -210,24 +192,18 @@ return (
               onMouseLeave={onLeave}
               onClick={() => selectMenu(link.id)}
               style={{color:'white'}}
+              
             >
               {link.label}
             </p>
           </div>
-        ))}
+        ))} */}
       </div>
-      {/* <video className='background-video2' autoPlay muted playsInline>
-        <source src="/projets/branding_specialist_melbourne.mp4" type='video/mp4' />
-      </video> */}
-
        <Image 
         src='/img/fond-homepage.png' 
         alt='logo en blanc sur fond de couleur'
         style={{width:'100vw', height:'100vh', objectFit:'cover'}}
-        width={8000} 
-        height={1000}
-        />
-        
+        width={8000} height={1000}/>
     </div>
   </>
 );

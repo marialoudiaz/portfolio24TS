@@ -435,7 +435,6 @@ function Projet() {
           ['/projets/topos/topos-section2.jpg','/projets/topos/topos-section3.jpg']
         ]
         
-<<<<<<< HEAD
       },    
       //un endroit où aller
       {

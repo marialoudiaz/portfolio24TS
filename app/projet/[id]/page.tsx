@@ -342,7 +342,7 @@ function Projet() {
         client: 'Maria Lou Diaz',
         discover: ["scroller pour découvrir le projet","scroll down to discover the project"],
         videoDesktop: '/projets/pp/video_type_hp.mp4', //video dintro
-        videoMobile: '/projets/pp/video_type.mp4',
+        videoMobile: '/projets/pp/video_type_hp.mp4',
         image: '/projets/pp/pp-img.png',
         title: 'Pile-Poële',
         baseline: ["Ouvrez-vous au monde par la cuisine.", 'Open up to the World through Cuisine'],

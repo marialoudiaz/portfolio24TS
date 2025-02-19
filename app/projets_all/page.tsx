@@ -69,7 +69,7 @@ const Projets = () => {
       //memoire
       {
         id: 9,
-        title: "En faveur d'une grammaire ...",
+        title: "En faveur d'une ...",
         img: '/projets/memoire/memoire1.jpg',
         video: '/projets/memoire/memoire-hover.mp4',
       }, 

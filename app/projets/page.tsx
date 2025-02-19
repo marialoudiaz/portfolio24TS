@@ -193,8 +193,8 @@ const Projets = () => {
 
   return (
     <>
+      <Header />
       <div className='section' id='projets' style={{ marginTop: '7rem' }}>
-        <Header />
         <h2>{textVariables[0]}</h2>
 
         <div id='projets'>

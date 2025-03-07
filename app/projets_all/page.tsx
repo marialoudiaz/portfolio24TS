@@ -75,8 +75,8 @@ const Projets = () => {
       }, 
   ]; 
   // Functions to handle hover effects and toggling text
-  const handleHover = (id) => setImageSource(next);
-  const handleHoverOut = (id) => setImageSource(prev);
+  const handleHover = () => setImageSource(next);
+  const handleHoverOut = () => setImageSource(prev);
   // Function to navigate to project details
   const handleDiscover = (projectId:any) => router.push(`/projet/${projectId}`);
 
@@ -127,8 +127,8 @@ const Projets = () => {
                     <Image
                       src={imageSource ?? ''}
                       alt='icon'
-                      onMouseOver={()=>handleHover(project.id)}
-                      onMouseOut={()=>handleHoverOut(project.id)}
+                      onMouseOver={()=>handleHover()}
+                      onMouseOut={()=>handleHoverOut()}
                       width={100}
                       height={0}
                       onClick={() => handleDiscover(project.id)}

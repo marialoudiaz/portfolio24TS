@@ -136,6 +136,10 @@ label{
   font-family: var(--Body);
   font-size: 18px;
 }
+#titre-chargement{
+  font-size: 3px!important;
+}
+
 @media screen and (max-width: 768px) {
   h1,h2{
     font-size: var(--titresM)!important;

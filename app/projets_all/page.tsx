@@ -124,12 +124,12 @@ const Projets = () => {
 
                 <div className='flex-center'>
                   <p className='projet-p-all'>{project.title}</p>
-                  <div className='carousel-btn-all' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={handleHover}>
+                  <div className='carousel-btn-all' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={handleHover(project.id)}>
                     <Image
                       src={imageSource ?? ''}
                       alt='icon'
-                      onMouseOver={handleHover}
-                      onMouseOut={handleHoverOut}
+                      onMouseOver={handleHover(project.id)}
+                      onMouseOut={handleHoverOut(project.id)}
                       width={100}
                       height={0}
                       onClick={() => handleDiscover(project.id)}

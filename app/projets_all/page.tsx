@@ -74,7 +74,6 @@ const Projets = () => {
         video: '/projets/memoire/memoire-hover.mp4',
       }, 
   ]; 
-
   // Functions to handle hover effects and toggling text
   const handleHover = () => setImageSource(next);
   const handleHoverOut = () => setImageSource(prev);
@@ -124,12 +123,12 @@ const Projets = () => {
 
                 <div className='flex-center'>
                   <p className='projet-p-all'>{project.title}</p>
-                  <div className='carousel-btn-all' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={handleHover(project.id)}>
+                  <div className='carousel-btn-all' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={()=>handleHover(project.id)}>
                     <Image
                       src={imageSource ?? ''}
                       alt='icon'
-                      onMouseOver={handleHover(project.id)}
-                      onMouseOut={handleHoverOut(project.id)}
+                      onMouseOver={()=>handleHover(project.id)}
+                      onMouseOut={()=>handleHoverOut(project.id)}
                       width={100}
                       height={0}
                       onClick={() => handleDiscover(project.id)}

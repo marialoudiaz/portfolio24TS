@@ -141,31 +141,12 @@ const Chargement = () => {
         "Maria Lou Diaz strives to ensure continuous access to the website www.marialoudiaz.fr. However, interruptions may occur for maintenance or technical reasons, without liability for the publisher for any resulting consequences."]
 },]; 
 
-  const selectMenu = (props: string) => {
+  
+const selectMenu = (props: string) => {
     const arrayRecue = props === 'en' ? indepArrayEN : indepArray;
     updateData(arrayRecue);
     router.push(`/homepage`);
   };
-// const selectLang = () => {
-//   if (isClient) {
-//     if (/^fr\b/.test(navigator.language)) {
-//       return (
-//         <>
-//           <h1 style={{color:'white'}}>Bienvenue</h1>
-//           <h3 style={{color:'white'}}>Choisissez votre langue</h3>
-//         </>
-//       );
-//     } else {
-//       return (
-//         <>
-//           <h1 style={{color:'white'}}>Welcome</h1>
-//           <h3 style={{color:'white'}}>Choose your language</h3>
-//         </>
-//       );
-//     }
-//   }
-//   return null;
-// };
 
 return (
   <>

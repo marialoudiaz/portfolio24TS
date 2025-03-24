@@ -78,7 +78,7 @@ const Projets = () => {
   const handleHover = () => setImageSource(next);
   const handleHoverOut = () => setImageSource(prev);
   // Function to navigate to project details
-  const handleDiscover = (projectId:any) => router.push(`/projet/${projectId}`);
+  const handleDiscover = (projectId: number) => router.push(`/projet/${projectId}`);
 
   return (
     <>
@@ -123,7 +123,7 @@ const Projets = () => {
 
                 <div className='flex-center'>
                   <p className='projet-p-all'>{project.title}</p>
-                  <div className='carousel-btn-all' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={()=>handleHover(project.id)}>
+                  <div className='carousel-btn-all' style={{ marginLeft: '1rem', marginBottom: '.2rem' }} onClick={()=>handleHover()}>
                     <Image
                       src={imageSource ?? ''}
                       alt='icon'
@@ -131,7 +131,7 @@ const Projets = () => {
                       onMouseOut={()=>handleHoverOut()}
                       width={100}
                       height={0}
-                      onClick={() => handleDiscover(project.id)}
+                      onClick={() => handleDiscover}
                       style={{ display: 'flex', width: '40px', margin: '.2rem 0rem 0rem .3rem', transition: 'transform 2s ease' }}
                     />
                   </div>

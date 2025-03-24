@@ -80,11 +80,12 @@ const handleSubmitQuestion = (props) => {
   } else {
   sendEmail(props);
   }
-  };
-	useEffect(() => {
-    setEmailData({ ...emailData, services: selectedServices });
-  }, [selectedServices]);
+};
 
+useEffect(() => {
+  setEmailData({ ...emailData, services: selectedServices });
+}, [emailData, selectedServices]);
+//emailData, selectedServices
 return (
 <>
 <form ref={form} onSubmit={sendEmail}>

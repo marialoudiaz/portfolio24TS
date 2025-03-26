@@ -97,15 +97,16 @@ const Approche: React.FC = () => {
                 height={100}
               />
               <h2>{approchez}</h2>
-              <p className='syne'>
+              <span className='syne'>
               <Typewriter
+              
                   options={{
                   strings: [`${citation}`],
                   autoStart: true,
                   loop: true,
                   }}
               />
-              </p>
+              </span>
               <Carousel dataArray={dataArray} />
             </div>
           </div>

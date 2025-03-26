@@ -146,37 +146,15 @@ const Chargement = () => {
     updateData(arrayRecue);
     router.push(`/homepage`);
   };
-// const selectLang = () => {
-//   if (isClient) {
-//     if (/^fr\b/.test(navigator.language)) {
-//       return (
-//         <>
-//           <h1 style={{color:'white'}}>Bienvenue</h1>
-//           <h3 style={{color:'white'}}>Choisissez votre langue</h3>
-//         </>
-//       );
-//     } else {
-//       return (
-//         <>
-//           <h1 style={{color:'white'}}>Welcome</h1>
-//           <h3 style={{color:'white'}}>Choose your language</h3>
-//         </>
-//       );
-//     }
-//   }
-//   return null;
-// };
 
 return (
   <>
     <div className='relative'>
       <div className='gridVideo'>
-        <h1 style={{opacity:'0', fontSize:'3px!important'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
+        <h1 style={{opacity:'0', fontSize:'1px!important'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
         <h2 style={{color:'white'}}>Welcome</h2>
         <h3 style={{color:'white'}}>Choose your language</h3>
-        {/* 
-        {selectLang()}
-        */}
+       
         {navLinks.map(link => (
           <div key={link.id} className='inline-flex button-navbar'>
             <p

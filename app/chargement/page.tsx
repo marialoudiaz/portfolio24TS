@@ -11,7 +11,8 @@ import branding_specialist from '../../public/img/marialoudiaz-agence.jpg';
 
 const Chargement = () => {
   const router = useRouter();
-  const { updateData } = useData();
+  const {updateData} = useData();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hoveredLink, setHoveredLink] = useState('');
 
   const navLinks = [

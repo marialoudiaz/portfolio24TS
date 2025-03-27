@@ -35,7 +35,8 @@ const Cible: React.FC<CibleProps> = ({ scrollYProgress }) => {
       setisHovered(true);
   } else {
       setisHovered(false);
-  }  },[isMobile]); 
+  }  },[]); 
+  //  }  },[isMobile]); -> re-render constant ?
 
   return (
     <motion.div 

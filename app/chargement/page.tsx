@@ -152,12 +152,10 @@ return (
   <>
     <div className='relative'>
       <div className='gridVideo'>
-        <h1 id='titre-chargement' style={{opacity:'0'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
+        <h1 style={{opacity:'0', fontSize:'1px!important'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
         <h2 style={{color:'white'}}>Welcome</h2>
         <h3 style={{color:'white'}}>Choose your language</h3>
-        {/* 
-        {selectLang()}
-        */}
+       
         {navLinks.map(link => (
           <div key={link.id} className='inline-flex button-navbar'>
             <p
@@ -176,7 +174,8 @@ return (
         src='/img/fond-homepage.png' 
         alt='logo en blanc sur fond de couleur'
         style={{width:'100vw', height:'100vh', objectFit:'cover'}}
-        width={8000} height={1000}/>
+        width={8000} height={1000}
+        />
     </div>
   </>
 );

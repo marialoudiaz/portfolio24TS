@@ -43,7 +43,7 @@ const sendEmail = async (e: React.FormEvent) => {
     if (response.ok) {
       console.log('Email envoyé avec succès');
       setMessage(isEnglish === 'EN' ? `${yesmessage[0], yesmessage[1]}` : `${yesmessage[2], yesmessage[3]}`);
-  }else {
+  } else {
       throw new Error('Erreur lors de l\'envoi de l\'email');
     }
   } catch (error) {
@@ -84,8 +84,8 @@ const handleSubmitQuestion = (props) => {
 
 useEffect(() => {
   setEmailData({ ...emailData, services: selectedServices });
-}, [emailData, selectedServices]);
-//emailData, selectedServices
+}, [selectedServices]);
+//[emailData, selectedServices]
 return (
 <>
 <form ref={form} onSubmit={sendEmail}>
@@ -131,7 +131,7 @@ return (
 				required
 			/>
 	</div>
-	{/* TYPES DE PROJETS  */}
+	{/*TYPES DE PROJETS */}
 	<div className='checkbox-group flex-wrap'>
 		<label>{infos.form[7]}</label>
 		<div style={{display:'flex', gap:'2rem', justifyContent:'center'}}>
@@ -196,7 +196,7 @@ return (
 	<div className='flexForm'>
 					<div
 						className='btn-transp-dark'
-						onClick={sendEmail} // Handle click to trigger form submission
+						onClick={sendEmail} //Handle click to trigger form submission
 						role="button" // Optional: Make it clear that this is an interactive element
 						tabIndex={0} // Optional: Make it focusable for accessibility
 					>

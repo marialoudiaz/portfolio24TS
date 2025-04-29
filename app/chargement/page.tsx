@@ -13,7 +13,6 @@ const Chargement = () => {
   const router = useRouter();
   const { updateData } = useData();
   const [hoveredLink, setHoveredLink] = useState('');
-
   const navLinks = [
     { label: 'Français', id: 'fr' },
     { label: 'English', id: 'en' },
@@ -148,7 +147,8 @@ const selectMenu = (props: string) => {
     router.push(`/homepage`);
   };
 
-return (
+
+  return (
   <>
     <div className='relative'>
       <div className='gridVideo'>

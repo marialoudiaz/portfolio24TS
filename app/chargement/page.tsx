@@ -153,7 +153,7 @@ const selectMenu = (props: string) => {
   <>
     <div className='relative'>
       <div className='gridVideo'>
-        <h1 style={{opacity:'0', fontSize:'1px!important'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
+        <h1 style={{opacity:'0', fontSize:'2px!important'}}>Premium branding services - Unique and custom design | Maria Lou Diaz</h1>
         <h2 style={{color:'white'}}>Welcome</h2>
         <h3 style={{color:'white'}}>Choose your language</h3>
        

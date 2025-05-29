@@ -23,12 +23,12 @@ const Footer: React.FC = () => {
      
       <div className='footer-logo'>
         <Image 
-          src={'/logo/logo-nav.png'}
+          src={'/logo/mbi-noir.png'}
           alt='logo maria lou diaz'
           width={1000}
           height={0}
         />
-        <p>{indepArray[0].footer}</p>
+        {/* <p>{indepArray[0].footer}</p> */}
         <p className="footer-p">📍{indepArray[0].location[0]} {indepArray[0].location[1]}</p>
       </div>
 

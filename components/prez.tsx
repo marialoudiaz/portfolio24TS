@@ -5,8 +5,15 @@ import '../styles/App.scss';
 import '../globals.css';
 import { useData } from '@/app/context/DataContext'; // Import du contexte
 import { useRouter} from 'next/navigation';
-import Services from '../components/services-parallax';
-import {Accordion, AccordionItem} from "@nextui-org/react";
+import Services from '../components/services-flat';
+// import {Accordion, AccordionItem} from "@nextui-org/react";
+import authenticity from '../public/icons/approche/authenticity.png';
+import nature from '../public/icons/approche/nature.png';
+import minimalism from '../public/icons/approche/minimalism.png';
+import Image from 'next/image';
+import Carousel from '../components/carousel';
+
+
 
 
 const Prez: React.FC = () => {
@@ -16,25 +23,55 @@ const Prez: React.FC = () => {
   if (!indepArray || !indepArray[0].presentation || !indepArray[0].expertise || !indepArray[0].cta) {
     return <div>Loading...</div>;
   }
-  const { expertise, presentation = [], cta, accordion } = indepArray[0];
+  const { expertise, presentation = [], cta } = indepArray[0];
+  const dataArray = [
+          {
+            index: 0,
+            image: authenticity,
+            alt: "cercle avec un trait noir au centre à l'encre de chine",
+            titre: `${indepArray[0].values[0]}`,
+            text: `${indepArray[0].values[1]}`,
+          },
+          {
+            index: 1,
+            image: minimalism,
+            alt: "trombone stylisé à l'encre de chine",
+            titre: `${indepArray[0].values[2]}`,
+            text: `${indepArray[0].values[3]}`,
+          },
+           {
+            index: 2,
+            image: nature,
+            alt: "plante a lencre de chine",
+            titre: `${indepArray[0].values[4]}`,
+            text: `${indepArray[0].values[5]}`,
+          },
+        ];
+  
 
   return (
     <>
+    <Services />
       <div className='text-homepage'>
+
       <Marquee speed={30} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', padding: '1rem' }}>
           <h3 className='syne-bold' style={{ textTransform: 'uppercase'}}>
             {expertise + ' '}
           </h3>
-        </Marquee>
-        <div className='name'>
-        <h1 style={{ color: '#00000000'}}> Maria Lou Diaz | Art Director • Specialized in branding</h1>
-        </div>
+      </Marquee>
 
-        <div className='prez'>
-            <h4 id='p-hp'> {presentation[0]}</h4>
-            <p id='prez-txt'> {presentation[1]}</p>
+      <div className='name'>
+        <h1 style={{ color: '#00000000'}}> MAISON BLEU IRIS | BRANDING POÉTHIQUE</h1>
+      </div>
 
-            <button className='btn-transp' style={{ margin: '2rem auto' }}  onClick={() => router.push('/homepage/#Contact')}>
+      <div className='prez'>
+        <h4 id='p-hp'> {presentation[0]}</h4>
+        <p id='prez-txt'> {presentation[1]}</p>
+        {/* <p id='prez-txt'> {presentation[2]}</p> */}
+        
+        <Carousel dataArray={dataArray} />
+
+        <button className='btn-transp' style={{ margin: '2rem auto' }}  onClick={() => router.push('/homepage/#Contact')}>
               <div>
                 <svg
                     className="icon-transp"
@@ -51,13 +88,12 @@ const Prez: React.FC = () => {
                   {cta[1]}
                 </p>
               </div>
-            </button>
-        </div>
-
+        </button>
+        
       </div>
-    <Services />
+      </div>
 
-    <div className='flex-wrap'>      
+    {/* <div className='flex-wrap'>      
       <div className='flex-wrap' style={{margin:'2rem 0rem', padding:'0rem 1rem'}}>
         <h3>{accordion[1]}</h3>
         <Accordion
@@ -122,8 +158,7 @@ const Prez: React.FC = () => {
               </div>
         </button>
       </div>
-    </div>
-
+    </div> */}
     </>
   );
 }

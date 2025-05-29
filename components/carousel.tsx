@@ -46,7 +46,7 @@ const Carousel: React.FC<CarouselProps> = ({dataArray}) => {
 
   return (
    <>
-      <div className="grid-col4" style={{marginBottom:'1rem'}}>
+      <div className="grid-col3" style={{margin:'2rem 0rem'}}>
         {activeItems.map((item, index) => (
           <div key={index} className="flex-wrap" id="carousel-item">
             <Image 
@@ -55,23 +55,10 @@ const Carousel: React.FC<CarouselProps> = ({dataArray}) => {
               width={100}
               height={100}
             />
-            <h4>{item.titre}</h4>
+            <h4 style={{color:'white'}}>{item.titre}</h4>
             <p>{item.text}</p>
           </div>
         ))}
-        {!isMobile && (
-          <div className="flex-wrap">
-            <button id="btn-fleche" onClick={changeActiveImage}>
-              <Image 
-                id="fleche" 
-                src={fleche} 
-                alt="icône de flèche" 
-                width={100}
-                height={30}
-              />
-            </button>
-          </div>
-        )}
       </div>
    </>
   )

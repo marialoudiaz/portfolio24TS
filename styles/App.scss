@@ -808,7 +808,7 @@ pointer-events: auto;
   & p:first-of-type{
     font-family: var(--Titles)!important;
     font-weight: 600!important;
-    font-size: calc(var(--body)*1.2);
+    font-size: calc(var(--body)*0.8);
     color: white;
   }
   & img{
@@ -1045,14 +1045,14 @@ pointer-events: auto;
   padding: 2rem 15rem;
 }
 #prez-txt{
-  padding: 0 15rem;
+  padding: 0rem;
 }
 #div-hp{
   height: 100vh;
 }
 @media screen and (max-width: 1024px) {
   #prez-txt{
-    padding: 0 5rem;
+    padding: 0rem;
   }
   .prez{
     padding: 2rem;

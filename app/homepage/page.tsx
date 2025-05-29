@@ -6,6 +6,7 @@ import { useData } from '../context/DataContext';
 import '../../styles/App.scss';
 import '../../styles/App.scss';
 
+
 // Importations dynamiques pour le lazy loading
 const Header = dynamic(() => import('../../components/navbar/header'), {
   loading: () => <div>Loading Header...</div>,
@@ -13,11 +14,11 @@ const Header = dynamic(() => import('../../components/navbar/header'), {
 const Main = dynamic(() => import('../../components/main'), {
   loading: () => <div>Loading Main...</div>,
 });
-const Approche = dynamic(() => import('../../components/approche'), {
-  loading: () => <div>Loading Approche...</div>,
-});
 const Prez = dynamic(() => import('../../components/prez'), {
   loading: () => <div>Loading Prez...</div>,
+});
+const Approche = dynamic(() => import('../../components/approche'), {
+  loading: () => <div>Loading Approche...</div>,
 });
 const Deroule = dynamic(() => import('../../components/deroule'), {
   loading: () => <div>Loading Deroule...</div>,
@@ -34,6 +35,10 @@ const Homepage = () => {
   //l'array updatée dans chargement
   const { indepArray } = useData();
   const router = useRouter();
+
+// au chargement de la page indepArray est en anglais 
+// recharger indepArray en francais si cliqué par user (plus tard dans le site)
+
 
   // Redir si pas datas
     useEffect(()=>{
@@ -68,8 +73,8 @@ const Homepage = () => {
     <div className='scrollable-container'>
           <Header/>
           <Main/>
-          <Approche />
           <Prez/>
+          <Approche />
           <Deroule/>
           <Formulaire/>
           <Footer />
